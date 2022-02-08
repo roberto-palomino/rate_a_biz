@@ -4,12 +4,10 @@ import { SelectState } from './components/SelectState';
 
 function App() {
   const [selectedState, setSelectedState] = useState(null);
+
   return (
     <div className='App'>
-      <SelectState
-        selectedAuthor={selectedState}
-        setselectedAuthor={setSelectedState}
-      />
+      <SelectState setSelectedState={setSelectedState} />
     </div>
   );
 }

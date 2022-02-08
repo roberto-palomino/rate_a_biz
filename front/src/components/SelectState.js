@@ -1,25 +1,34 @@
 import { useLoadStates } from '../hooks/useLoadStates';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 export const SelectState = (props) => {
   const [states] = useLoadStates();
   const { setSelectedState } = props;
-  const selectChange = (e) => {
-    console.log('selected author', e);
+  const stateChange = (e) => {
     setSelectedState(e.target.value);
   };
 
   return (
     <>
-      {states ? (
-        <select name='select' onChange={selectChange}>
-          <option value={''}> Seleccionar una provincia</option>
+      <FormControl fullWidth>
+        <InputLabel id='Provincia'>Provincia</InputLabel>
+        <Select
+          labelId='Provincia'
+          id='Provincia'
+          value={''}
+          label='Provincia'
+          onChange={stateChange}
+        >
           {states.map((state) => (
-            <option key={state.id} value={state.id}>
+            <MenuItem key={state.id} value={state.id}>
               {state.name}
-            </option>
+            </MenuItem>
           ))}
-        </select>
-      ) : null}
+        </Select>
+      </FormControl>
     </>
   );
 };

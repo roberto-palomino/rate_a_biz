@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
 export function useLoadStates() {
   const [states, setStates] = useState([]);
-  const loadStates = async (e) => {
+  const loadStates = async () => {
     try {
       const res = await fetch('http://localhost:4000/states', {
         method: 'GET',
-        mode: 'no-cors',
       });
-      /* const body = await res.json(); */
+      const body = await res.json();
 
-      console.log(res);
+      setStates(body.data.state);
     } catch (e) {
       console.error('Err:', e);
     }
