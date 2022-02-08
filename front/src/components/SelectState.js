@@ -13,7 +13,7 @@ export const SelectState = (props) => {
 
   return (
     <>
-      <FormControl fullWidth>
+      <FormControl sx={{ m: 1, width: 145 }}>
         <InputLabel id='Provincia'>Provincia</InputLabel>
         <Select
           labelId='Provincia'
