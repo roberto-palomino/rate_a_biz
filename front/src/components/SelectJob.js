@@ -1,11 +1,11 @@
-import { useLoadJobs } from '../hooks/useLoadJobs';
+import { useLoadStates } from '../hooks/useLoadStates';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export const SelectJob = (props) => {
-  const [jobs] = useLoadJobs();
+  const [jobs] = useLoadStates();
   const { setSelectedJob } = props;
   const jobChange = (e) => {
     setSelectedJob(e.target.value);
@@ -13,7 +13,7 @@ export const SelectJob = (props) => {
 
   return (
     <>
-      <FormControl sx={{ m: 1, width: 145 }}>
+      <FormControl sx={{ m: 1, width: 120 }}>
         <InputLabel id='Trabajo'>Trabajo</InputLabel>
         <Select
           labelId='Trabajo'

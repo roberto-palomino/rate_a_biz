@@ -5,7 +5,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export const SelectSalary = (props) => {
-  const [salary] = useLoadSalaries();
+  const [salaries] = useLoadSalaries();
   const { setSelectedSalary } = props;
   const stateChange = (e) => {
     setSelectedSalary(e.target.value);
@@ -22,7 +22,7 @@ export const SelectSalary = (props) => {
           label='Salario'
           onChange={stateChange}
         >
-          {salary.map((salary) => (
+          {salaries.map((salary) => (
             <MenuItem key={salary.id} value={salary.id}>
               {salary.salary_range}
             </MenuItem>
