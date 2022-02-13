@@ -1,11 +1,7 @@
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import React from 'react';
 import './style.css';
 
-const Avatar = (props) => {
+export const Avatar = (props) => {
   const { imageId, name } = props;
   return (
     <div className='avatar'>
@@ -19,5 +15,3 @@ const Avatar = (props) => {
     </div>
   );
 };
-
-export default Avatar;
