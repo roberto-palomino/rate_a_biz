@@ -19,17 +19,21 @@ export const Order = (props) => {
 
   return (
     <>
-      <Stack className='filter' width={150} spacing={2}>
-        <Button
-          variant='outlined'
-          startIcon={<ArrowDropUpSharpIcon />}
-          onClick={orderUp}
-        ></Button>
-        <Button
-          variant='outlined'
-          startIcon={<ArrowDropDownSharpIcon />}
-          onClick={orderDown}
-        ></Button>
+      <Stack className='filter' width={90} spacing={2}>
+        <abbr title='ORDEN ASCENDENTE'>
+          <Button
+            variant='outlined'
+            startIcon={<ArrowDropUpSharpIcon />}
+            onClick={orderUp}
+          ></Button>
+        </abbr>
+        <abbr title='ORDEN DESCENDENTE'>
+          <Button
+            variant='outlined'
+            startIcon={<ArrowDropDownSharpIcon />}
+            onClick={orderDown}
+          ></Button>
+        </abbr>
       </Stack>
     </>
   );

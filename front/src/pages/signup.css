@@ -1,0 +1,38 @@
+/* #form {
+  padding: 2rem;
+  position: absolute;
+  width: 50vw;
+  height: 70vh;
+
+  background: linear-gradient(
+      0deg,
+      rgba(59, 123, 159, 0.74),
+      rgba(59, 123, 159, 0.74)
+    ),
+    #0a0909;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  filter: blur(2px);
+  border-radius: 27px;
+} */
+div {
+  display: flex;
+  justify-content: center;
+}
+#email {
+}
+#component-helper-text {
+  color: red;
+}
+
+#register {
+  color: grey;
+}
+
+#helper-mail-valid {
+  color: green;
+}
+#helper-mail-invalid {
+  color: red;
+}

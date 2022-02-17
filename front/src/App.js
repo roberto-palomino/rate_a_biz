@@ -1,42 +1,30 @@
 import './App.css';
-import { useState } from 'react';
-import { SelectState } from './components/SelectState';
-import { SelectJob } from './components/SelectJob';
-import { SelectSalary } from './components/SelectSalary';
-import { SelectSector } from './components/SelectSector';
-import { SelectOrder } from './components/SelectOrder';
-import { OrderBy } from './components/OrderBy';
-import FilterButton from './components/FilterButton';
-import { Order } from './components/Order';
+
+import { NavLink } from 'react-router-dom';
 
 function App() {
-  const [filterVisible, setFilterVisible] = useState('');
-  const [selectedState, setSelectedState] = useState(null);
-  const [selectedJob, setSelectedJob] = useState(null);
-  const [selectedSalary, setSelectedSalary] = useState(null);
-  const [selectedSector, setSelectedSector] = useState(null);
-  const [selectedOrder, setSelectedOrder] = useState(null);
-  const [orderBy, setOrderBy] = useState(null);
-  console.log(selectedOrder);
+  let activeStyle = {
+    color: 'green',
+  };
   return (
     <div className='App'>
-      <FilterButton
-        filterVisible={filterVisible}
-        setFilterVisible={setFilterVisible}
-      />
-      {filterVisible ? (
-        <>
-          {' '}
-          <SelectState setSelectedState={setSelectedState} />
-          <SelectJob setSelectedJob={setSelectedJob} />
-          <SelectSalary setSelectedSalary={setSelectedSalary} />
-          <SelectSector setSelectedSector={setSelectedSector} />
-        </>
-      ) : null}
-
-      <SelectOrder setSelectedOrder={setSelectedOrder} />
-      <OrderBy setOrderBy={setOrderBy} />
-      <Order setSelectedOrder={setSelectedOrder} />
+      <nav>
+        <NavLink
+          to='/signup'
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          className='underline'
+        >
+          Registrarse
+        </NavLink>{' '}
+        |
+        <NavLink
+          to='/search'
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          className='underline'
+        >
+          Buscar
+        </NavLink>
+      </nav>
     </div>
   );
 }
