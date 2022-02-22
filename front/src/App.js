@@ -1,8 +1,11 @@
 import './App.css';
 
 import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { TokenContext } from '.';
 
 function App() {
+  const [token] = useContext(TokenContext);
   let activeStyle = {
     color: 'green',
   };
@@ -16,6 +19,16 @@ function App() {
         >
           Registrarse
         </NavLink>{' '}
+        |
+        {!token ? (
+          <NavLink
+            to='/login'
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            className='underline'
+          >
+            Iniciar Sesión
+          </NavLink>
+        ) : null}{' '}
         |
         <NavLink
           to='/search'

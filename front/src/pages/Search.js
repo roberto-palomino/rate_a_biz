@@ -1,3 +1,4 @@
+import './Search.css';
 import { useState } from 'react';
 import FilterButton from '../components/FilterButton';
 import { Order } from '../components/Order';
