@@ -1,0 +1,43 @@
+.tabs-container {
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  /* border: 1px solid blue; */
+  border-radius: 20px;
+  background-color: #f8f8f8;
+  border: solid #bdbdbd 1px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tabs-container h2 {
+  font-size: 2.5rem;
+  width: 20rem;
+}
+
+.tabs-content {
+  height: 40rem;
+  text-align: center;
+  border: solid #bdbdbd 1px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  /* border: 2px solid black; */
+  /* display: flex; */
+}
+
+.tabs-button {
+  width: 15rem;
+  height: 2rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+}
+
+.tabs-button:hover {
+  background-color: rgb(224, 220, 220);
+  cursor: pointer;
+}

@@ -1,0 +1,21 @@
+.user-data-form-pass {
+  /* border: 1px solid orange; */
+  height: 12rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+
+  /* padding: 3rem; */
+}
+
+.user-data-form-pass input {
+  width: 20rem;
+  height: 1.5rem;
+  padding: 5px;
+  border-radius: 8px;
+  margin-top: 5px;
+}
+
+.user-data-form-pass label {
+  display: inline-block;
+  width: 10rem;
+}
