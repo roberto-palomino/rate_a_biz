@@ -37,6 +37,14 @@ function App() {
         >
           Buscar
         </NavLink>
+        |
+        <NavLink
+          to='/profile'
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          className='underline'
+        >
+          Perfil de Usuario
+        </NavLink>{' '}
       </nav>
     </div>
   );
