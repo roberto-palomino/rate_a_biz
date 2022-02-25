@@ -1,0 +1,10 @@
+#order {
+  min-width: 20px;
+  padding: 5px;
+}
+#arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
