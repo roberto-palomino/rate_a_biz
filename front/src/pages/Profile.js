@@ -1,9 +1,10 @@
 import React from 'react';
+import EditUser from '../components/EditUser';
 
 export const Profile = props => {
   return (
     <div>
-      <h1>Profile</h1>
+      <EditUser />
     </div>
   );
 };

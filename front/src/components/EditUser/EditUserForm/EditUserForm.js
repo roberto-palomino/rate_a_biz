@@ -51,12 +51,26 @@ const EditUserForm = () => {
       console.error('Error en la llamada al API');
     }
   };
+
+  const [editable, setEditable] = useState(true);
+  const [changeInputName, setChangeInputName] = useState('Editar datos');
+
+  function handleEditForm() {
+    setEditable(!editable);
+    if (!editable) {
+      setChangeInputName('Editar datos');
+    } else {
+      setChangeInputName('Guardar cambios');
+    }
+  }
+
   return (
     <div className='information-form'>
       <form className='user-data-form' onSubmit={updateUser}>
         <div className='username'>
           <label htmlFor='username'>Usuario</label>
           <input
+            disabled={editable}
             id='username'
             name='username'
             type='text'
@@ -70,6 +84,7 @@ const EditUserForm = () => {
         <div className='email'>
           <label htmlFor='email'>Email</label>
           <input
+            disabled={editable}
             id='email'
             name='email'
             type='email'
@@ -84,6 +99,7 @@ const EditUserForm = () => {
         <div className='name'>
           <label htmlFor='name'>Nombre</label>
           <input
+            disabled={editable}
             id='name'
             name='name'
             type='text'
@@ -97,6 +113,7 @@ const EditUserForm = () => {
         <div className='lastname'>
           <label htmlFor='lastname'>Apellidos</label>
           <input
+            disabled={editable}
             id='lastname'
             name='Apellidos'
             type='text'
@@ -108,8 +125,13 @@ const EditUserForm = () => {
           />
         </div>
 
-        <button className='form-button' type='submit' value='Editar datos'>
-          Editar datos
+        <button
+          className='form-button'
+          type='submit'
+          // value={changeInputName}
+          onClick={handleEditForm}
+        >
+          {changeInputName}
         </button>
       </form>
     </div>

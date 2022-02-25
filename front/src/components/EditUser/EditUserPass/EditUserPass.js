@@ -29,6 +29,7 @@ const EditUserPass = () => {
       console.error('Error en la llamada al API');
     }
   };
+
   return (
     <>
       <div className='information-form'>

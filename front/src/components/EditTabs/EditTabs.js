@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import EditUserForm from '../EditUser/EditUserForm';
-import EditUserPass from '../EditUser/EditUserPass/EditUserPass';
+import EditUserPass from '../EditUser/EditUserPass';
 import './EditTabs.css';
 
 const EditTabs = () => {
