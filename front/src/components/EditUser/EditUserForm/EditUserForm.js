@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import EditAvatar from '../EditAvatar';
 
 const EditUserForm = () => {
+  const [user, setUser] = useState(null);
   const [newEmail, setNewEmail] = useState('');
   const [username, setUserName] = useState('');
   const [name, setName] = useState('');
@@ -11,11 +13,13 @@ const EditUserForm = () => {
     try {
       const response = await fetch(urlUserData);
       const responseData = await response.json();
-      const refrehUserData = responseData.data.user;
-      setNewEmail(refrehUserData.email);
-      setUserName(refrehUserData.username);
-      setName(refrehUserData.name);
-      setLastName(refrehUserData.lastname);
+      const userData = responseData.data.user;
+
+      setUser(userData);
+      setNewEmail(userData.email);
+      setUserName(userData.username);
+      setName(userData.name);
+      setLastName(userData.lastname);
     } catch (error) {
       console.error(error);
     }
@@ -66,6 +70,7 @@ const EditUserForm = () => {
 
   return (
     <div className='information-form'>
+      <EditAvatar user={user} userId='13' />
       <form className='user-data-form' onSubmit={updateUser}>
         <div className='username'>
           <label htmlFor='username'>Usuario</label>
