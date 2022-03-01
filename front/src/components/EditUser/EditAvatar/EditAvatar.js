@@ -1,14 +1,12 @@
 import { useEffect, useState, useCallback } from 'react';
-
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import Avatar from '../../Avatar';
 import './EditAvatar.css';
-
-const DEFAULT_AVATAR = '/assets/images/default-avatar.jpeg';
 
 const EditAvatar = props => {
   const { user, userId } = props;
-  const [image, setImage] = useState(null);
-  const [avatarUrl, setAvatarUrl] = useState(DEFAULT_AVATAR);
+  const [image, setImage] = useState('');
+  const [avatarUrl, setAvatarUrl] = useState('');
   const [isEditing, setIsEditing] = useState(false);
 
   const ShowButtonAvatar = () => {
@@ -39,6 +37,7 @@ const EditAvatar = props => {
           body: data,
         }
       );
+
       const responseData = await response.json();
       if (responseData.status === 'ok') {
         setIsEditing(false);
@@ -51,11 +50,12 @@ const EditAvatar = props => {
   };
 
   const onFileChange = event => {
-    const image = event.target.files[0];
-    setImage(image);
+    const imageObj = event.target.files[0];
+    setImage(imageObj);
+
     if (event.target.files.length > 0) {
       setIsEditing(true);
-      setAvatarUrl(URL.createObjectURL(image));
+      setAvatarUrl(URL.createObjectURL(imageObj));
     }
   };
 
@@ -63,13 +63,12 @@ const EditAvatar = props => {
     <div className='avatar-section'>
       <form onSubmit={uploadFile}>
         <div className='container'>
-          <div className='avatar'>
-            {avatarUrl && (
-              <img
-                src={avatarUrl}
-                alt={`avatar de ${user?.username || 'usuario'}`}
-              />
-            )}
+          <div className='avatar-container'>
+            <Avatar
+              avatarUrl={avatarUrl}
+              username={user?.username}
+              size='medium'
+            />
           </div>
           <label className='label-avatar' htmlFor='input-avatar'>
             <AddAPhotoIcon fontSize='large' />

@@ -3,10 +3,13 @@ import EditAvatar from '../EditAvatar';
 
 const EditUserForm = () => {
   const [user, setUser] = useState(null);
+  const userId = '13';
   const [newEmail, setNewEmail] = useState('');
   const [username, setUserName] = useState('');
   const [name, setName] = useState('');
   const [lastname, setLastName] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
+  const [buttonMessage, setButtonMessage] = useState('Editar datos');
 
   async function getUserData() {
     const urlUserData = 'http://localhost:4000/users/13';
@@ -17,9 +20,9 @@ const EditUserForm = () => {
 
       setUser(userData);
       setNewEmail(userData.email);
-      setUserName(userData.username);
-      setName(userData.name);
-      setLastName(userData.lastname);
+      setUserName(userData.username || '');
+      setName(userData.name || '');
+      setLastName(userData.lastname || '');
     } catch (error) {
       console.error(error);
     }
@@ -30,8 +33,6 @@ const EditUserForm = () => {
   }, []);
 
   const updateUser = async e => {
-    e.preventDefault();
-
     const userData = {
       username: username,
       newEmail: newEmail,
@@ -49,33 +50,36 @@ const EditUserForm = () => {
       });
       // TODO: Enviar mensajes a los usuarios
       const body = await response.json();
-      const message = body.message;
-      console.log('success message', message);
+      if (body.status === 'ok') {
+        const message = body.message;
+        // TODO: Implementar mensajes mostrado al usuario
+        console.log('Success:', message);
+      }
     } catch (error) {
-      console.error('Error en la llamada al API');
+      console.error('Error en la llamada al API:', error);
     }
   };
 
-  const [editable, setEditable] = useState(true);
-  const [changeInputName, setChangeInputName] = useState('Editar datos');
+  function handleEditForm(e) {
+    e.preventDefault();
+    setIsEditing(!isEditing);
 
-  function handleEditForm() {
-    setEditable(!editable);
-    if (!editable) {
-      setChangeInputName('Editar datos');
+    if (isEditing) {
+      updateUser(e);
+      setButtonMessage('Editar datos');
     } else {
-      setChangeInputName('Guardar cambios');
+      setButtonMessage('Guardar cambios');
     }
   }
 
   return (
     <div className='information-form'>
-      <EditAvatar user={user} userId='13' />
-      <form className='user-data-form' onSubmit={updateUser}>
+      {user && <EditAvatar user={user} userId={userId} />}
+      <form className='user-data-form'>
         <div className='username'>
           <label htmlFor='username'>Usuario</label>
           <input
-            disabled={editable}
+            disabled={!isEditing}
             id='username'
             name='username'
             type='text'
@@ -89,7 +93,7 @@ const EditUserForm = () => {
         <div className='email'>
           <label htmlFor='email'>Email</label>
           <input
-            disabled={editable}
+            disabled={!isEditing}
             id='email'
             name='email'
             type='email'
@@ -104,7 +108,7 @@ const EditUserForm = () => {
         <div className='name'>
           <label htmlFor='name'>Nombre</label>
           <input
-            disabled={editable}
+            disabled={!isEditing}
             id='name'
             name='name'
             type='text'
@@ -118,7 +122,7 @@ const EditUserForm = () => {
         <div className='lastname'>
           <label htmlFor='lastname'>Apellidos</label>
           <input
-            disabled={editable}
+            disabled={!isEditing}
             id='lastname'
             name='Apellidos'
             type='text'
@@ -130,13 +134,8 @@ const EditUserForm = () => {
           />
         </div>
 
-        <button
-          className='form-button'
-          type='submit'
-          // value={changeInputName}
-          onClick={handleEditForm}
-        >
-          {changeInputName}
+        <button className='form-button' type='submit' onClick={handleEditForm}>
+          {buttonMessage}
         </button>
       </form>
     </div>
