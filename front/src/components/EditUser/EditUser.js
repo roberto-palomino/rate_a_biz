@@ -3,10 +3,11 @@ import EditTabs from '../EditTabs';
 
 import './EditUser.css';
 
-function EditUser() {
+function EditUser(props) {
+  const { user } = props;
   return (
     <div className='main-section'>
-      <EditTabs />
+      <EditTabs user={user} />
     </div>
   );
 }

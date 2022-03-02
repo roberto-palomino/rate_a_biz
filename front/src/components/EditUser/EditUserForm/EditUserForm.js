@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { TokenContext } from '../../../index';
 import EditAvatar from '../EditAvatar';
 
-const EditUserForm = () => {
-  const [user, setUser] = useState(null);
-  const userId = '13';
+const EditUserForm = props => {
+  const { user } = props;
+  const [token] = useContext(TokenContext);
+  const userId = user.id;
+
   const [newEmail, setNewEmail] = useState('');
   const [username, setUserName] = useState('');
   const [name, setName] = useState('');
@@ -11,26 +14,14 @@ const EditUserForm = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [buttonMessage, setButtonMessage] = useState('Editar datos');
 
-  async function getUserData() {
-    const urlUserData = 'http://localhost:4000/users/13';
-    try {
-      const response = await fetch(urlUserData);
-      const responseData = await response.json();
-      const userData = responseData.data.user;
-
-      setUser(userData);
-      setNewEmail(userData.email);
-      setUserName(userData.username || '');
-      setName(userData.name || '');
-      setLastName(userData.lastname || '');
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
   useEffect(() => {
-    getUserData();
-  }, []);
+    if (user) {
+      !newEmail && !isEditing && setNewEmail(user.email || '');
+      !username && !isEditing && setUserName(user.username || '');
+      !name && !isEditing && setName(user.name || '');
+      !lastname && !isEditing && setLastName(user.lastname || '');
+    }
+  }, [isEditing, newEmail, username, name, lastname, user]);
 
   const updateUser = async e => {
     const userData = {
@@ -41,11 +32,12 @@ const EditUserForm = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:4000/users/13', {
+      const response = await fetch(`http://localhost:4000/users/${userId}`, {
         method: 'PUT',
         body: JSON.stringify(userData),
         headers: {
           'Content-Type': 'application/json',
+          Authorization: token,
         },
       });
       // TODO: Enviar mensajes a los usuarios
