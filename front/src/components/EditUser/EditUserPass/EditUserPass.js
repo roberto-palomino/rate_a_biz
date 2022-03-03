@@ -1,13 +1,19 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { TokenContext } from '../../../index';
 import './EditUserPass.css';
 
-const EditUserPass = () => {
+const EditUserPass = props => {
+  const { user } = props;
+  const [token] = useContext(TokenContext);
+  const userId = user.id;
+
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
+  const [buttonMessage, setButtonMessage] = useState('Editar datos');
 
   const updateUserPass = async e => {
     e.preventDefault();
-    // setNewPassword('');
 
     const userData = {
       oldPassword: oldPassword,
@@ -15,13 +21,17 @@ const EditUserPass = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:4000/users/13/password', {
-        method: 'PUT',
-        body: JSON.stringify(userData),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await fetch(
+        `http://localhost:4000/users/${userId}/password`,
+        {
+          method: 'PUT',
+          body: JSON.stringify(userData),
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: token,
+          },
+        }
+      );
       // TODO: Enviar mensajes al usurio
       const body = await response.json();
       console.log('body', body);
@@ -30,6 +40,18 @@ const EditUserPass = () => {
     }
   };
 
+  function handleEditForm(e) {
+    e.preventDefault();
+    setIsEditing(!isEditing);
+
+    if (isEditing) {
+      updateUserPass(e);
+      setButtonMessage('Editar datos');
+    } else {
+      setButtonMessage('Guardar cambios');
+    }
+  }
+
   return (
     <>
       <div className='information-form'>
@@ -37,6 +59,7 @@ const EditUserPass = () => {
           <div className='username-password'>
             <label htmlFor='oldPassword'>Antigua contraseña</label>
             <input
+              disabled={!isEditing}
               id='oldPassword'
               name='password'
               type='text'
@@ -50,6 +73,7 @@ const EditUserPass = () => {
           <div className='username-password'>
             <label htmlFor='password'>Nueva contraseña</label>
             <input
+              disabled={!isEditing}
               id='password'
               name='password'
               type='text'
@@ -61,8 +85,13 @@ const EditUserPass = () => {
             />
           </div>
 
-          <button className='form-button' type='submit' value='Guardar cambios'>
-            Editar datos
+          <button
+            className='form-button'
+            type='submit'
+            value='Guardar cambios'
+            onClick={handleEditForm}
+          >
+            {buttonMessage}
           </button>
         </form>
       </div>
