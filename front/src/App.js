@@ -45,6 +45,14 @@ function App() {
         >
           Perfil de Usuario
         </NavLink>{' '}
+        {/* QUITAR EL BORRADO DE LOCAL STORAGE */}
+        <button
+          onClick={e => {
+            window.localStorage.clear();
+          }}
+        >
+          Cerrar sesión
+        </button>
       </nav>
     </div>
   );

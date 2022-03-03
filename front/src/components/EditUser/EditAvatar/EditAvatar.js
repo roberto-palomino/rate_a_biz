@@ -1,10 +1,20 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useContext } from 'react';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import Avatar from '../../Avatar';
+import { TokenContext } from '../../../index';
+import decodeTokenData from '../../../helpers/decodeTokenData';
+
 import './EditAvatar.css';
 
 const EditAvatar = props => {
-  const { user, userId } = props;
+  // const { user, userId } = props;
+  const [token] = useContext(TokenContext);
+  const decodedToken = decodeTokenData(token);
+
+  const { user } = props;
+
+  // const userId = user.id;
+
   const [image, setImage] = useState('');
   const [avatarUrl, setAvatarUrl] = useState('');
   const [isEditing, setIsEditing] = useState(false);
@@ -31,10 +41,13 @@ const EditAvatar = props => {
       let data = new FormData();
       data.append('avatar', image);
       const response = await fetch(
-        `http://localhost:4000/users/${userId}/avatar`,
+        `http://localhost:4000/users/${decodedToken.id}/avatar`,
         {
           method: 'PUT',
           body: data,
+          headers: {
+            Authorization: token,
+          },
         }
       );
 

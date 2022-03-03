@@ -1,11 +1,13 @@
 import { useState, useContext } from 'react';
 import { TokenContext } from '../../../index';
+import decodeTokenData from '../../../helpers/decodeTokenData';
 import './EditUserPass.css';
 
 const EditUserPass = props => {
-  const { user } = props;
+  // const { user } = props;
   const [token] = useContext(TokenContext);
-  const userId = user.id;
+  const decodedToken = decodeTokenData(token);
+  // const userId = user.id;
 
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -22,7 +24,7 @@ const EditUserPass = props => {
 
     try {
       const response = await fetch(
-        `http://localhost:4000/users/${userId}/password`,
+        `http://localhost:4000/users/${decodedToken.id}/password`,
         {
           method: 'PUT',
           body: JSON.stringify(userData),

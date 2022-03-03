@@ -1,11 +1,13 @@
 import { useState, useEffect, useContext } from 'react';
 import { TokenContext } from '../../../index';
 import EditAvatar from '../EditAvatar';
+import decodeTokenData from '../../../helpers/decodeTokenData';
 
 const EditUserForm = props => {
   const { user } = props;
   const [token] = useContext(TokenContext);
-  const userId = user.id;
+  // const userId = user.id;
+  const decodedToken = decodeTokenData(token);
 
   const [newEmail, setNewEmail] = useState('');
   const [username, setUserName] = useState('');
@@ -32,14 +34,17 @@ const EditUserForm = props => {
     };
 
     try {
-      const response = await fetch(`http://localhost:4000/users/${userId}`, {
-        method: 'PUT',
-        body: JSON.stringify(userData),
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: token,
-        },
-      });
+      const response = await fetch(
+        `http://localhost:4000/users/${decodedToken.id}`,
+        {
+          method: 'PUT',
+          body: JSON.stringify(userData),
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: token,
+          },
+        }
+      );
       // TODO: Enviar mensajes a los usuarios
       const body = await response.json();
       if (body.status === 'ok') {
@@ -66,7 +71,7 @@ const EditUserForm = props => {
 
   return (
     <div className='information-form'>
-      {user && <EditAvatar user={user} userId={userId} />}
+      {user && <EditAvatar user={user} userId={decodedToken.id} />}
       <form className='user-data-form'>
         <div className='username'>
           <label htmlFor='username'>Usuario</label>
