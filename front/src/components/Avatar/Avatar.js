@@ -7,12 +7,17 @@ const DEFAULT_AVATAR_URL =
 const Avatar = props => {
   const { avatarUrl, username, size } = props;
   return (
-    <div className={`avatar ${size === 'medium' ? 'medium' : 'small'}`}>
-      <img
-        src={avatarUrl || DEFAULT_AVATAR_URL}
-        alt={`avatar de ${username || 'usuario'}`}
-      />
-    </div>
+    <>
+      <div className={`avatar ${size === 'medium' ? 'medium' : 'small'}`}>
+        <img
+          src={avatarUrl || DEFAULT_AVATAR_URL}
+          alt={`avatar de ${username || 'usuario'}`}
+        />
+      </div>
+      <figcaption className='avatar-username'>{`${
+        username || 'usuario'
+      }`}</figcaption>
+    </>
   );
 };
 export default Avatar;
