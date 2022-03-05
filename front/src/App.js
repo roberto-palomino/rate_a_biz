@@ -37,6 +37,23 @@ function App() {
         >
           Buscar
         </NavLink>
+        |
+        <NavLink
+          to='/profile'
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          className='underline'
+        >
+          Perfil de Usuario
+        </NavLink>{' '}
+        {/* QUITAR EL BORRADO DE LOCAL STORAGE */}
+        <button
+          onClick={e => {
+            window.localStorage.clear();
+            window.location.reload();
+          }}
+        >
+          Cerrar sesión
+        </button>
       </nav>
     </div>
   );

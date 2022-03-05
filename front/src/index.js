@@ -5,12 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { SignUp } from './pages/SignUp';
+import { SignUp, Login, Profile } from './pages';
 import Search from './pages/Search';
-import { Login } from './pages/Login';
 
 export const TokenContext = React.createContext();
-const TokenProvider = (props) => {
+const TokenProvider = props => {
   const [token, setToken] = useLocalStorage('token');
   return (
     <TokenContext.Provider value={[token, setToken]}>
@@ -28,6 +27,7 @@ ReactDOM.render(
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
           <Route path='/search' element={<Search />} />
+          <Route path='/profile' element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </TokenProvider>
