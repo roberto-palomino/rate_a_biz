@@ -4,7 +4,7 @@ import EditUserPass from '../EditUser/EditUserPass';
 import './EditTabs.css';
 
 const EditTabs = props => {
-  const { user } = props;
+  const { user, userId, onUpdated } = props;
   const [activeTab, setActiveTab] = useState('personal-data');
 
   return (
@@ -29,8 +29,12 @@ const EditTabs = props => {
         </button>
       </div>
       <div className='tabs-content'>
-        {activeTab === 'personal-data' && <EditUserForm user={user} />}
-        {activeTab === 'password' && <EditUserPass user={user} />}
+        {activeTab === 'personal-data' && (
+          <EditUserForm user={user} userId={userId} onUpdated={onUpdated} />
+        )}
+        {activeTab === 'password' && (
+          <EditUserPass user={user} userId={userId} />
+        )}
       </div>
     </>
   );

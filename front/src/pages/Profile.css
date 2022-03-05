@@ -1,0 +1,6 @@
+.main-section {
+  display: flex;
+  margin-top: 10rem;
+  flex-grow: 1;
+  gap: 4rem;
+}

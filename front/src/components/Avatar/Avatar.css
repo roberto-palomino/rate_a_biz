@@ -2,7 +2,7 @@
   width: 48px;
   height: 48px;
   box-sizing: border-box;
-  border: 5px white solid;
+  border: 3px white solid;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
@@ -12,7 +12,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid black; */
   height: 2rem;
   margin-top: 1rem;
 }

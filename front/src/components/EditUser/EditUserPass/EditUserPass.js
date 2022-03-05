@@ -1,13 +1,11 @@
 import { useState, useContext } from 'react';
 import { TokenContext } from '../../../index';
-import decodeTokenData from '../../../helpers/decodeTokenData';
+import EditAvatar from '../EditAvatar';
 import './EditUserPass.css';
 
 const EditUserPass = props => {
-  // const { user } = props;
+  const { user, userId } = props;
   const [token] = useContext(TokenContext);
-  const decodedToken = decodeTokenData(token);
-  // const userId = user.id;
 
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -24,7 +22,7 @@ const EditUserPass = props => {
 
     try {
       const response = await fetch(
-        `http://localhost:4000/users/${decodedToken.id}/password`,
+        `http://localhost:4000/users/${userId}/password`,
         {
           method: 'PUT',
           body: JSON.stringify(userData),
@@ -55,49 +53,48 @@ const EditUserPass = props => {
   }
 
   return (
-    <>
-      <div className='information-form'>
-        <form className='user-data-form-pass' onSubmit={updateUserPass}>
-          <div className='username-password'>
-            <label htmlFor='oldPassword'>Antigua contraseña</label>
-            <input
-              disabled={!isEditing}
-              id='oldPassword'
-              name='password'
-              type='text'
-              value={oldPassword}
-              placeholder='Escriba su antigua contraseña...'
-              onChange={e => {
-                setOldPassword(e.target.value);
-              }}
-            />
-          </div>
-          <div className='username-password'>
-            <label htmlFor='password'>Nueva contraseña</label>
-            <input
-              disabled={!isEditing}
-              id='password'
-              name='password'
-              type='text'
-              value={newPassword}
-              placeholder='Escriba su nueva contraseña...'
-              onChange={e => {
-                setNewPassword(e.target.value);
-              }}
-            />
-          </div>
+    <div className='information-form'>
+      {user && <EditAvatar user={user} userId={userId} />}
+      <form className='user-data-form-pass' onSubmit={updateUserPass}>
+        <div className='username-password'>
+          <label htmlFor='oldPassword'>Antigua contraseña</label>
+          <input
+            disabled={!isEditing}
+            id='oldPassword'
+            name='password'
+            type='text'
+            value={oldPassword}
+            placeholder='Escriba su antigua contraseña...'
+            onChange={e => {
+              setOldPassword(e.target.value);
+            }}
+          />
+        </div>
+        <div className='username-password'>
+          <label htmlFor='password'>Nueva contraseña</label>
+          <input
+            disabled={!isEditing}
+            id='password'
+            name='password'
+            type='text'
+            value={newPassword}
+            placeholder='Escriba su nueva contraseña...'
+            onChange={e => {
+              setNewPassword(e.target.value);
+            }}
+          />
+        </div>
 
-          <button
-            className='form-button'
-            type='submit'
-            value='Guardar cambios'
-            onClick={handleEditForm}
-          >
-            {buttonMessage}
-          </button>
-        </form>
-      </div>
-    </>
+        <button
+          className='form-button'
+          type='submit'
+          value='Guardar cambios'
+          onClick={handleEditForm}
+        >
+          {buttonMessage}
+        </button>
+      </form>
+    </div>
   );
 };
 

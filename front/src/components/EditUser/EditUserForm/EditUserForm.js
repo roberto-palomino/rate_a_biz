@@ -1,13 +1,10 @@
 import { useState, useEffect, useContext } from 'react';
 import { TokenContext } from '../../../index';
 import EditAvatar from '../EditAvatar';
-import decodeTokenData from '../../../helpers/decodeTokenData';
 
 const EditUserForm = props => {
-  const { user } = props;
+  const { user, userId, onUpdated } = props;
   const [token] = useContext(TokenContext);
-  // const userId = user.id;
-  const decodedToken = decodeTokenData(token);
 
   const [newEmail, setNewEmail] = useState('');
   const [username, setUserName] = useState('');
@@ -25,6 +22,10 @@ const EditUserForm = props => {
     }
   }, [isEditing, newEmail, username, name, lastname, user]);
 
+  useEffect(() => {
+    onUpdated && !isEditing && onUpdated(false);
+  }, [onUpdated, isEditing]);
+
   const updateUser = async e => {
     const userData = {
       username: username,
@@ -34,26 +35,24 @@ const EditUserForm = props => {
     };
 
     try {
-      const response = await fetch(
-        `http://localhost:4000/users/${decodedToken.id}`,
-        {
-          method: 'PUT',
-          body: JSON.stringify(userData),
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: token,
-          },
-        }
-      );
+      const response = await fetch(`http://localhost:4000/users/${userId}`, {
+        method: 'PUT',
+        body: JSON.stringify(userData),
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: token,
+        },
+      });
       // TODO: Enviar mensajes a los usuarios
       const body = await response.json();
       if (body.status === 'ok') {
+        onUpdated(true);
         const message = body.message;
         // TODO: Implementar mensajes mostrado al usuario
         console.log('Success:', message);
       }
     } catch (error) {
-      console.error('Error en la llamada al API:', error);
+      console.error('Error al conectar con el servidor:', error);
     }
   };
 
@@ -71,7 +70,7 @@ const EditUserForm = props => {
 
   return (
     <div className='information-form'>
-      {user && <EditAvatar user={user} userId={decodedToken.id} />}
+      {user && <EditAvatar user={user} userId={userId} onUpdated={onUpdated} />}
       <form className='user-data-form'>
         <div className='username'>
           <label htmlFor='username'>Usuario</label>

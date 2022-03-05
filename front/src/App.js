@@ -49,6 +49,7 @@ function App() {
         <button
           onClick={e => {
             window.localStorage.clear();
+            window.location.reload();
           }}
         >
           Cerrar sesión

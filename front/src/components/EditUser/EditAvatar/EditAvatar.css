@@ -1,14 +1,9 @@
 .avatar-section {
-  width: 15rem;
-  height: 18rem;
-  /* padding: 2rem; */
-  /* margin-top: 2rem; */
+  height: 8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 6px;
-  background: #f8f8f8;
-  border: solid #bdbdbd 1px;
 }
 
 .avatar-container {
@@ -30,15 +25,17 @@
 }
 
 .label-avatar {
+  margin-top: 0.3rem;
   width: 15rem;
   display: flex;
+  font-size: 0.8rem;
   align-items: center;
-  justify-content: space-evenly;
+  gap: 1rem;
+  cursor: pointer;
 }
 
 .container {
   height: 20rem;
-  /* padding: 1rem; */
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -2,19 +2,11 @@ import { useEffect, useState, useCallback, useContext } from 'react';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import Avatar from '../../Avatar';
 import { TokenContext } from '../../../index';
-import decodeTokenData from '../../../helpers/decodeTokenData';
-
 import './EditAvatar.css';
 
 const EditAvatar = props => {
-  // const { user, userId } = props;
+  const { user, userId, onUpdated } = props;
   const [token] = useContext(TokenContext);
-  const decodedToken = decodeTokenData(token);
-
-  const { user } = props;
-
-  // const userId = user.id;
-
   const [image, setImage] = useState('');
   const [avatarUrl, setAvatarUrl] = useState('');
   const [isEditing, setIsEditing] = useState(false);
@@ -34,14 +26,18 @@ const EditAvatar = props => {
     getUserImage();
   }, [getUserImage]);
 
+  useEffect(() => {
+    onUpdated && !isEditing && onUpdated(false);
+  }, [onUpdated, isEditing]);
+
   const uploadFile = async e => {
     e.preventDefault();
-
+    setIsEditing(false);
     try {
       let data = new FormData();
       data.append('avatar', image);
       const response = await fetch(
-        `http://localhost:4000/users/${decodedToken.id}/avatar`,
+        `http://localhost:4000/users/${userId}/avatar`,
         {
           method: 'PUT',
           body: data,
@@ -53,7 +49,7 @@ const EditAvatar = props => {
 
       const responseData = await response.json();
       if (responseData.status === 'ok') {
-        setIsEditing(false);
+        onUpdated(true);
         // TODO: Implementar mensajes mostrado al usuario
         console.log('La imagen se ha subido correctamente');
       }
@@ -84,7 +80,7 @@ const EditAvatar = props => {
             />
           </div>
           <label className='label-avatar' htmlFor='input-avatar'>
-            <AddAPhotoIcon fontSize='large' />
+            <AddAPhotoIcon fontSize='medium' />
             Selecciona una imagen
           </label>
           <input
