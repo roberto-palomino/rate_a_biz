@@ -1,29 +1,28 @@
 import { useState, useEffect, useContext } from 'react';
 import { TokenContext } from '../../../index';
+import UserSelectState from './UserSelectState';
 import EditAvatar from '../EditAvatar';
-
 import './EditBusinessForm.css';
 
-const EditBusinessForm = props => {
-  const { user, userId, onUpdated } = props;
+const EditBusinessData = props => {
+  const { user, userId, onUpdated, business } = props;
   const [token] = useContext(TokenContext);
+  // console.log('Datos de empresa:', business);
 
-  const [email, setEmail] = useState('');
-  const [username, setUserName] = useState('');
-  // const [name, setName] = useState('');
-  // const [url_Web, setUrl_Web] = useState('');
+  const [name, setName] = useState('');
+  const [url_Web, setUrl_Web] = useState('');
+  const [selectState, setSelectState] = useState('');
 
   const [isEditing, setIsEditing] = useState(false);
   const [buttonMessage, setButtonMessage] = useState('Editar datos');
 
   useEffect(() => {
-    if (user) {
-      !email && !isEditing && setEmail(user.email || '');
-      !username && !isEditing && setUserName(user.username || '');
-      // !name && !isEditing && setName(user.name || '');
-      // !url_Web && !isEditing && setUrl_Web(user.name || '');
+    if (business) {
+      !name && !isEditing && setName(business.name || '');
+      !url_Web && !isEditing && setUrl_Web(business.url_web || '');
+      !selectState && !isEditing && setSelectState(business.headquarter || '');
     }
-  }, [isEditing, email, username, user]);
+  }, [isEditing, name, selectState, url_Web, business]);
 
   useEffect(() => {
     onUpdated && !isEditing && onUpdated(false);
@@ -31,10 +30,9 @@ const EditBusinessForm = props => {
 
   const updateBusiness = async e => {
     const businessData = {
-      username: username,
-      newEmail: email,
-      // name: name,
-      // url_web: url_Web,
+      name: name,
+      url_web: url_Web,
+      headquarter: selectState,
     };
 
     try {
@@ -74,33 +72,40 @@ const EditBusinessForm = props => {
   return (
     <div className='information-form'>
       {user && <EditAvatar user={user} userId={userId} onUpdated={onUpdated} />}
+
       <form className='business-data-form'>
-        <div className='username'>
-          <label htmlFor='username'>Usuario</label>
+        <div className='name'>
+          <label htmlFor='name'>Nombre</label>
           <input
             disabled={!isEditing}
-            id='username'
-            name='username'
+            id='name'
+            name='name'
             type='text'
-            value={username}
-            placeholder='Escriba su nombre de usuario...'
+            value={name}
+            placeholder='Escriba su nombre de empresa...'
             onChange={e => {
-              setUserName(e.target.value);
+              setName(e.target.value);
             }}
           />
         </div>
-        <div className='email'>
-          <label htmlFor='email'>Email</label>
+        <div className='url_Web'>
+          <label htmlFor='url_Web'>Sitio web</label>
           <input
             disabled={!isEditing}
-            id='email'
-            name='email'
-            type='email'
-            placeholder='Escriba aquí su email...'
-            value={email}
+            id='url_Web'
+            name='url_Web'
+            type='texto'
+            placeholder='Escriba aquí su página web...'
+            value={url_Web}
             onChange={e => {
-              setEmail(e.target.value);
+              setUrl_Web(e.target.value);
             }}
+          />
+        </div>
+        <div>
+          <UserSelectState
+            selectState={selectState}
+            setStateValue={setSelectState}
           />
         </div>
 
@@ -112,4 +117,4 @@ const EditBusinessForm = props => {
   );
 };
 
-export default EditBusinessForm;
+export default EditBusinessData;

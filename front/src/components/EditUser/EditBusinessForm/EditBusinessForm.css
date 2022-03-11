@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.user-data-form {
+.business-data-form {
   display: flex;
   flex-direction: column;
   margin-top: 4rem;
@@ -14,7 +14,7 @@
   padding: 1rem;
 }
 
-.user-data-form input {
+.business-data-form input {
   width: 20rem;
   height: 1.5rem;
   padding: 5px;
@@ -22,7 +22,16 @@
   margin-top: 5px;
 }
 
-.user-data-form label {
+.business-data-form select {
+  width: 20.9rem;
+  height: 2rem;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+  background-color: white;
+}
+
+.business-data-form label {
   display: flex;
   align-items: center;
   justify-content: center;
