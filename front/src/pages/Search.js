@@ -9,7 +9,6 @@ import { SelectSalary } from '../components/SelectSalary';
 import { SelectSector } from '../components/SelectSector';
 import { SelectState } from '../components/SelectState';
 import { BusinessPreview } from './BusinesPreview';
-import { TopBusiness } from './TopBusiness';
 
 function Search() {
   const [filterVisible, setFilterVisible] = useState('');

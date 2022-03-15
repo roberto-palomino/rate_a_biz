@@ -1,9 +1,9 @@
 import { Button, Stack } from '@mui/material';
-import { Preview } from '../components/Preview';
+import { Preview } from './Preview';
 import { useLoadBusiness } from '../hooks/useLoadBusiness';
 import SendIcon from '@mui/icons-material/Send';
 import { useLoadTopBusiness } from '../hooks/useLoadTopBusiness';
-import { TopPreview } from '../components/TopPreview';
+import { TopPreview } from './TopPreview';
 
 export const TopBusiness = (props) => {
   const [topBusiness] = useLoadTopBusiness();

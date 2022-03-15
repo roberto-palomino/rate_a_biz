@@ -40,24 +40,41 @@ header {
   border-radius: 20px;
   box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
   display: grid;
-  grid-template-areas:
-    'title' 'comments'
-    'ratings' 'comments';
-  grid-template-rows: 1fr 1fr;
+
   grid-template-columns: 1fr 1fr;
   background-color: rgb(196, 196, 196);
   margin: 3rem;
 }
 
-.top-preview h1 {
-  grid-area: 'title';
+.top-preview .info {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
   text-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
 }
-.top-preview .ratings {
-  grid-area: 'ratings';
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-.top-preview .comments {
-  grid-area: 'comments';
+.top-preview p {
+  box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
+}
+
+/* #root > div > div > div:nth-child(1) > div.info > legend:nth-child(4) {
+  color: black;
+  font-weight: bold;
+}
+ */
+.MuiTypography-root {
+  color: black;
+  font-weight: bold;
+}
+
+.css-ahj2mt-MuiTypography-root {
+  font-weight: bold;
 }

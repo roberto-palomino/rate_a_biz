@@ -3,7 +3,7 @@ import './App.css';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { TokenContext } from '.';
-import { TopBusiness } from './pages/TopBusiness';
+import { TopBusiness } from './components/TopBusiness';
 
 function App() {
   const [token] = useContext(TokenContext);
@@ -44,7 +44,6 @@ function App() {
           >
             Buscar
           </NavLink>{' '}
-          |
           <NavLink
             to='/profile'
             style={({ isActive }) => (isActive ? activeStyle : undefined)}

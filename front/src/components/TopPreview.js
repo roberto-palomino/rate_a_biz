@@ -1,5 +1,6 @@
 import { Rating, Typography } from '@mui/material';
 import { useLoadTopBusiness } from '../hooks/useLoadTopBusiness';
+import Avatar from './Avatar';
 
 export const TopPreview = (props) => {
   const {
@@ -18,16 +19,19 @@ export const TopPreview = (props) => {
   );
   return (
     <>
-      <h1> {bussinesName} </h1>
-      <div className='ratings'>
-        <Typography component='legend'>Ambiente laboral</Typography>
-        <Rating name='read-only' value={enviroment} readOnly />
-        <Typography component='legend'>Conciliación</Typography>
-        <Rating name='read-only' value={conciliation} readOnly />
-        <Typography component='legend'>Oportunidades</Typography>
-        <Rating name='read-only' value={oportunities} readOnly />
-        <Typography component='legend'>Salario</Typography>
-        <Rating name='read-only' value={salary} readOnly />
+      <div className='info'>
+        <h1> {bussinesName} </h1>
+        <Avatar size='medium' />
+        <div>
+          <Typography component='legend'>Ambiente laboral</Typography>
+          <Rating name='read-only' value={enviroment} readOnly />
+          <Typography component='legend'>Conciliación</Typography>
+          <Rating name='read-only' value={conciliation} readOnly />
+          <Typography component='legend'>Oportunidades</Typography>
+          <Rating name='read-only' value={oportunities} readOnly />
+          <Typography component='legend'>Salario</Typography>
+          <Rating name='read-only' value={salary} readOnly />
+        </div>
       </div>
       <div className='comments'>
         {comments.map((comment) => (
