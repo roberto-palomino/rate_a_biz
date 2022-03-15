@@ -8,6 +8,8 @@ import { SelectOrder } from '../components/SelectOrder';
 import { SelectSalary } from '../components/SelectSalary';
 import { SelectSector } from '../components/SelectSector';
 import { SelectState } from '../components/SelectState';
+import { BusinessPreview } from './BusinesPreview';
+import { TopBusiness } from './TopBusiness';
 
 function Search() {
   const [filterVisible, setFilterVisible] = useState('');
@@ -20,24 +22,29 @@ function Search() {
   console.log(selectedOrder);
 
   return (
-    <div className='App'>
-      <FilterButton
-        filterVisible={filterVisible}
-        setFilterVisible={setFilterVisible}
-      />
-      {filterVisible ? (
-        <>
-          {' '}
-          <SelectState setSelectedState={setSelectedState} />
-          <SelectJob setSelectedJob={setSelectedJob} />
-          <SelectSalary setSelectedSalary={setSelectedSalary} />
-          <SelectSector setSelectedSector={setSelectedSector} />
-        </>
-      ) : null}
+    <div className='search'>
+      <div className='filter'>
+        <FilterButton
+          filterVisible={filterVisible}
+          setFilterVisible={setFilterVisible}
+        />
+        {filterVisible ? (
+          <>
+            {' '}
+            <SelectState setSelectedState={setSelectedState} />
+            <SelectJob setSelectedJob={setSelectedJob} />
+            <SelectSalary setSelectedSalary={setSelectedSalary} />
+            <SelectSector setSelectedSector={setSelectedSector} />
+          </>
+        ) : null}
 
-      <SelectOrder setSelectedOrder={setSelectedOrder} />
-      <OrderBy setOrderBy={setOrderBy} />
-      <Order setSelectedOrder={setSelectedOrder} />
+        <SelectOrder setSelectedOrder={setSelectedOrder} />
+        <OrderBy setOrderBy={setOrderBy} />
+        <Order setSelectedOrder={setSelectedOrder} />
+      </div>
+      <div className='reviews'>
+        <BusinessPreview className='preview' />
+      </div>
     </div>
   );
 }

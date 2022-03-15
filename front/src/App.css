@@ -1,38 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+}
 .App {
-  text-align: center;
+  background-color: rgb(59, 123, 159);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(253, 242, 242);
+}
+.nav {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: center;
+  height: 10rem;
+  gap: 2rem;
+  margin-right: 8rem;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.link {
+  text-decoration: none;
+  font-size: xx-large;
+  display: flex;
+  align-items: center;
+  color: rgb(59, 123, 159);
 }
 
-.App-link {
-  color: #61dafb;
+.top-preview {
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
+  display: grid;
+  grid-template-areas:
+    'title' 'comments'
+    'ratings' 'comments';
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgb(196, 196, 196);
+  margin: 3rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.top-preview h1 {
+  grid-area: 'title';
+  text-align: center;
+
+  text-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
+}
+.top-preview .ratings {
+  grid-area: 'ratings';
+}
+.top-preview .comments {
+  grid-area: 'comments';
 }

@@ -19,8 +19,10 @@ import {
   Stack,
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
+import { useLoadBusiness } from '../hooks/useLoadBusiness';
 
 export const SignUp = () => {
+  const [business, setBusiness] = useLoadBusiness();
   const [mail, setMail] = useState('');
   const mailChange = (e) => {
     setMail(e.target.value);
@@ -86,6 +88,7 @@ export const SignUp = () => {
     }
   };
   comparePass();
+  console.log('en registro', business);
   return (
     <div>
       <form id='form'>

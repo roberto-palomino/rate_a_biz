@@ -16,10 +16,10 @@
   filter: blur(2px);
   border-radius: 27px;
 } */
-div {
+/* div {
   display: flex;
   justify-content: center;
-}
+} */
 #email {
 }
 #helper-pass-invalid {

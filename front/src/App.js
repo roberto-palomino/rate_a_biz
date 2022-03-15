@@ -3,6 +3,7 @@ import './App.css';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { TokenContext } from '.';
+import { TopBusiness } from './pages/TopBusiness';
 
 function App() {
   const [token] = useContext(TokenContext);
@@ -11,50 +12,60 @@ function App() {
   };
   return (
     <div className='App'>
-      <nav>
-        <NavLink
-          to='/signup'
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className='underline'
-        >
-          Registrarse
-        </NavLink>{' '}
-        |
-        {!token ? (
+      <header>
+        <a href='https://imgbb.com/' className='logo'>
+          <img
+            src='https://i.ibb.co/KmZ0GVL/Logo-Grande.png'
+            alt='Logo-Grande'
+            border='0'
+          />
+        </a>
+        <nav className='nav'>
           <NavLink
-            to='/login'
+            to='/signup'
             style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            className='underline'
+            className='link'
           >
-            Iniciar Sesión
-          </NavLink>
-        ) : null}{' '}
-        |
-        <NavLink
-          to='/search'
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className='underline'
-        >
-          Buscar
-        </NavLink>
-        |
-        <NavLink
-          to='/profile'
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className='underline'
-        >
-          Perfil de Usuario
-        </NavLink>{' '}
-        {/* QUITAR EL BORRADO DE LOCAL STORAGE */}
-        <button
-          onClick={e => {
-            window.localStorage.clear();
-            window.location.reload();
-          }}
-        >
-          Cerrar sesión
-        </button>
-      </nav>
+            Registrarse
+          </NavLink>{' '}
+          {!token ? (
+            <NavLink
+              to='/login'
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              className='link'
+            >
+              Iniciar Sesión
+            </NavLink>
+          ) : null}{' '}
+          <NavLink
+            to='/search'
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            className='link'
+          >
+            Buscar
+          </NavLink>{' '}
+          |
+          <NavLink
+            to='/profile'
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            className='link'
+          >
+            Perfil de Usuario
+          </NavLink>{' '}
+          {/* QUITAR EL BORRADO DE LOCAL STORAGE */}
+          <button
+            onClick={(e) => {
+              window.localStorage.clear();
+              window.location.reload();
+            }}
+          >
+            Cerrar sesión
+          </button>
+        </nav>
+      </header>
+      <div className='top-reviews'>
+        <TopBusiness className='top-preview' />
+      </div>
     </div>
   );
 }

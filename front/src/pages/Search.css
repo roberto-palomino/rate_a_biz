@@ -8,3 +8,25 @@
   justify-content: center;
   justify-items: center;
 }
+.search {
+  display: flex;
+  flex-direction: column;
+}
+.filter {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  justify-content: center;
+}
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.comment {
+  padding: 1rem;
+  background-color: rgba(247, 227, 204, 0.822);
+  border: 1px solid black;
+  border-radius: 20px;
+}
