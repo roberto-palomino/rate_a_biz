@@ -14,6 +14,7 @@ import SendIcon from '@mui/icons-material/Send';
 import { useState, useEffect, useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { TokenContext } from '../index';
+import { LoginModal } from '../components/LoginModal/LoginModal';
 
 export const Login = () => {
   const [token, setToken] = useContext(TokenContext);
@@ -103,7 +104,7 @@ export const Login = () => {
           <Button
             id='register'
             variant='outlined'
-            color='secondary'
+            color='primary'
             startIcon={<SendIcon />}
             onClick={register}
           >
