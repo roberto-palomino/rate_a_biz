@@ -1,12 +1,12 @@
 import { SignUp } from '../../pages';
-import '../LoginModal/LoginModal.css';
+import './SignUpModal.css';
 import close from '../../assets/images/close.png';
 export const SignUpModal = () => {
   return (
     <>
-      <a href='#miModal'>Registrarse</a>
+      <a href='#SignUpModal'>Registrarse</a>
 
-      <div id='miModal' className='modal'>
+      <div id='SignUpModal' className='modal'>
         <div className='modal-contenido'>
           <a href='/#' className='close'>
             <img src={close} alt='cerrar' className='close-img' />
@@ -14,7 +14,7 @@ export const SignUpModal = () => {
           <SignUp />
           <div className='enlace'>
             ¿Ya tienes tienes cuenta?
-            <a href='/#miModal' className='signup'>
+            <a href='/#LoginModal' className='signup'>
               Inicia sesión
             </a>
           </div>

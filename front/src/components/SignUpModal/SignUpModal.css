@@ -49,7 +49,7 @@ form {
   pointer-events: none;
   transition: all 1s;
 }
-#LoginModal:target {
+#SignUpModal:target {
   opacity: 1;
   pointer-events: auto;
 }

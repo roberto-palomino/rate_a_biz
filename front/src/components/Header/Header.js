@@ -20,37 +20,34 @@ const Header = () => {
       </a>
       <nav className='nav'>
         <NavLink
-          to='/signup'
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className='link'
-        >
-          Registrarse
-        </NavLink>{' '}
-        {!token ? <LoginModal className='login' /> : null}{' '}
-        <NavLink
           to='/search'
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
           className='link'
         >
           Buscar
         </NavLink>{' '}
-        <NavLink
-          to='/profile'
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className='link'
-        >
-          Perfil de Usuario
-        </NavLink>{' '}
-        <SignUpModal className='signup' />
+        {!token ? <LoginModal className='login' /> : null}{' '}
+        {!token ? <SignUpModal className='signup' /> : null}{' '}
+        {token ? (
+          <NavLink
+            to='/profile'
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            className='link'
+          >
+            Perfil de Usuario
+          </NavLink>
+        ) : null}{' '}
         {/* QUITAR EL BORRADO DE LOCAL STORAGE */}
-        <button
-          onClick={(e) => {
-            window.localStorage.clear();
-            window.location.reload();
-          }}
-        >
-          Cerrar sesión
-        </button>
+        {token ? (
+          <button
+            onClick={(e) => {
+              window.localStorage.clear();
+              window.location.reload();
+            }}
+          >
+            Cerrar sesión
+          </button>
+        ) : null}
       </nav>
     </header>
   );

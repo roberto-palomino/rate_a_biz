@@ -62,11 +62,11 @@ export const Login = () => {
 
   return (
     <div>
-      <form id='form'>
+      <form id='form-login'>
         <FormControl id='email' variant='standard'>
-          <InputLabel htmlFor='email-input'>Email</InputLabel>
+          <InputLabel htmlFor='email-login-input'>Email</InputLabel>
           <Input
-            id='email-input'
+            id='email-login-input'
             type='email'
             value={mail}
             onChange={mailChange}
@@ -79,9 +79,9 @@ export const Login = () => {
           />
         </FormControl>
         <FormControl sx={{ m: 1, width: '25ch' }} variant='outlined'>
-          <InputLabel htmlFor='password'>Contraseña</InputLabel>
+          <InputLabel htmlFor='password-login'>Contraseña</InputLabel>
           <Input
-            id='password'
+            id='password-login'
             type={visibility ? 'text' : 'password'}
             value={pass}
             onChange={passChange}
@@ -102,7 +102,7 @@ export const Login = () => {
 
         <Stack className='filter' width={150} spacing={2}>
           <Button
-            id='register'
+            id='register-login'
             variant='outlined'
             color='primary'
             startIcon={<SendIcon />}

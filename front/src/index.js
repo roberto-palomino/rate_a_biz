@@ -26,7 +26,7 @@ ReactDOM.render(
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/signup' element={<SignUp />} />
-          <Route path='/miModal' element={<LoginModal />} />
+          {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
           <Route path='/search' element={<Search />} />
           <Route path='/profile' element={<Profile />} />
         </Routes>
