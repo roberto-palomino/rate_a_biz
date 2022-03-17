@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { TokenContext } from '../..';
 import { LoginModal } from '../LoginModal/LoginModal';
+import { SignUpModal } from '../SignUpModal/SignUpModal';
 import './Header.css';
 const Header = () => {
   const [token] = useContext(TokenContext);
@@ -40,6 +41,7 @@ const Header = () => {
         >
           Perfil de Usuario
         </NavLink>{' '}
+        <SignUpModal className='signup' />
         {/* QUITAR EL BORRADO DE LOCAL STORAGE */}
         <button
           onClick={(e) => {

@@ -184,7 +184,7 @@ export const SignUp = () => {
           </RadioGroup>
         </FormControl>
 
-        <Stack className='filter' width={150} spacing={2}>
+        <Stack className='filter' width={200} spacing={2}>
           <Button
             id='register'
             variant='outlined'
