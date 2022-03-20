@@ -45,6 +45,7 @@ function App() {
         >
           Añadir valoración
         </NavLink>
+        |
         <NavLink
           to='/profile'
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
