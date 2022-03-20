@@ -39,6 +39,13 @@ function App() {
         </NavLink>
         |
         <NavLink
+          to='/review'
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          className='underline'
+        >
+          Añadir valoración
+        </NavLink>
+        <NavLink
           to='/profile'
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
           className='underline'
@@ -47,7 +54,7 @@ function App() {
         </NavLink>{' '}
         {/* QUITAR EL BORRADO DE LOCAL STORAGE */}
         <button
-          onClick={e => {
+          onClick={(e) => {
             window.localStorage.clear();
             window.location.reload();
           }}
