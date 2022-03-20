@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { TokenContext } from '../../../index';
-import EditAvatar from '../EditAvatar';
+import Avatar from '../../Avatar';
 import './EditUserPass.css';
 
 const EditUserPass = props => {
@@ -11,6 +11,7 @@ const EditUserPass = props => {
   const [newPassword, setNewPassword] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [buttonMessage, setButtonMessage] = useState('Editar datos');
+  const avatarUrl = `http://localhost:4000/static/uploads/${user?.avatar}`;
 
   const updateUserPass = async e => {
     e.preventDefault();
@@ -54,9 +55,11 @@ const EditUserPass = props => {
 
   return (
     <div className='information-form'>
-      {user && <EditAvatar user={user} userId={userId} />}
+      {user && (
+        <Avatar avatarUrl={avatarUrl} username={user?.username} size='medium' />
+      )}
       <form className='user-data-form-pass' onSubmit={updateUserPass}>
-        <div className='username-password'>
+        <div className='align-label'>
           <label htmlFor='oldPassword'>Antigua contraseña</label>
           <input
             disabled={!isEditing}
@@ -70,7 +73,7 @@ const EditUserPass = props => {
             }}
           />
         </div>
-        <div className='username-password'>
+        <div className='align-label'>
           <label htmlFor='password'>Nueva contraseña</label>
           <input
             disabled={!isEditing}

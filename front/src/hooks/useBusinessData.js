@@ -5,32 +5,33 @@ const useBusinessData = (token, hasUpdated) => {
   const [business, setBusiness] = useState({});
   const decodedToken = decodeTokenData(token);
   const businessId = decodedToken?.id;
-
-  // console.log('business', businessId);
+  const businessRole = decodedToken?.role;
 
   const getBusinessData = useCallback(async () => {
-    const urlBusinessData = `http://localhost:4000/business/${businessId}`;
-    try {
-      const response = await fetch(urlBusinessData, {
-        headers: {
-          Authorization: token,
-        },
-      });
-      const responseData = await response.json();
-      const businessData = responseData.data.businessInfo;
-      // console.log(responseData.data.businessInfo);
+    if (businessRole === 'business') {
+      const urlBusinessData = `http://localhost:4000/business/${businessId}`;
 
-      setBusiness(businessData);
-    } catch (error) {
-      console.error(error);
+      try {
+        const response = await fetch(urlBusinessData, {
+          headers: {
+            Authorization: token,
+          },
+        });
+
+        const responseData = await response.json();
+        const businessData = responseData.data;
+        setBusiness(businessData);
+      } catch (error) {
+        console.error(error);
+      }
     }
-  }, [businessId, token]);
+  }, [businessId, token, businessRole]);
 
   useEffect(() => {
-    if (token || hasUpdated) {
+    if (token || hasUpdated || businessRole === 'business') {
       getBusinessData();
     }
-  }, [getBusinessData, token, hasUpdated]);
+  }, [getBusinessData, token, hasUpdated, businessRole]);
 
   return { business };
 };

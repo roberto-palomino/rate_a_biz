@@ -71,27 +71,25 @@ const EditAvatar = props => {
   return (
     <div className='avatar-section'>
       <form onSubmit={uploadFile}>
-        <div className='container'>
-          <div className='avatar-container'>
-            <Avatar
-              avatarUrl={avatarUrl}
-              username={user?.username}
-              size='medium'
-            />
-          </div>
-          <label className='label-avatar' htmlFor='input-avatar'>
-            <AddAPhotoIcon fontSize='medium' />
-            Selecciona una imagen
-          </label>
-          <input
-            type={'file'}
-            name='input-avatar'
-            id='input-avatar'
-            className='input-avatar'
-            onChange={onFileChange}
+        <div className='avatar-container'>
+          <Avatar
+            avatarUrl={avatarUrl}
+            username={user?.username}
+            size='medium'
           />
-          {isEditing && <ShowButtonAvatar />}
         </div>
+        <label className='label-avatar' htmlFor='input-avatar'>
+          <AddAPhotoIcon fontSize='medium' />
+          Selecciona una imagen
+          {isEditing && <ShowButtonAvatar />}
+        </label>
+        <input
+          type={'file'}
+          name='input-avatar'
+          id='input-avatar'
+          className='input-avatar'
+          onChange={onFileChange}
+        />
       </form>
     </div>
   );

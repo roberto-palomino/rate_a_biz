@@ -72,7 +72,7 @@ const EditUserForm = props => {
     <div className='information-form'>
       {user && <EditAvatar user={user} userId={userId} onUpdated={onUpdated} />}
       <form className='user-data-form'>
-        <div className='username'>
+        <div className='align-label'>
           <label htmlFor='username'>Usuario</label>
           <input
             disabled={!isEditing}
@@ -86,7 +86,7 @@ const EditUserForm = props => {
             }}
           />
         </div>
-        <div className='email'>
+        <div className='align-label'>
           <label htmlFor='email'>Email</label>
           <input
             disabled={!isEditing}
@@ -101,7 +101,7 @@ const EditUserForm = props => {
           />
         </div>
 
-        <div className='name'>
+        <div className='align-label'>
           <label htmlFor='name'>Nombre</label>
           <input
             disabled={!isEditing}
@@ -115,7 +115,7 @@ const EditUserForm = props => {
             }}
           />
         </div>
-        <div className='lastname'>
+        <div className='align-label'>
           <label htmlFor='lastname'>Apellidos</label>
           <input
             disabled={!isEditing}

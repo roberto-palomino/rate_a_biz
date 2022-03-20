@@ -1,17 +1,17 @@
 .avatar-section {
-  height: 8rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 6px;
+  width: 21rem;
+  height: 15rem;
 }
 
 .avatar-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .avatar-form-button {
+  display: flex;
+  justify-content: center;
   width: 6rem;
   height: 1.5rem;
 }
@@ -26,17 +26,10 @@
 
 .label-avatar {
   margin-top: 0.3rem;
-  width: 15rem;
   display: flex;
+  margin-left: 1.8rem;
   font-size: 0.8rem;
   align-items: center;
   gap: 1rem;
   cursor: pointer;
-}
-
-.container {
-  height: 20rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }

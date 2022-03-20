@@ -17,7 +17,6 @@ const useUserData = (token, hasUpdated) => {
       });
       const responseData = await response.json();
       const userData = responseData.data.user;
-
       setUser(userData);
     } catch (error) {
       console.error(error);

@@ -1,8 +1,6 @@
 import React from 'react';
 import './Avatar.css';
-
-const DEFAULT_AVATAR_URL =
-  'http://localhost:4000/static/uploads/default-avatar.jpeg';
+import avatarLogo from '../../assets/images/default-avatar.jpeg';
 
 const Avatar = props => {
   const { avatarUrl, username, size } = props;
@@ -10,7 +8,8 @@ const Avatar = props => {
     <>
       <div className={`avatar ${size === 'medium' ? 'medium' : 'small'}`}>
         <img
-          src={avatarUrl || DEFAULT_AVATAR_URL}
+          className='image-avatar'
+          src={avatarUrl ? avatarUrl : avatarLogo}
           alt={`avatar de ${username || 'usuario'}`}
         />
       </div>
