@@ -20,7 +20,6 @@ export default function HalfRating() {
   );
 }
 export const Review = ({
-  id,
   Avatar,
   SelectJob,
   SelectSalary,
