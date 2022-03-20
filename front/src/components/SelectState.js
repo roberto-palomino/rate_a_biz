@@ -24,7 +24,7 @@ export const SelectState = (props) => {
         >
           {states.map((state) => (
             <MenuItem key={state.id} value={state.id}>
-              {state.name}
+              {state.nameStates}
             </MenuItem>
           ))}
         </Select>

@@ -19,6 +19,7 @@ import {
   Stack,
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
+import { useLoadBusiness } from '../hooks/useLoadBusiness';
 
 export const SignUp = () => {
   const [mail, setMail] = useState('');
@@ -53,16 +54,21 @@ export const SignUp = () => {
   const pass2Change = (e) => {
     setPass2(e.target.value);
   };
+  /* Función para compara las dos contraseñas */
   let passSame = false;
   const comparePass = () => {
     if (pass2 === pass) {
       passSame = true;
     }
   };
+  /* Variable para controlar el que el campo email sea válido */
   var validEmail =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
       mail
     );
+  /* Creamos un estado registrado. Cuando el usuario se registra se muestra un mensaje */
+  const [registered, setRegistered] = useState('');
+
   const register = async (e) => {
     e.preventDefault();
     try {
@@ -81,6 +87,7 @@ export const SignUp = () => {
         },
       });
       const bodyRes = await res.json();
+      setRegistered('Ok');
     } catch (e) {
       console.error('Ha ocurrido un error', e);
     }
@@ -88,111 +95,120 @@ export const SignUp = () => {
   comparePass();
   return (
     <div>
-      <form id='form'>
-        <FormControl id='email' variant='standard'>
-          <InputLabel htmlFor='email-input'>Email</InputLabel>
-          <Input
-            id='email-input'
-            type='email'
-            value={mail}
-            onChange={mailChange}
-            endAdornment={
-              <InputAdornment position='end'>
-                <AccountCircle />
-              </InputAdornment>
-            }
-            label='Email'
-          />
-          {mail && !validEmail ? (
-            <FormHelperText id='helper-mail-invalid'>
-              Formato de email inválido
-            </FormHelperText>
-          ) : null}
-        </FormControl>
-        <FormControl sx={{ m: 1, width: '25ch' }} variant='outlined'>
-          <InputLabel htmlFor='password'>Contraseña</InputLabel>
-          <Input
-            id='password'
-            type={visibility ? 'text' : 'password'}
-            value={pass}
-            onChange={passChange}
-            endAdornment={
-              <InputAdornment position='end'>
-                <IconButton
-                  aria-label='toggle password visibility'
-                  onClick={visibilityChange}
-                  edge='end'
-                >
-                  {visibility ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-            label='Password'
-          />
-        </FormControl>
-        <FormControl sx={{ m: 1, width: '25ch' }} variant='outlined'>
-          <InputLabel htmlFor='password-repeat'>Repetir contraseña</InputLabel>
-
-          <Input
-            id='password-repeat'
-            type={visibility2 ? 'text' : 'password'}
-            value={pass2}
-            onChange={pass2Change}
-            endAdornment={
-              <InputAdornment position='end'>
-                <IconButton
-                  aria-label='toggle password visibility'
-                  onClick={visibility2Change}
-                  edge='end'
-                >
-                  {visibility2 ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-            label='Password2'
-          />
-          {passSame ? (
-            <FormHelperText id='helper-pass-valid'></FormHelperText>
-          ) : (
-            <FormHelperText id='helper-pass-invalid'>
-              Las contraseñas no coinciden
-            </FormHelperText>
-          )}
-        </FormControl>
-        <FormControl>
-          <FormLabel id='user-type'>Tipo de usuario</FormLabel>
-          <RadioGroup
-            row
-            aria-labelledby='user-type'
-            name='user-type'
-            value={role}
-            onChange={roleChange}
-          >
-            <FormControlLabel
-              value='worker'
-              control={<Radio />}
-              label='Trabajador'
+      {registered ? (
+        <p>
+          Usuario registrado correctamente. <br /> Le hemos enviado un email de
+          confirmación
+        </p>
+      ) : (
+        <form id='form'>
+          <FormControl id='email' variant='standard'>
+            <InputLabel htmlFor='email-input'>Email</InputLabel>
+            <Input
+              id='email-input'
+              type='email'
+              value={mail}
+              onChange={mailChange}
+              endAdornment={
+                <InputAdornment position='end'>
+                  <AccountCircle />
+                </InputAdornment>
+              }
+              label='Email'
             />
-            <FormControlLabel
-              value='business'
-              control={<Radio />}
-              label='Empresa'
+            {mail && !validEmail ? (
+              <FormHelperText id='helper-mail-invalid'>
+                Formato de email inválido
+              </FormHelperText>
+            ) : null}
+          </FormControl>
+          <FormControl sx={{ m: 1, width: '25ch' }} variant='outlined'>
+            <InputLabel htmlFor='password'>Contraseña</InputLabel>
+            <Input
+              id='password'
+              type={visibility ? 'text' : 'password'}
+              value={pass}
+              onChange={passChange}
+              endAdornment={
+                <InputAdornment position='end'>
+                  <IconButton
+                    aria-label='toggle password visibility'
+                    onClick={visibilityChange}
+                    edge='end'
+                  >
+                    {visibility ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label='Password'
             />
-          </RadioGroup>
-        </FormControl>
+          </FormControl>
+          <FormControl sx={{ m: 1, width: '25ch' }} variant='outlined'>
+            <InputLabel htmlFor='password-repeat'>
+              Repetir contraseña
+            </InputLabel>
 
-        <Stack className='filter' width={150} spacing={2}>
-          <Button
-            id='register'
-            variant='outlined'
-            color='secondary'
-            startIcon={<SendIcon />}
-            onClick={register}
-          >
-            Registrarse
-          </Button>
-        </Stack>
-      </form>
+            <Input
+              id='password-repeat'
+              type={visibility2 ? 'text' : 'password'}
+              value={pass2}
+              onChange={pass2Change}
+              endAdornment={
+                <InputAdornment position='end'>
+                  <IconButton
+                    aria-label='toggle password visibility'
+                    onClick={visibility2Change}
+                    edge='end'
+                  >
+                    {visibility2 ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label='Password2'
+            />
+            {passSame ? (
+              <FormHelperText id='helper-pass-valid'></FormHelperText>
+            ) : (
+              <FormHelperText id='helper-pass-invalid'>
+                Las contraseñas no coinciden
+              </FormHelperText>
+            )}
+          </FormControl>
+          <FormControl>
+            <FormLabel id='user-type'>Tipo de usuario</FormLabel>
+            <RadioGroup
+              row
+              aria-labelledby='user-type'
+              name='user-type'
+              value={role}
+              onChange={roleChange}
+            >
+              <FormControlLabel
+                value='worker'
+                control={<Radio />}
+                label='Trabajador'
+              />
+              <FormControlLabel
+                value='business'
+                control={<Radio />}
+                label='Empresa'
+              />
+            </RadioGroup>
+          </FormControl>
+
+          <Stack className='filter' width={200} spacing={2}>
+            <Button
+              id='register'
+              variant='outlined'
+              color='secondary'
+              startIcon={<SendIcon />}
+              onClick={register}
+            >
+              Registrarse
+            </Button>
+          </Stack>
+        </form>
+      )}
     </div>
   );
 };

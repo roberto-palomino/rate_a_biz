@@ -3,6 +3,8 @@ import './App.css';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { TokenContext } from '.';
+import { TopBusiness } from './components/TopBusiness';
+import Header from './components/Header/Header';
 
 function App() {
   const [token] = useContext(TokenContext);
@@ -11,6 +13,7 @@ function App() {
   };
   return (
     <div className='App'>
+<<<<<<< HEAD
       <nav>
         <NavLink
           to='/signup'
@@ -63,6 +66,12 @@ function App() {
           Cerrar sesión
         </button>
       </nav>
+=======
+      <Header />
+      <div className='top-reviews'>
+        <TopBusiness className='top-preview' />
+      </div>
+>>>>>>> 28e62a1f3282db7ca3bb47cc36a691dcd64657e1
     </div>
   );
 }

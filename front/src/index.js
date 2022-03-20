@@ -7,7 +7,11 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SignUp, Login, Profile } from './pages';
 import Search from './pages/Search';
+<<<<<<< HEAD
 import Review from './pages/Review';
+=======
+import { LoginModal } from './components/LoginModal/LoginModal';
+>>>>>>> 28e62a1f3282db7ca3bb47cc36a691dcd64657e1
 
 export const TokenContext = React.createContext();
 const TokenProvider = (props) => {
@@ -26,7 +30,7 @@ ReactDOM.render(
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/signup' element={<SignUp />} />
-          <Route path='/login' element={<Login />} />
+          {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
           <Route path='/search' element={<Search />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/review' element={<Review />} />
