@@ -1,6 +1,7 @@
 import Button from '@mui/material/Button';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import Stack from '@mui/material/Stack';
+import './filter.css';
 
 export default function FilterButton(props) {
   const { filterVisible, setFilterVisible } = props;
@@ -15,6 +16,7 @@ export default function FilterButton(props) {
   return (
     <Stack className='filter' width={150} spacing={2}>
       <Button
+        className='filtrar'
         variant='outlined'
         startIcon={<SearchSharpIcon />}
         onClick={filterChange}

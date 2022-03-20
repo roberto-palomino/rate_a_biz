@@ -4,7 +4,7 @@ import Avatar from '../../Avatar';
 import { TokenContext } from '../../../index';
 import './EditAvatar.css';
 
-const EditAvatar = props => {
+const EditAvatar = (props) => {
   const { user, userId, onUpdated } = props;
   const [token] = useContext(TokenContext);
   const [image, setImage] = useState('');
@@ -30,7 +30,7 @@ const EditAvatar = props => {
     onUpdated && !isEditing && onUpdated(false);
   }, [onUpdated, isEditing]);
 
-  const uploadFile = async e => {
+  const uploadFile = async (e) => {
     e.preventDefault();
     setIsEditing(false);
     try {
@@ -58,7 +58,7 @@ const EditAvatar = props => {
     }
   };
 
-  const onFileChange = event => {
+  const onFileChange = (event) => {
     const imageObj = event.target.files[0];
     setImage(imageObj);
 
