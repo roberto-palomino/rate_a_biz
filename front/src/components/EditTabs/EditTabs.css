@@ -1,8 +1,8 @@
 .tabs-container {
   height: 15rem;
+  width: 20rem;
   display: flex;
   flex-direction: column;
-  text-align: center;
   align-items: center;
   border-radius: 20px;
   background-color: #f8f8f8;
@@ -13,17 +13,12 @@
 }
 
 .tabs-container h2 {
+  margin-top: 0;
   font-size: 2.5rem;
-  width: 20rem;
-}
-
-.tabs-content {
-  text-align: center;
-  border: solid #bdbdbd 1px;
-  border-radius: 20px;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  min-height: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tabs-button {
