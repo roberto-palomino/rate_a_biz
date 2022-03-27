@@ -19,10 +19,19 @@ export default function HalfRating() {
         <Rating name='half-rating' defaultValue={2.5} precision={0.5} />
         Oportunidades
       </Stack>
-      <div>
-        <textarea>¿Cómo valorarías a esta empresa?</textarea>{' '}
-      </div>
-      <button>Enviar</button>
+      <form>
+        <label>
+          Titulo:
+          <input type='text' name='name' />
+        </label>
+        <label>
+          Comentario:
+          <textarea>¿Cómo valorarías a esta empresa?</textarea>{' '}
+        </label>
+        <input type='submit' value='Enviar' />
+      </form>
+      <div></div>
+      {/* <button>Enviar</button> */}
     </>
   );
 }
