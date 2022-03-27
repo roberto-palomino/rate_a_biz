@@ -8,22 +8,41 @@ import Stack from '@mui/material/Stack';
 
 export default function HalfRating() {
   return (
-    <Stack spacing={1}>
-      <Rating name='half-rating' defaultValue={2.5} precision={0.5} />
-      <Rating name='half-rating' defaultValue={2.5} precision={0.5} />
-      <Rating name='half-rating' defaultValue={2.5} precision={0.5} />
-      <Rating name='half-rating' defaultValue={2.5} precision={0.5} />
-    </Stack>
+    <>
+      <Stack spacing={1}>
+        <Rating name='half-rating' defaultValue={2.5} precision={0.5} />
+        Conciliacion
+        <Rating name='half-rating' defaultValue={2.5} precision={0.5} />
+        Ambiente
+        <Rating name='half-rating' defaultValue={2.5} precision={0.5} />
+        Salario
+        <Rating name='half-rating' defaultValue={2.5} precision={0.5} />
+        Oportunidades
+      </Stack>
+      <div>
+        <textarea>¿Cómo valorarías a esta empresa?</textarea>{' '}
+      </div>
+      <button>Enviar</button>
+    </>
   );
 }
-export const Review = ({
-  Avatar,
-  SelectJob,
-  SelectSalary,
-  SelectState,
-  SelectSector,
-}) => {
-  const [id, setId] = useState(id);
 
-  return <div></div>;
-};
+// export const Comment = ({ title, description }) => {
+//   return (
+//     <div>
+//       <textarea>¿Cómo valorarías a esta empresa?</textarea>
+//     </div>
+//   );
+// };
+
+// export const Review = ({
+//   Avatar,
+//   SelectJob,
+//   SelectSalary,
+//   SelectState,
+//   SelectSector,
+// }) => {
+//   const [id, setId] = useState(id);
+
+//   return <div></div>;
+// };
