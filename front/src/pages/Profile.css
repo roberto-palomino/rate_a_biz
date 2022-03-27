@@ -1,6 +1,7 @@
 .main-section {
   display: flex;
-  margin-top: 10rem;
+  justify-content: center;
+  margin-top: 2rem;
   flex-grow: 1;
   gap: 4rem;
 }

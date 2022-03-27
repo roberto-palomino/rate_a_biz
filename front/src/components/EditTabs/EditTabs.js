@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import EditUserForm from '../EditUser/EditUserForm';
 import EditUserPass from '../EditUser/EditUserPass';
+import EditBusinessForm from '../EditUser/EditBusinessForm/EditBusinessForm';
 import './EditTabs.css';
 
 const EditTabs = props => {
-  const { user, userId, onUpdated } = props;
-  const [activeTab, setActiveTab] = useState('personal-data');
+  const { user, userId, onUpdated, userRole, business } = props;
+  const [activeTabUser, setActiveTabUser] = useState(
+    userRole === 'business' ? 'business-data' : 'personal-data'
+  );
 
   return (
     <>
@@ -14,25 +17,36 @@ const EditTabs = props => {
         <button
           className='tabs-button'
           onClick={() => {
-            setActiveTab('personal-data');
+            setActiveTabUser(
+              userRole === 'business' ? 'business-data' : 'personal-data'
+            );
           }}
         >
-          Datos personales
+          Mi Perfil
         </button>
         <button
           className='tabs-button'
           onClick={() => {
-            setActiveTab('password');
+            setActiveTabUser('password');
           }}
         >
           Contraseña
         </button>
       </div>
+
       <div className='tabs-content'>
-        {activeTab === 'personal-data' && (
+        {userRole === 'business' && activeTabUser === 'business-data' && (
+          <EditBusinessForm
+            user={user}
+            userId={userId}
+            onUpdated={onUpdated}
+            business={business}
+          />
+        )}
+        {userRole === 'worker' && activeTabUser === 'personal-data' && (
           <EditUserForm user={user} userId={userId} onUpdated={onUpdated} />
         )}
-        {activeTab === 'password' && (
+        {activeTabUser === 'password' && (
           <EditUserPass user={user} userId={userId} />
         )}
       </div>

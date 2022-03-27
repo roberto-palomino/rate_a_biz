@@ -1,9 +1,10 @@
 .user-data-form-pass {
   display: flex;
   flex-direction: column;
-  margin-top: 4rem;
+  align-items: center;
+  margin-top: 1rem;
   margin-bottom: 2rem;
-  padding: 1rem;
+  padding-top: 1rem;
 }
 
 .user-data-form-pass input {
@@ -17,10 +18,11 @@
 .user-data-form-pass label {
   display: flex;
   align-items: center;
-  justify-content: center;
   width: 10rem;
+  height: 1.5rem;
 }
 
-.no-display-label {
-  display: hidden;
+.align-label {
+  display: flex;
+  align-items: center;
 }

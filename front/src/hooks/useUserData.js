@@ -5,6 +5,7 @@ const useUserData = (token, hasUpdated) => {
   const [user, setUser] = useState({});
   const decodedToken = decodeTokenData(token);
   const userId = decodedToken?.id;
+  const userRole = decodedToken?.role;
 
   const getUserData = useCallback(async () => {
     const urlUserData = `http://localhost:4000/users/${userId}`;
@@ -16,7 +17,6 @@ const useUserData = (token, hasUpdated) => {
       });
       const responseData = await response.json();
       const userData = responseData.data.user;
-
       setUser(userData);
     } catch (error) {
       console.error(error);
@@ -29,7 +29,7 @@ const useUserData = (token, hasUpdated) => {
     }
   }, [getUserData, token, hasUpdated]);
 
-  return { user, setUser, userId };
+  return { user, setUser, userId, userRole };
 };
 
 export default useUserData;
