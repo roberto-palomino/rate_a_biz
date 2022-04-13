@@ -1,10 +1,11 @@
 import { useEffect, useState, useCallback, useContext } from 'react';
-import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+
+import BackupIcon from '@material-ui/icons/Backup';
 import Avatar from '../../Avatar';
 import { TokenContext } from '../../../index';
 import './EditAvatar.css';
 
-const EditAvatar = (props) => {
+const EditAvatar = props => {
   const { user, userId, onUpdated } = props;
   const [token] = useContext(TokenContext);
   const [image, setImage] = useState('');
@@ -30,7 +31,7 @@ const EditAvatar = (props) => {
     onUpdated && !isEditing && onUpdated(false);
   }, [onUpdated, isEditing]);
 
-  const uploadFile = async (e) => {
+  const uploadFile = async e => {
     e.preventDefault();
     setIsEditing(false);
     try {
@@ -58,7 +59,7 @@ const EditAvatar = (props) => {
     }
   };
 
-  const onFileChange = (event) => {
+  const onFileChange = event => {
     const imageObj = event.target.files[0];
     setImage(imageObj);
 
@@ -79,8 +80,8 @@ const EditAvatar = (props) => {
           />
         </div>
         <label className='label-avatar' htmlFor='input-avatar'>
-          <AddAPhotoIcon fontSize='medium' />
-          Selecciona una imagen
+          <BackupIcon fontSize='medium' />
+          Selecciona una foto
           {isEditing && <ShowButtonAvatar />}
         </label>
         <input
