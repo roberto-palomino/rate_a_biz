@@ -86,18 +86,17 @@ const EditUserPass = props => {
             }}
           />
         </FormControl>
-
-        <div className='tabs-content-button'>
-          <button
-            className='form-button'
-            type='submit'
-            value='Guardar cambios'
-            onClick={handleEditForm}
-          >
-            {buttonMessage}
-          </button>
-        </div>
       </form>
+      <div className='tabs-content-button'>
+        <button
+          className='form-button'
+          type='submit'
+          value='Guardar cambios'
+          onClick={handleEditForm}
+        >
+          {buttonMessage}
+        </button>
+      </div>
     </div>
   );
 };
