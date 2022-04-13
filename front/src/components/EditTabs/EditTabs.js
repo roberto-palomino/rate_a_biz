@@ -71,7 +71,6 @@ const EditTabs = props => {
         {activeTabUser === 'edit-avatar' && (
           <EditAvatar user={user} userId={userId} onUpdated={onUpdated} />
         )}
-        {/* </div> */}
       </div>
     </div>
   );
