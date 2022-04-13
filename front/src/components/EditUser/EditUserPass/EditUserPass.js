@@ -1,17 +1,17 @@
 import { useState, useContext } from 'react';
 import { TokenContext } from '../../../index';
-import Avatar from '../../Avatar';
-import './EditUserPass.css';
+
+import { FormControl, FormHelperText, Input } from '@material-ui/core';
+import { InputLabel } from '@material-ui/core';
 
 const EditUserPass = props => {
-  const { user, userId } = props;
+  const { userId } = props;
   const [token] = useContext(TokenContext);
 
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [buttonMessage, setButtonMessage] = useState('Editar datos');
-  const avatarUrl = `http://localhost:4000/static/uploads/${user?.avatar}`;
 
   const updateUserPass = async e => {
     e.preventDefault();
@@ -54,48 +54,49 @@ const EditUserPass = props => {
   }
 
   return (
-    <div className='information-form'>
-      {user && (
-        <Avatar avatarUrl={avatarUrl} username={user?.username} size='medium' />
-      )}
+    <div>
       <form className='user-data-form-pass' onSubmit={updateUserPass}>
-        <div className='align-label'>
-          <label htmlFor='oldPassword'>Antigua contraseña</label>
-          <input
-            disabled={!isEditing}
+        <FormControl>
+          <InputLabel htmlFor='oldPassword'></InputLabel>
+          <FormHelperText>Antigua contraseña</FormHelperText>
+          <Input
             id='oldPassword'
+            disabled={!isEditing}
             name='password'
             type='text'
             value={oldPassword}
-            placeholder='Escriba su antigua contraseña...'
+            placeholder='***********'
             onChange={e => {
               setOldPassword(e.target.value);
             }}
           />
-        </div>
-        <div className='align-label'>
-          <label htmlFor='password'>Nueva contraseña</label>
-          <input
-            disabled={!isEditing}
+        </FormControl>
+
+        <FormControl>
+          <InputLabel htmlFor='password' />
+          <FormHelperText>Nueva contraseña</FormHelperText>
+          <Input
             id='password'
+            disabled={!isEditing}
             name='password'
             type='text'
             value={newPassword}
-            placeholder='Escriba su nueva contraseña...'
             onChange={e => {
               setNewPassword(e.target.value);
             }}
           />
-        </div>
+        </FormControl>
 
-        <button
-          className='form-button'
-          type='submit'
-          value='Guardar cambios'
-          onClick={handleEditForm}
-        >
-          {buttonMessage}
-        </button>
+        <div className='tabs-content-button'>
+          <button
+            className='form-button'
+            type='submit'
+            value='Guardar cambios'
+            onClick={handleEditForm}
+          >
+            {buttonMessage}
+          </button>
+        </div>
       </form>
     </div>
   );
