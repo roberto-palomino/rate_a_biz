@@ -1,6 +1,5 @@
 import React from 'react';
 import EditTabs from '../EditTabs';
-
 import './EditUser.css';
 
 function EditUser(props) {
@@ -8,6 +7,7 @@ function EditUser(props) {
 
   return (
     <div className='main-section'>
+      <h2 className='title'>Mi cuenta</h2>
       <EditTabs
         user={user}
         userId={userId}
