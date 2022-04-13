@@ -1,6 +1,6 @@
+import { FormControl, Input, InputLabel } from '@material-ui/core';
 import { useState, useEffect, useContext } from 'react';
 import { TokenContext } from '../../../index';
-import EditAvatar from '../EditAvatar';
 
 const EditUserForm = props => {
   const { user, userId, onUpdated } = props;
@@ -69,14 +69,13 @@ const EditUserForm = props => {
   }
 
   return (
-    <div className='information-form'>
-      {user && <EditAvatar user={user} userId={userId} onUpdated={onUpdated} />}
+    <div>
       <form className='user-data-form'>
-        <div className='align-label'>
-          <label htmlFor='username'>Usuario</label>
-          <input
-            disabled={!isEditing}
+        <FormControl>
+          <InputLabel htmlFor='username'>Usuario</InputLabel>
+          <Input
             id='username'
+            disabled={!isEditing}
             name='username'
             type='text'
             value={username}
@@ -85,54 +84,61 @@ const EditUserForm = props => {
               setUserName(e.target.value);
             }}
           />
-        </div>
-        <div className='align-label'>
-          <label htmlFor='email'>Email</label>
-          <input
-            disabled={!isEditing}
+        </FormControl>
+
+        <FormControl>
+          <InputLabel htmlFor='email'>Email</InputLabel>
+          <Input
             id='email'
+            disabled={!isEditing}
             name='email'
-            type='email'
-            placeholder='Escriba aquí su email...'
+            type='text'
             value={newEmail}
+            placeholder='Escriba su nombre de usuario...'
             onChange={e => {
               setNewEmail(e.target.value);
             }}
           />
-        </div>
+        </FormControl>
 
-        <div className='align-label'>
-          <label htmlFor='name'>Nombre</label>
-          <input
-            disabled={!isEditing}
+        <FormControl>
+          <InputLabel htmlFor='name'>Nombre</InputLabel>
+          <Input
             id='name'
+            disabled={!isEditing}
             name='name'
             type='text'
-            placeholder='Escriba aquí su nombre...'
             value={name}
+            placeholder='Escriba su nombre de usuario...'
             onChange={e => {
               setName(e.target.value);
             }}
           />
-        </div>
-        <div className='align-label'>
-          <label htmlFor='lastname'>Apellidos</label>
-          <input
-            disabled={!isEditing}
+        </FormControl>
+
+        <FormControl>
+          <InputLabel htmlFor='lastname'>Apellidos</InputLabel>
+          <Input
             id='lastname'
-            name='Apellidos'
+            disabled={!isEditing}
+            name='lastname'
             type='text'
-            placeholder='Escriba aquí sus apellidos...'
             value={lastname}
+            placeholder='Escriba su nombre de usuario...'
             onChange={e => {
               setLastName(e.target.value);
             }}
           />
+        </FormControl>
+        <div className='tabs-content-button'>
+          <button
+            className='form-button'
+            type='submit'
+            onClick={handleEditForm}
+          >
+            {buttonMessage}
+          </button>
         </div>
-
-        <button className='form-button' type='submit' onClick={handleEditForm}>
-          {buttonMessage}
-        </button>
       </form>
     </div>
   );
