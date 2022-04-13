@@ -1,34 +1,65 @@
 .tabs-container {
-  height: 15rem;
-  width: 20rem;
+  min-width: 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 20px;
-  background-color: #f8f8f8;
-  border: solid #bdbdbd 1px;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+  gap: 0.5rem;
 }
 
-.tabs-container h2 {
-  margin-top: 0;
-  font-size: 2.5rem;
-  min-height: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.tabs-content {
+  height: fit-content;
+  /* flex: 1;
+  display: flex; */
+}
+
+.tabs-content-button {
+  margin-left: 6rem;
+  margin-top: 2rem;
+  margin: 2rem auto 2rem 6rem;
+  width: fit-content;
+}
+
+.avatar-tabs-container {
+  margin-left: 4rem;
+  padding: 3rem;
+}
+
+.avatar-tabs-container img {
+  border: none;
+  box-shadow: none;
+}
+
+.avatar-tabs-container figcaption {
+  display: none;
 }
 
 .tabs-button {
-  width: 15rem;
+  width: 100%;
   height: 2rem;
+  max-height: 2rem;
   margin-top: 0.5rem;
   border-radius: 5px;
+  border: solid #bdbdbd 1px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .tabs-button:hover {
   background-color: rgb(224, 220, 220);
   cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .tabs {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .tabs-content {
+    /* border: 2px solid red; */
+  }
+
+  .tabs-button {
+    width: 15rem;
+  }
 }
