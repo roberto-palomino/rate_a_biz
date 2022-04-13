@@ -194,16 +194,16 @@ const EditBusinessForm = props => {
               />
             </FormControl>
           )}
-          <div className='tabs-content-button'>
-            <button
-              className='form-button'
-              type='submit'
-              onClick={handleEditForm}
-            >
-              {buttonMessage}
-            </button>
-          </div>
         </form>
+        <div className='tabs-content-button'>
+          <button
+            className='form-button'
+            type='submit'
+            onClick={handleEditForm}
+          >
+            {buttonMessage}
+          </button>
+        </div>
       </div>
     </>
   );
