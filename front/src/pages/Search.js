@@ -9,6 +9,7 @@ import { SelectSalary } from '../components/SelectSalary';
 import { SelectSector } from '../components/SelectSector';
 import { SelectState } from '../components/SelectState';
 import { BusinessPreview } from './BusinesPreview';
+import ApplyButton from '../components/ApplyButton';
 
 function Search() {
   const [filterVisible, setFilterVisible] = useState('');
@@ -18,8 +19,15 @@ function Search() {
   const [selectedSector, setSelectedSector] = useState(null);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [orderBy, setOrderBy] = useState(null);
+
+  const [filterBusiness, setFilterBusiness] = useState('');
   console.log(selectedOrder);
 
+  console.log('trabajo', selectedJob);
+
+  console.log('estado', selectedState);
+  console.log('salario', selectedSalary);
+  console.log('orden', orderBy);
   return (
     <div className='search'>
       <div className='filter'>
@@ -34,6 +42,16 @@ function Search() {
             <SelectJob setSelectedJob={setSelectedJob} />
             <SelectSalary setSelectedSalary={setSelectedSalary} />
             <SelectSector setSelectedSector={setSelectedSector} />
+            <ApplyButton
+              selectedState={selectedState}
+              selectedJob={selectedJob}
+              selectedSalary={selectedSalary}
+              selectedSector={selectedSector}
+              orderBy={orderBy}
+              direction={selectedOrder}
+              filterBusiness={filterBusiness}
+              setFilterBusiness={setFilterBusiness}
+            />
           </>
         ) : null}
 
@@ -42,7 +60,7 @@ function Search() {
         <Order setSelectedOrder={setSelectedOrder} />
       </div>
       <div className='reviews'>
-        <BusinessPreview className='preview' />
+        <BusinessPreview className='preview' filterBusiness={filterBusiness} />
       </div>
     </div>
   );

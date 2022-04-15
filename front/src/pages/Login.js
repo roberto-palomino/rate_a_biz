@@ -78,7 +78,7 @@ export const Login = () => {
             label='Email'
           />
         </FormControl>
-        <FormControl sx={{ m: 1, width: '25ch' }} variant='outlined'>
+        <FormControl sx={{ m: 1, width: '25ch' }} variant='standard'>
           <InputLabel htmlFor='password-login'>Contraseña</InputLabel>
           <Input
             id='password-login'
@@ -100,15 +100,15 @@ export const Login = () => {
           />
         </FormControl>
 
-        <Stack className='filter' width={150} spacing={2}>
+        <Stack className='filter' width={200} spacing={2}>
           <Button
             id='register-login'
             variant='outlined'
             color='primary'
-            startIcon={<SendIcon />}
+            endIcon={<SendIcon />}
             onClick={register}
           >
-            Iniciar sesión
+            Iniciar Sesión
           </Button>
         </Stack>
       </form>

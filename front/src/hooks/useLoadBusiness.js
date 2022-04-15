@@ -4,7 +4,7 @@ export function useLoadBusiness() {
   const loadBusiness = async () => {
     try {
       const res = await fetch('http://localhost:4000/business', {
-        method: 'GET',
+        method: 'POST',
       });
       const body = await res.json();
 
@@ -16,5 +16,6 @@ export function useLoadBusiness() {
   useEffect(() => {
     loadBusiness();
   }, []);
+
   return [business, setBusiness];
 }
