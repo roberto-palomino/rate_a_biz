@@ -4,6 +4,7 @@ import useUserData from '../hooks/useUserData';
 import useBusinessData from '../hooks/useBusinessData';
 import { TokenContext } from '../index';
 import './Profile.css';
+import Header from '../components/Header/Header';
 
 export const Profile = () => {
   const [hasUpdated, setHasUpdated] = useState(false);
@@ -12,14 +13,17 @@ export const Profile = () => {
   const { business } = useBusinessData(token, hasUpdated);
 
   return (
-    <div>
-      <EditUser
-        user={user}
-        userId={userId}
-        onUpdated={setHasUpdated}
-        userRole={userRole}
-        business={business}
-      />
-    </div>
+    <>
+      <Header />
+      <div>
+        <EditUser
+          user={user}
+          userId={userId}
+          onUpdated={setHasUpdated}
+          userRole={userRole}
+          business={business}
+        />
+      </div>
+    </>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import './Avatar.css';
 import avatarLogo from '../../assets/images/default-avatar.jpeg';
 
-const Avatar = props => {
+const Avatar = (props) => {
   const { avatarUrl, username, size, figcaption } = props;
   return (
     <>

@@ -1,3 +1,7 @@
+/* .search {
+  background-color: rgb(59, 123, 159);
+}
+ */
 #order {
   min-width: 20px;
   padding: 5px;
@@ -15,9 +19,11 @@
 .filter {
   display: flex;
   flex-direction: row;
-  padding: 1rem;
+  padding: 1rem 2.5rem;
   justify-content: center;
+  align-items: center;
 }
+
 .reviews {
   display: flex;
   flex-direction: column;
@@ -71,4 +77,8 @@ h3 {
 h5 {
   font-size: 20px;
   font-weight: 400;
+}
+
+.profile-link {
+  font-size: medium;
 }

@@ -1,7 +1,25 @@
 a {
   text-decoration: none;
-  font-size: xx-large;
+  font-size: large;
   display: flex;
   align-items: center;
   color: rgb(59, 123, 159);
+}
+
+button {
+  text-decoration: none;
+  font-size: medium;
+  display: flex;
+  align-items: center;
+  color: rgb(59, 123, 159);
+  border: none;
+  background-color: rgb(253, 242, 242);
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }

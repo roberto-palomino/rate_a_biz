@@ -9,6 +9,8 @@ import { SignUp, Login, Profile } from './pages';
 import Search from './pages/Search';
 import { LoginModal } from './components/LoginModal/LoginModal';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { BusinessProfile } from './pages/BusinessProfile';
+import { GlobalStyles } from '@mui/material';
 
 const theme = createTheme({
   palette: {
@@ -55,6 +57,7 @@ ReactDOM.render(
             {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
             <Route path='/search' element={<Search />} />
             <Route path='/profile' element={<Profile />} />
+            <Route path='/businessProfile' element={<BusinessProfile />} />
           </Routes>
         </BrowserRouter>
       </TokenProvider>
