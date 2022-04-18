@@ -32,6 +32,21 @@ export default function HalfRating() {
       </form>
       <div></div>
       {/* <button>Enviar</button> */}
+      {/* {business.map((business) => (
+        <div className='preview' key={business.id}>
+          <Preview
+            key={business.id}
+            enviroment={business.enviroment}
+            conciliation={business.conciliation}
+            oportunities={business.oportunities}
+            salary={business.salary}
+            title={business.title}
+            description={business.description}
+            stateName={business.nameStates}
+            bussinesName={business.name}
+          />
+        </div> */}
+      {/* ))} */}
     </>
   );
 }
