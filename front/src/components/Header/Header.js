@@ -11,7 +11,7 @@ const Header = () => {
   };
   return (
     <header>
-      <a href='https://imgbb.com/' className='logo'>
+      <a href='/' className='logo'>
         <img
           src='https://i.ibb.co/KmZ0GVL/Logo-Grande.png'
           alt='Logo-Grande'
