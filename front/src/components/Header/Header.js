@@ -37,6 +37,15 @@ const Header = () => {
             Perfil de Usuario
           </NavLink>
         ) : null}{' '}
+        {token ? (
+          <NavLink
+            to='/review'
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            className='link'
+          >
+            Añadir valoración
+          </NavLink>
+        ) : null}{' '}
         {/* QUITAR EL BORRADO DE LOCAL STORAGE */}
         {token ? (
           <button
