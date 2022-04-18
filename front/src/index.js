@@ -47,20 +47,6 @@ const TokenProvider = (props) => {
 
 ReactDOM.render(
   <React.StrictMode>
-<<<<<<< HEAD
-    <TokenProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<App />} />
-          <Route path='/signup' element={<SignUp />} />
-          {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
-          <Route path='/search' element={<Search />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/review' element={<Review />} />
-        </Routes>
-      </BrowserRouter>
-    </TokenProvider>
-=======
     <ThemeProvider theme={theme}>
       <TokenProvider>
         <BrowserRouter>
@@ -70,11 +56,11 @@ ReactDOM.render(
             {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
             <Route path='/search' element={<Search />} />
             <Route path='/profile' element={<Profile />} />
+            <Route path='/review' element={<Review />} />
           </Routes>
         </BrowserRouter>
       </TokenProvider>
     </ThemeProvider>
->>>>>>> fc3cffd2d86de105c03dca0da09f8b1ffae1e471
   </React.StrictMode>,
   document.getElementById('root')
 );
