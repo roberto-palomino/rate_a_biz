@@ -9,6 +9,31 @@ import { SignUp, Login, Profile } from './pages';
 import Search from './pages/Search';
 import Review from './pages/Review';
 import { LoginModal } from './components/LoginModal/LoginModal';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#3b7b9f',
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+        },
+      },
+    },
+    MuiRating: {
+      styleOverrides: {
+        root: {
+          /*   color: '#3b7b9f', */
+        },
+      },
+    },
+  },
+});
 
 export const TokenContext = React.createContext();
 const TokenProvider = (props) => {
@@ -22,6 +47,7 @@ const TokenProvider = (props) => {
 
 ReactDOM.render(
   <React.StrictMode>
+<<<<<<< HEAD
     <TokenProvider>
       <BrowserRouter>
         <Routes>
@@ -34,6 +60,21 @@ ReactDOM.render(
         </Routes>
       </BrowserRouter>
     </TokenProvider>
+=======
+    <ThemeProvider theme={theme}>
+      <TokenProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<App />} />
+            <Route path='/signup' element={<SignUp />} />
+            {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
+            <Route path='/search' element={<Search />} />
+            <Route path='/profile' element={<Profile />} />
+          </Routes>
+        </BrowserRouter>
+      </TokenProvider>
+    </ThemeProvider>
+>>>>>>> fc3cffd2d86de105c03dca0da09f8b1ffae1e471
   </React.StrictMode>,
   document.getElementById('root')
 );
