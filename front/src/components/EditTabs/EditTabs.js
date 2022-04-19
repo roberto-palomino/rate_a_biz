@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import EditUserForm from '../EditUser/EditUserForm';
 import EditUserPass from '../EditUser/EditUserPass';
 import EditBusinessForm from '../EditUser/EditBusinessForm/EditBusinessForm';
-import { Tab } from '@material-ui/core';
+import Tab from '@mui/material/Tab';
 import Avatar from '../Avatar';
 import EditAvatar from '../EditUser/EditAvatar';
 import './EditTabs.css';
@@ -67,7 +67,7 @@ const EditTabs = props => {
         {activeTabUser === 'password' && (
           <EditUserPass user={user} userId={userId} />
         )}
-        {/* <div className='avatar-tabs-container'> */}
+
         {activeTabUser === 'edit-avatar' && (
           <EditAvatar user={user} userId={userId} onUpdated={onUpdated} />
         )}
