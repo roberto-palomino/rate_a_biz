@@ -1,8 +1,6 @@
 import { useState, useContext } from 'react';
 import { TokenContext } from '../../../index';
-
-import { FormControl, FormHelperText, Input } from '@material-ui/core';
-import { InputLabel } from '@material-ui/core';
+import { TextField } from '@mui/material';
 
 const EditUserPass = props => {
   const { userId } = props;
@@ -56,36 +54,27 @@ const EditUserPass = props => {
   return (
     <div>
       <form className='user-data-form-pass' onSubmit={updateUserPass}>
-        <FormControl>
-          <InputLabel htmlFor='oldPassword'></InputLabel>
-          <FormHelperText>Antigua contraseña</FormHelperText>
-          <Input
-            id='oldPassword'
-            disabled={!isEditing}
-            name='password'
-            type='text'
-            value={oldPassword}
-            placeholder='***********'
-            onChange={e => {
-              setOldPassword(e.target.value);
-            }}
-          />
-        </FormControl>
+        <TextField
+          label='Antigua contraseña'
+          variant='standard'
+          multiline
+          disabled={!isEditing}
+          value={oldPassword}
+          placeholder='***********'
+          onChange={e => {
+            setOldPassword(e.target.value);
+          }}
+        />
 
-        <FormControl>
-          <InputLabel htmlFor='password' />
-          <FormHelperText>Nueva contraseña</FormHelperText>
-          <Input
-            id='password'
-            disabled={!isEditing}
-            name='password'
-            type='text'
-            value={newPassword}
-            onChange={e => {
-              setNewPassword(e.target.value);
-            }}
-          />
-        </FormControl>
+        <TextField
+          label='Nueva contraseña'
+          variant='standard'
+          disabled={!isEditing}
+          value={newPassword}
+          onChange={e => {
+            setNewPassword(e.target.value);
+          }}
+        />
       </form>
       <div className='tabs-content-button'>
         <button
