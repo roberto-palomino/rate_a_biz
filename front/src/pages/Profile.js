@@ -3,6 +3,7 @@ import EditUser from '../components/EditUser';
 import useUserData from '../hooks/useUserData';
 import useBusinessData from '../hooks/useBusinessData';
 import { TokenContext } from '../index';
+import Header from '../components/Header/Header';
 import './Profile.css';
 
 export const Profile = () => {
@@ -13,6 +14,7 @@ export const Profile = () => {
 
   return (
     <div>
+      <Header />
       <EditUser
         user={user}
         userId={userId}
