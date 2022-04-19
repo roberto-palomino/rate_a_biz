@@ -3,9 +3,9 @@ import { TokenContext } from '../../../index';
 import BusinessSelect from './BusinessSelect';
 import { useLoadSectors } from '../../../hooks/useLoadSectors';
 import { useLoadStates } from '../../../hooks/useLoadStates';
-import { FormControl, Input } from '@material-ui/core';
-import { InputLabel } from '@material-ui/core';
-import MenuItem from '@material-ui/core/MenuItem';
+
+import MenuItem from '@mui/material/MenuItem';
+import { TextField } from '@mui/material';
 import './EditBusinessForm.css';
 
 const EditBusinessForm = props => {
@@ -101,98 +101,74 @@ const EditBusinessForm = props => {
     <>
       <div>
         <form className='business-data-form'>
-          <FormControl>
-            <InputLabel htmlFor='username'>Usuario</InputLabel>
-            <Input
-              id='username'
-              disabled={!isEditing}
-              name='username'
-              type='text'
-              value={username}
-              placeholder='Escriba su nombre de usuario...'
-              onChange={e => {
-                setUserName(e.target.value);
-              }}
-            />
-          </FormControl>
+          <TextField
+            label='Usuario'
+            variant='standard'
+            disabled={!isEditing}
+            value={username}
+            onChange={e => {
+              setUserName(e.target.value);
+            }}
+          />
 
-          <FormControl>
-            <InputLabel htmlFor='email'>Email</InputLabel>
-            <Input
-              id='email'
-              disabled={!isEditing}
-              name='email'
-              type='text'
-              value={email}
-              placeholder='Escriba aquí su email...'
-              onChange={e => {
-                setEmail(e.target.value);
-              }}
-            />
-          </FormControl>
+          <TextField
+            label='Email'
+            variant='standard'
+            disabled={!isEditing}
+            value={email}
+            onChange={e => {
+              setEmail(e.target.value);
+            }}
+          />
 
-          <FormControl>
-            <InputLabel htmlFor='name'>Nombre</InputLabel>
-            <Input
-              id='name'
-              disabled={!isEditing}
-              name='name'
-              type='text'
-              value={name}
-              placeholder='Escriba aquí su name...'
-              onChange={e => {
-                setName(e.target.value);
-              }}
-            />
-          </FormControl>
+          <TextField
+            label='Nombre'
+            variant='standard'
+            disabled={!isEditing}
+            value={name}
+            onChange={e => {
+              setName(e.target.value);
+            }}
+          />
 
-          <FormControl>
-            <InputLabel htmlFor='url_Web'>Sitio web</InputLabel>
-            <Input
-              id='url_Web'
-              disabled={!isEditing}
-              name='url_Web'
-              type='text'
-              value={url_Web}
-              placeholder='Escriba aquí su página web...'
-              onChange={e => {
-                setUrl_Web(e.target.value);
-              }}
-            />
-          </FormControl>
+          <TextField
+            label='Sitio web'
+            variant='standard'
+            disabled={!isEditing}
+            value={url_Web}
+            onChange={e => {
+              setUrl_Web(e.target.value);
+            }}
+          />
 
           {states.length > 0 && (
-            <FormControl>
-              <BusinessSelect
-                disabled={!isEditing}
-                selectItem={selectState}
-                setSelectItem={setSelectState}
-                inputId={'state'}
-                label={'Sede'}
-                options={states.map(state => (
-                  <MenuItem key={state.id} value={state.nameState}>
-                    {state.nameState}
-                  </MenuItem>
-                ))}
-              />
-            </FormControl>
+            <BusinessSelect
+              disabled={!isEditing}
+              selectItem={selectState}
+              setSelectItem={setSelectState}
+              inputId={'state'}
+              label={'Sede'}
+              options={states.map(state => (
+                <MenuItem key={state.id} value={state.nameState}>
+                  {state.nameState}
+                </MenuItem>
+              ))}
+            />
           )}
 
           {sectors.length > 0 && (
-            <FormControl>
-              <BusinessSelect
-                disabled={!isEditing}
-                selectItem={selectSector}
-                setSelectItem={setSelectSector}
-                inputId={'sector'}
-                label={'Sector'}
-                options={sectors.map(sector => (
-                  <MenuItem key={sector.id} value={sector.name}>
-                    {sector.name}
-                  </MenuItem>
-                ))}
-              />
-            </FormControl>
+            <BusinessSelect
+              disabled={!isEditing}
+              selectItem={selectSector}
+              setSelectItem={setSelectSector}
+              inputId={'sector'}
+              label={'Sector'}
+              options={sectors.map(sector => (
+                <MenuItem key={sector.id} value={sector.name}>
+                  {sector.name}
+                </MenuItem>
+              ))}
+            />
           )}
         </form>
         <div className='tabs-content-button'>
