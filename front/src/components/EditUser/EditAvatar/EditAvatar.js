@@ -1,5 +1,4 @@
 import { useEffect, useState, useCallback, useContext } from 'react';
-
 import BackupIcon from '@material-ui/icons/Backup';
 import Avatar from '../../Avatar';
 import { TokenContext } from '../../../index';
