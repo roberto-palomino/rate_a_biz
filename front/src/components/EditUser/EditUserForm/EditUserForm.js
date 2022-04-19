@@ -1,6 +1,6 @@
-import { FormControl, Input, InputLabel } from '@material-ui/core';
 import { useState, useEffect, useContext } from 'react';
 import { TokenContext } from '../../../index';
+import { TextField } from '@mui/material';
 
 const EditUserForm = props => {
   const { user, userId, onUpdated } = props;
@@ -71,65 +71,42 @@ const EditUserForm = props => {
   return (
     <div>
       <form className='user-data-form'>
-        <FormControl>
-          <InputLabel htmlFor='username'>Usuario</InputLabel>
-          <Input
-            id='username'
-            disabled={!isEditing}
-            name='username'
-            type='text'
-            value={username}
-            placeholder='Escriba su nombre de usuario...'
-            onChange={e => {
-              setUserName(e.target.value);
-            }}
-          />
-        </FormControl>
-
-        <FormControl>
-          <InputLabel htmlFor='email'>Email</InputLabel>
-          <Input
-            id='email'
-            disabled={!isEditing}
-            name='email'
-            type='text'
-            value={newEmail}
-            placeholder='Escriba su nombre de usuario...'
-            onChange={e => {
-              setNewEmail(e.target.value);
-            }}
-          />
-        </FormControl>
-
-        <FormControl>
-          <InputLabel htmlFor='name'>Nombre</InputLabel>
-          <Input
-            id='name'
-            disabled={!isEditing}
-            name='name'
-            type='text'
-            value={name}
-            placeholder='Escriba su nombre de usuario...'
-            onChange={e => {
-              setName(e.target.value);
-            }}
-          />
-        </FormControl>
-
-        <FormControl>
-          <InputLabel htmlFor='lastname'>Apellidos</InputLabel>
-          <Input
-            id='lastname'
-            disabled={!isEditing}
-            name='lastname'
-            type='text'
-            value={lastname}
-            placeholder='Escriba su nombre de usuario...'
-            onChange={e => {
-              setLastName(e.target.value);
-            }}
-          />
-        </FormControl>
+        <TextField
+          label='Usuario'
+          variant='standard'
+          disabled={!isEditing}
+          value={username}
+          onChange={e => {
+            setUserName(e.target.value);
+          }}
+        />
+        <TextField
+          label='Email'
+          variant='standard'
+          disabled={!isEditing}
+          value={newEmail}
+          onChange={e => {
+            setNewEmail(e.target.value);
+          }}
+        />
+        <TextField
+          label='Nombre'
+          variant='standard'
+          disabled={!isEditing}
+          value={name}
+          onChange={e => {
+            setName(e.target.value);
+          }}
+        />
+        <TextField
+          label='Apellidos'
+          variant='standard'
+          disabled={!isEditing}
+          value={lastname}
+          onChange={e => {
+            setLastName(e.target.value);
+          }}
+        />
       </form>
       <div className='tabs-content-button'>
         <button className='form-button' type='submit' onClick={handleEditForm}>
