@@ -25,7 +25,8 @@ const EditTabs = props => {
         <Avatar
           avatarUrl={avatarUrl}
           username={user?.username}
-          figcaption={user.username}
+          // hideFigCaption
+          // figcaption={user.username}
           size='medium'
         />
 
