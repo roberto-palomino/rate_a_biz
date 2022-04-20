@@ -149,8 +149,8 @@ const EditBusinessForm = props => {
               inputId={'state'}
               label={'Sede'}
               options={states.map(state => (
-                <MenuItem key={state.id} value={state.nameState}>
-                  {state.nameState}
+                <MenuItem key={state.id} value={state.nameStates}>
+                  {state.nameStates}
                 </MenuItem>
               ))}
             />
