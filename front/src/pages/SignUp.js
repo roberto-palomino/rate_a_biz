@@ -122,7 +122,7 @@ export const SignUp = () => {
               </FormHelperText>
             ) : null}
           </FormControl>
-          <FormControl sx={{ m: 1, width: '25ch' }} variant='outlined'>
+          <FormControl sx={{ m: 1, width: '25ch' }} variant='standard'>
             <InputLabel htmlFor='password'>Contraseña</InputLabel>
             <Input
               id='password'
@@ -143,7 +143,7 @@ export const SignUp = () => {
               label='Password'
             />
           </FormControl>
-          <FormControl sx={{ m: 1, width: '25ch' }} variant='outlined'>
+          <FormControl sx={{ m: 1, width: '25ch' }} variant='standard'>
             <InputLabel htmlFor='password-repeat'>
               Repetir contraseña
             </InputLabel>
@@ -198,10 +198,10 @@ export const SignUp = () => {
 
           <Stack className='filter' width={200} spacing={2}>
             <Button
-              id='register'
+              id='register-signUp'
               variant='outlined'
-              color='secondary'
-              startIcon={<SendIcon />}
+              color='primary'
+              endIcon={<SendIcon />}
               onClick={register}
             >
               Registrarse

@@ -6,7 +6,7 @@ import Select from '@mui/material/Select';
 
 export const SelectJob = (props) => {
   const [jobs] = useLoadJobs();
-  const { setSelectedJob } = props;
+  const { selectedJob, setSelectedJob } = props;
   const jobChange = (e) => {
     setSelectedJob(e.target.value);
   };
@@ -18,7 +18,7 @@ export const SelectJob = (props) => {
         <Select
           labelId='Trabajo'
           id='Trabajo'
-          value={''}
+          value={selectedJob}
           label='Trabajo'
           onChange={jobChange}
         >

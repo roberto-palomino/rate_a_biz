@@ -18,7 +18,7 @@ body {
   display: grid;
 
   grid-template-columns: 1fr 1fr;
-  background-color: rgb(196, 196, 196);
+  background-color: rgb(253, 242, 242);
   margin: 3rem;
 }
 

@@ -1,6 +1,7 @@
 import { Login } from '../../pages';
 import './LoginModal.css';
 import close from '../../assets/images/close.png';
+
 export const LoginModal = () => {
   return (
     <>

@@ -13,15 +13,17 @@ export const Profile = () => {
   const { business } = useBusinessData(token, hasUpdated);
 
   return (
-    <div>
+    <>
       <Header />
-      <EditUser
-        user={user}
-        userId={userId}
-        onUpdated={setHasUpdated}
-        userRole={userRole}
-        business={business}
-      />
-    </div>
+      <div>
+        <EditUser
+          user={user}
+          userId={userId}
+          onUpdated={setHasUpdated}
+          userRole={userRole}
+          business={business}
+        />
+      </div>
+    </>
   );
 };

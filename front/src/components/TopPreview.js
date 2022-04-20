@@ -17,6 +17,7 @@ export const TopPreview = (props) => {
   comments = topBusinessInfo.filter(
     (comment) => comment.idBusiness === idBusiness
   );
+
   return (
     <>
       <div className='info'>
