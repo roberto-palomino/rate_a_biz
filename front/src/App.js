@@ -9,7 +9,7 @@ import Header from './components/Header/Header';
 function App() {
   return (
     <div className='App'>
-      <Header />
+      {/* <Header /> */}
       <div className='top-reviews'>
         <TopBusiness className='top-preview' />
       </div>
