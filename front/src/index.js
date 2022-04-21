@@ -11,6 +11,7 @@ import { LoginModal } from './components/LoginModal/LoginModal';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { BusinessProfile } from './pages/BusinessProfile';
 import { GlobalStyles } from '@mui/material';
+import Header from './components/Header/Header';
 
 const theme = createTheme({
   palette: {
@@ -37,7 +38,7 @@ const theme = createTheme({
 });
 
 export const TokenContext = React.createContext();
-const TokenProvider = (props) => {
+const TokenProvider = props => {
   const [token, setToken] = useLocalStorage('token');
   return (
     <TokenContext.Provider value={[token, setToken]}>
@@ -51,6 +52,7 @@ ReactDOM.render(
     <ThemeProvider theme={theme}>
       <TokenProvider>
         <BrowserRouter>
+          <Header />
           <Routes>
             <Route path='/' element={<App />} />
             <Route path='/signup' element={<SignUp />} />
