@@ -20,6 +20,7 @@ const useBusinessData = (token, hasUpdated) => {
 
         const responseData = await response.json();
         const businessData = responseData.data;
+        console.log('Datos de empresa', responseData);
         setBusiness(businessData);
       } catch (error) {
         console.error(error);
