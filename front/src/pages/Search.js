@@ -34,7 +34,7 @@ function Search() {
   console.log('profile en business', businessProfile);
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className='search'>
         <div className='filter'>
           <FilterButton

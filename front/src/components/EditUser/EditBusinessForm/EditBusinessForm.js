@@ -1,13 +1,16 @@
 import { useState, useEffect, useContext } from 'react';
 import { TokenContext } from '../../../index';
 import BusinessSelect from './BusinessSelect';
-import EditAvatar from '../EditAvatar';
 import { useLoadSectors } from '../../../hooks/useLoadSectors';
 import { useLoadStates } from '../../../hooks/useLoadStates';
+
+import MenuItem from '@mui/material/MenuItem';
+import { TextField } from '@mui/material';
 import './EditBusinessForm.css';
 
 const EditBusinessForm = props => {
-  const { user, userId, onUpdated, business } = props;
+  const { userId, onUpdated, business } = props;
+
   const [token] = useContext(TokenContext);
   const [states] = useLoadStates();
   const [sectors] = useLoadSectors();
@@ -95,96 +98,90 @@ const EditBusinessForm = props => {
   }
 
   return (
-    <div className='information-form'>
-      {user && <EditAvatar user={user} userId={userId} onUpdated={onUpdated} />}
-
-      <form className='business-data-form'>
-        <div className='align-label'>
-          <label htmlFor='username'>Usuario</label>
-          <input
+    <>
+      <div>
+        <form className='business-data-form'>
+          <TextField
+            label='Usuario'
+            variant='standard'
             disabled={!isEditing}
-            id='username'
-            name='username'
-            type='text'
             value={username}
-            placeholder='Escriba su nombre de usuario...'
             onChange={e => {
               setUserName(e.target.value);
             }}
           />
-        </div>
-        <div className='align-label'>
-          <label htmlFor='email'>Email</label>
-          <input
+
+          <TextField
+            label='Email'
+            variant='standard'
             disabled={!isEditing}
-            id='email'
-            name='email'
-            type='email'
-            placeholder='Escriba aquí su email...'
             value={email}
             onChange={e => {
               setEmail(e.target.value);
             }}
           />
-        </div>
-        <div className='align-label'>
-          <label htmlFor='name'>Nombre</label>
-          <input
+
+          <TextField
+            label='Nombre'
+            variant='standard'
             disabled={!isEditing}
-            id='name'
-            name='name'
-            type='text'
             value={name}
-            placeholder='Escriba su nombre de empresa...'
             onChange={e => {
               setName(e.target.value);
             }}
           />
-        </div>
-        <div className='align-label'>
-          <label htmlFor='url_Web'>Sitio web</label>
-          <input
+
+          <TextField
+            label='Sitio web'
+            variant='standard'
             disabled={!isEditing}
-            id='url_Web'
-            name='url_Web'
-            type='texto'
-            placeholder='Escriba aquí su página web...'
             value={url_Web}
             onChange={e => {
               setUrl_Web(e.target.value);
             }}
           />
-        </div>
-        <BusinessSelect
-          disabled={!isEditing}
-          selectItem={selectState}
-          setSelectItem={setSelectState}
-          inputId={'state'}
-          label={'Sede'}
-          options={states.map(state => (
-            <option key={state.id} value={state.nameState}>
-              {state.nameState}
-            </option>
-          ))}
-        />
-        <BusinessSelect
-          disabled={!isEditing}
-          selectItem={selectSector}
-          setSelectItem={setSelectSector}
-          inputId={'sector'}
-          label={'Sector'}
-          options={sectors.map(sector => (
-            <option key={sector.id} value={sector.name}>
-              {sector.name}
-            </option>
-          ))}
-        />
 
-        <button className='form-button' type='submit' onClick={handleEditForm}>
-          {buttonMessage}
-        </button>
-      </form>
-    </div>
+          {states.length > 0 && (
+            <BusinessSelect
+              disabled={!isEditing}
+              selectItem={selectState}
+              setSelectItem={setSelectState}
+              inputId={'state'}
+              label={'Sede'}
+              options={states.map(state => (
+                <MenuItem key={state.id} value={state.nameStates}>
+                  {state.nameStates}
+                </MenuItem>
+              ))}
+            />
+          )}
+
+          {sectors.length > 0 && (
+            <BusinessSelect
+              disabled={!isEditing}
+              selectItem={selectSector}
+              setSelectItem={setSelectSector}
+              inputId={'sector'}
+              label={'Sector'}
+              options={sectors.map(sector => (
+                <MenuItem key={sector.id} value={sector.name}>
+                  {sector.name}
+                </MenuItem>
+              ))}
+            />
+          )}
+        </form>
+        <div className='tabs-content-button'>
+          <button
+            className='form-button'
+            type='submit'
+            onClick={handleEditForm}
+          >
+            {buttonMessage}
+          </button>
+        </div>
+      </div>
+    </>
   );
 };
 

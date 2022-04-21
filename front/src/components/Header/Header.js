@@ -4,9 +4,14 @@ import { TokenContext } from '../..';
 import Avatar from '../Avatar';
 import { LoginModal } from '../LoginModal/LoginModal';
 import { SignUpModal } from '../SignUpModal/SignUpModal';
+import useUserData from '../../hooks/useUserData';
 import './Header.css';
 const Header = () => {
   const [token] = useContext(TokenContext);
+  const { user } = useUserData(token);
+  const avatarUrl = user?.avatar
+    ? `http://localhost:4000/static/uploads/${user?.avatar}`
+    : '';
 
   return (
     <header>
@@ -31,11 +36,15 @@ const Header = () => {
           <div className='profile'>
             <a href='/profile'>
               <div>
-                <Avatar className='avatar' />
+                <Avatar
+                  className='avatar'
+                  avatarUrl={avatarUrl}
+                  username={user?.username}
+                />
               </div>
             </a>
             <button
-              onClick={(e) => {
+              onClick={e => {
                 window.localStorage.clear();
                 window.location.reload();
               }}

@@ -1,17 +1,15 @@
 import { useState, useContext } from 'react';
 import { TokenContext } from '../../../index';
-import Avatar from '../../Avatar';
-import './EditUserPass.css';
+import { TextField } from '@mui/material';
 
 const EditUserPass = props => {
-  const { user, userId } = props;
+  const { userId } = props;
   const [token] = useContext(TokenContext);
 
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [buttonMessage, setButtonMessage] = useState('Editar datos');
-  const avatarUrl = `http://localhost:4000/static/uploads/${user?.avatar}`;
 
   const updateUserPass = async e => {
     e.preventDefault();
@@ -54,40 +52,31 @@ const EditUserPass = props => {
   }
 
   return (
-    <div className='information-form'>
-      {user && (
-        <Avatar avatarUrl={avatarUrl} username={user?.username} size='medium' />
-      )}
+    <div>
       <form className='user-data-form-pass' onSubmit={updateUserPass}>
-        <div className='align-label'>
-          <label htmlFor='oldPassword'>Antigua contraseña</label>
-          <input
-            disabled={!isEditing}
-            id='oldPassword'
-            name='password'
-            type='text'
-            value={oldPassword}
-            placeholder='Escriba su antigua contraseña...'
-            onChange={e => {
-              setOldPassword(e.target.value);
-            }}
-          />
-        </div>
-        <div className='align-label'>
-          <label htmlFor='password'>Nueva contraseña</label>
-          <input
-            disabled={!isEditing}
-            id='password'
-            name='password'
-            type='text'
-            value={newPassword}
-            placeholder='Escriba su nueva contraseña...'
-            onChange={e => {
-              setNewPassword(e.target.value);
-            }}
-          />
-        </div>
+        <TextField
+          label='Antigua contraseña'
+          variant='standard'
+          multiline
+          disabled={!isEditing}
+          value={oldPassword}
+          placeholder='***********'
+          onChange={e => {
+            setOldPassword(e.target.value);
+          }}
+        />
 
+        <TextField
+          label='Nueva contraseña'
+          variant='standard'
+          disabled={!isEditing}
+          value={newPassword}
+          onChange={e => {
+            setNewPassword(e.target.value);
+          }}
+        />
+      </form>
+      <div className='tabs-content-button'>
         <button
           className='form-button'
           type='submit'
@@ -96,7 +85,7 @@ const EditUserPass = props => {
         >
           {buttonMessage}
         </button>
-      </form>
+      </div>
     </div>
   );
 };

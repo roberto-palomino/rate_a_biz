@@ -1,3 +1,7 @@
+.avatar-container {
+  margin: 1rem 0;
+}
+
 .image-avatar {
   border-radius: 50%;
   object-fit: cover;
@@ -7,16 +11,16 @@
   box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
 }
 .avatar-username {
+  color: rgb(59, 123, 159);
   display: flex;
-  justify-content: center;
   align-items: center;
   height: 2rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .avatar.medium {
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
 }
 
 .avatar.small {

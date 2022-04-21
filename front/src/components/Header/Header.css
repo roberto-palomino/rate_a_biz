@@ -1,4 +1,4 @@
-a {
+header a {
   text-decoration: none;
   font-size: large;
   display: flex;
@@ -6,7 +6,7 @@ a {
   color: rgb(59, 123, 159);
 }
 
-button {
+header button {
   text-decoration: none;
   font-size: medium;
   display: flex;
@@ -22,4 +22,8 @@ button {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+}
+
+header .avatar-container {
+  max-height: 82px;
 }

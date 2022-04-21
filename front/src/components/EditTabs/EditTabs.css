@@ -1,34 +1,54 @@
 .tabs-container {
-  height: 15rem;
-  width: 20rem;
+  min-width: 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 20px;
-  background-color: #f8f8f8;
-  border: solid #bdbdbd 1px;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+  gap: 0.5rem;
 }
 
-.tabs-container h2 {
-  margin-top: 0;
-  font-size: 2.5rem;
-  min-height: 2rem;
+.tabs-content {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.tabs-content-button {
+  margin-top: 2rem;
+}
+
+.tabs-content img {
+  border: none;
+  box-shadow: none;
+}
+
+.tabs-content figcaption {
+  display: none;
 }
 
 .tabs-button {
-  width: 15rem;
+  width: 100%;
   height: 2rem;
+  max-height: 2rem;
   margin-top: 0.5rem;
   border-radius: 5px;
+  border: solid #bdbdbd 1px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .tabs-button:hover {
   background-color: rgb(224, 220, 220);
   cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .tabs {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .tabs-button {
+    width: 15rem;
+  }
 }

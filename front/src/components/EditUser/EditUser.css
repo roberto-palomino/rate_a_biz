@@ -1,5 +1,23 @@
-.EditUser {
-  width: 15rem;
-  height: 15rem;
-  display: flex;
+.main-section {
+  margin: 2rem auto;
+  max-width: 75rem;
+  padding: 0 2rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: rgb(59, 123, 159);
+  font-size: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .main-section {
+    padding: 0;
+  }
+
+  .title {
+    text-align: start;
+    padding: 1rem 1rem 1rem 3rem;
+  }
 }
