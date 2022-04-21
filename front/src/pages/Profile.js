@@ -14,7 +14,7 @@ export const Profile = () => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div>
         <EditUser
           user={user}
