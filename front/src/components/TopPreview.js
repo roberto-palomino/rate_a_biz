@@ -22,7 +22,7 @@ export const TopPreview = (props) => {
     <>
       <div className='info'>
         <h1> {bussinesName} </h1>
-        <Avatar size='medium' />
+        <Avatar size='medium' hideFigCaption />
         <div>
           <Typography component='legend'>Ambiente laboral</Typography>
           <Rating name='read-only' value={enviroment} readOnly />

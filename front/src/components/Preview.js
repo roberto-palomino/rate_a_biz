@@ -1,6 +1,6 @@
 import { Button, Rating, Typography } from '@mui/material';
-import { NavLink } from 'react-router-dom';
 import Avatar from './Avatar';
+import { useNavigate } from 'react-router';
 
 export const Preview = (props) => {
   const {
@@ -13,40 +13,28 @@ export const Preview = (props) => {
     description,
     stateName,
     bussinesName,
-    setBusinessProfileInfo,
     showProfileButton,
-    businessProfileInfo,
   } = props;
 
-  const loadBusinessProfile = async (e) => {
-    try {
-      const res = await fetch(`http://localhost:4000/business/${id}`, {
-        method: 'GET',
-      });
-      const body = await res.json();
+  const navigate = useNavigate();
 
-      setBusinessProfileInfo(body.data);
-    } catch (e) {
-      console.error('Err:', e);
-    }
-  };
-  console.log('info en preview', businessProfileInfo);
   return (
     <>
       <div className='info'>
         <h3> {bussinesName} </h3>
         <h5> {stateName}</h5>
-        <Avatar size='medium' />
+        <Avatar size='medium' hideFigCaption />
         {showProfileButton ? (
           <Button
             id='register-login'
             variant='outlined'
             color='primary'
-            onClick={loadBusinessProfile}
+            onClick={() => {
+              navigate(`/businessProfile/${id}`);
+            }}
           >
-            <NavLink to='/BusinessProfile' className='link profile-link'>
-              Ver Perfil
-            </NavLink>
+            {' '}
+            Ver Perfil
           </Button>
         ) : null}
 

@@ -38,7 +38,7 @@ const theme = createTheme({
 });
 
 export const TokenContext = React.createContext();
-const TokenProvider = props => {
+const TokenProvider = (props) => {
   const [token, setToken] = useLocalStorage('token');
   return (
     <TokenContext.Provider value={[token, setToken]}>
@@ -59,7 +59,7 @@ ReactDOM.render(
             {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
             <Route path='/search' element={<Search />} />
             <Route path='/profile' element={<Profile />} />
-            <Route path='/businessProfile' element={<BusinessProfile />} />
+            <Route path='/businessProfile/:id' element={<BusinessProfile />} />
           </Routes>
         </BrowserRouter>
       </TokenProvider>

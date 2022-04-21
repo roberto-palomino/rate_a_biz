@@ -4,14 +4,13 @@ import FilterButton from '../components/FilterButton';
 import { Order } from '../components/Order';
 import { OrderBy } from '../components/OrderBy';
 import { SelectJob } from '../components/SelectJob';
-import { SelectOrder } from '../components/SelectOrder';
 import { SelectSalary } from '../components/SelectSalary';
 import { SelectSector } from '../components/SelectSector';
 import { SelectState } from '../components/SelectState';
 import { BusinessPreview } from './BusinessPreview';
 import ApplyButton from '../components/ApplyButton';
-import { useLoadBusinessProfile } from '../hooks/useLoadBusinessProfile';
-import Header from '../components/Header/Header';
+
+import ResetButton from '../components/ResetButton';
 
 function Search() {
   const [filterVisible, setFilterVisible] = useState('');
@@ -21,17 +20,12 @@ function Search() {
   const [selectedSector, setSelectedSector] = useState('');
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [orderBy, setOrderBy] = useState('');
-  const [businessProfile] = useLoadBusinessProfile();
 
   const [filterBusiness, setFilterBusiness] = useState('');
   console.log(selectedOrder);
 
-  console.log('trabajo', selectedJob);
-
-  console.log('estado', selectedState);
-  console.log('salario', selectedSalary);
   console.log('orden', orderBy);
-  console.log('profile en business', businessProfile);
+
   return (
     <>
       {/* <Header /> */}
@@ -75,6 +69,15 @@ function Search() {
                 orderBy={orderBy}
                 direction={selectedOrder}
                 filterBusiness={filterBusiness}
+                setFilterBusiness={setFilterBusiness}
+              />
+              <ResetButton
+                setSelectedState={setSelectedState}
+                setSelectedJob={setSelectedJob}
+                setSelectedSalary={setSelectedSalary}
+                setSelectedSector={setSelectedSector}
+                setOrderBy={setOrderBy}
+                setSelectedOrder={setSelectedOrder}
                 setFilterBusiness={setFilterBusiness}
               />
             </>

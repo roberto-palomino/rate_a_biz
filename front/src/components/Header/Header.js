@@ -40,11 +40,12 @@ const Header = () => {
                   className='avatar'
                   avatarUrl={avatarUrl}
                   username={user?.username}
+                  hideFigCaption
                 />
               </div>
             </a>
             <button
-              onClick={e => {
+              onClick={(e) => {
                 window.localStorage.clear();
                 window.location.reload();
               }}

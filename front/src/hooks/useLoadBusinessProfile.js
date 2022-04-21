@@ -1,22 +1,21 @@
 import { useState, useEffect } from 'react';
-import { BusinessProfile } from '../pages/BusinessProfile';
-export function useLoadBusinessProfile() {
-  const [businessProfile, setBusinessProfile] = useState([]);
-  const loadBusiness = async () => {
+
+export function useLoadBusinessProfile(id) {
+  const [businessProfileInfo, setBusinessProfileInfo] = useState('');
+  const loadBusinessProfile = async () => {
     try {
-      const res = await fetch('http://localhost:4000/business/1', {
+      const res = await fetch(`http://localhost:4000/business/${id}`, {
         method: 'GET',
       });
       const body = await res.json();
 
-      setBusinessProfile(body.data);
+      setBusinessProfileInfo(body.data);
     } catch (e) {
       console.error('Err:', e);
     }
   };
   useEffect(() => {
-    loadBusiness();
+    loadBusinessProfile();
   }, []);
-
-  return [businessProfile, setBusinessProfile];
+  return [businessProfileInfo, setBusinessProfileInfo];
 }

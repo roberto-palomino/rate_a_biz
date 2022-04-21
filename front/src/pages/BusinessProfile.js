@@ -1,30 +1,31 @@
-import React, { useContext, useState } from 'react';
-import EditUser from '../components/EditUser';
-import useUserData from '../hooks/useUserData';
-import useBusinessData from '../hooks/useBusinessData';
-import { TokenContext } from '../index';
-import './Profile.css';
 import { Preview } from '../components/Preview';
+import { useLoadBusinessProfile } from '../hooks/useLoadBusinessProfile';
+import { useParams } from 'react-router-dom';
+import { Profile } from '../components/BusinessProfile/Profile';
 
 export const BusinessProfile = () => {
-  const [businessProfileInfo, setBusinessProfileInfo] = useState('');
+  const { id } = useParams();
 
-  console.log('info en profile', businessProfileInfo);
+  const [businessProfileInfo] = useLoadBusinessProfile(id);
+
+  console.log('respuesta en profile', businessProfileInfo);
+
   return (
-    <div className='preview' key={businessProfileInfo.id}>
-      <Preview
-        key={businessProfileInfo.reviews.id}
-        enviroment={businessProfileInfo.reviews.enviroment}
-        conciliation={businessProfileInfo.reviews.conciliation}
-        oportunities={businessProfileInfo.reviews.oportunities}
-        salary={businessProfileInfo.reviews.salary}
-        title={businessProfileInfo.reviews.title}
-        description={businessProfileInfo.reviews.description}
-        stateName={businessProfileInfo.reviews.nameStates}
-        bussinesName={businessProfileInfo.reviews.name}
-        setBusinessProfileInfo={setBusinessProfileInfo}
-        businessProfileInfo={businessProfileInfo}
-      />
-    </div>
+    <>
+      {businessProfileInfo ? (
+        <div className='preview'>
+          <Profile
+            businessName={businessProfileInfo.businessInfo.name}
+            headquarter={businessProfileInfo.businessInfo.headquarter}
+            description={businessProfileInfo.businessInfo.description}
+            sector={businessProfileInfo.businessInfo.sector}
+            url={businessProfileInfo.businessInfo.url_web}
+            reviews={businessProfileInfo.businessInfo.reviews}
+          />
+        </div>
+      ) : (
+        <div>CARGANDO!!!!!!!!!</div>
+      )}
+    </>
   );
 };
