@@ -14,7 +14,7 @@ const BusinessSelect = props => {
 
   return (
     <FormControl
-      sx={{ m: 1, minWitdh: 150 }}
+      sx={{ minWidth: 202 }}
       className='BusinessSelect'
       variant='standard'
     >
