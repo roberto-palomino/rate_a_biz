@@ -14,8 +14,11 @@ export const Preview = (props) => {
     stateName,
     bussinesName,
     showProfileButton,
+    avatar,
   } = props;
-
+  const avatarUrl = avatar
+    ? `http://localhost:4000/static/uploads/${avatar}`
+    : '';
   const navigate = useNavigate();
 
   return (
@@ -23,7 +26,7 @@ export const Preview = (props) => {
       <div className='info'>
         <h3> {bussinesName} </h3>
         <h5> {stateName}</h5>
-        <Avatar size='medium' hideFigCaption />
+        <Avatar size='medium' hideFigCaption avatarUrl={avatarUrl} />
         {showProfileButton ? (
           <Button
             id='register-login'

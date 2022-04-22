@@ -10,6 +10,7 @@ export const TopPreview = (props) => {
     oportunities,
     salary,
     bussinesName,
+    avatar,
   } = props;
   const [topBusiness, setTopBusiness, topBusinessInfo, setTopBusinessInfo] =
     useLoadTopBusiness();
@@ -17,12 +18,15 @@ export const TopPreview = (props) => {
   comments = topBusinessInfo.filter(
     (comment) => comment.idBusiness === idBusiness
   );
+  const avatarUrl = avatar
+    ? `http://localhost:4000/static/uploads/${avatar}`
+    : '';
 
   return (
     <>
       <div className='info'>
         <h1> {bussinesName} </h1>
-        <Avatar size='medium' hideFigCaption />
+        <Avatar size='medium' hideFigCaption avatarUrl={avatarUrl} />
         <div>
           <Typography component='legend'>Ambiente laboral</Typography>
           <Rating name='read-only' value={enviroment} readOnly />

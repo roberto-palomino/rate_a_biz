@@ -8,6 +8,9 @@ export const BusinessPreview = (props) => {
   const [business, setBusiness] = useLoadBusiness();
   const [showProfileButton, setShowProfileButton] = useState(true);
 
+  console.log('filter', filterBusiness);
+  console.log('business', business);
+
   return (
     <>
       <div className='info'>
@@ -26,6 +29,7 @@ export const BusinessPreview = (props) => {
                   stateName={business.nameStates}
                   bussinesName={business.name}
                   showProfileButton={showProfileButton}
+                  avatar={business.avatar}
                 />
               </div>
             ))
@@ -43,6 +47,7 @@ export const BusinessPreview = (props) => {
                   stateName={business.nameStates}
                   bussinesName={business.name}
                   showProfileButton={showProfileButton}
+                  avatar={business.avatar}
                 />
               </div>
             ))}
