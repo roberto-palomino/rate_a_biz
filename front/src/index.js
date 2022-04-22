@@ -12,6 +12,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { BusinessProfile } from './pages/BusinessProfile';
 import { GlobalStyles } from '@mui/material';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 const theme = createTheme({
   palette: {
@@ -38,7 +39,7 @@ const theme = createTheme({
 });
 
 export const TokenContext = React.createContext();
-const TokenProvider = (props) => {
+const TokenProvider = props => {
   const [token, setToken] = useLocalStorage('token');
   return (
     <TokenContext.Provider value={[token, setToken]}>
@@ -61,6 +62,7 @@ ReactDOM.render(
             <Route path='/profile' element={<Profile />} />
             <Route path='/businessProfile/:id' element={<BusinessProfile />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </TokenProvider>
     </ThemeProvider>
