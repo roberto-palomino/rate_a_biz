@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { TextField } from '@mui/material';
 import './EditBusinessForm.css';
 
-const EditBusinessForm = props => {
+const EditBusinessForm = (props) => {
   const { userId, onUpdated, business } = props;
 
   const [token] = useContext(TokenContext);
@@ -53,7 +53,7 @@ const EditBusinessForm = props => {
     onUpdated && !isEditing && onUpdated(false);
   }, [onUpdated, isEditing]);
 
-  const updateBusiness = async e => {
+  const updateBusiness = async (e) => {
     const businessData = {
       username: username,
       newEmail: email,
@@ -106,7 +106,7 @@ const EditBusinessForm = props => {
             variant='standard'
             disabled={!isEditing}
             value={username}
-            onChange={e => {
+            onChange={(e) => {
               setUserName(e.target.value);
             }}
           />
@@ -116,7 +116,7 @@ const EditBusinessForm = props => {
             variant='standard'
             disabled={!isEditing}
             value={email}
-            onChange={e => {
+            onChange={(e) => {
               setEmail(e.target.value);
             }}
           />
@@ -126,7 +126,7 @@ const EditBusinessForm = props => {
             variant='standard'
             disabled={!isEditing}
             value={name}
-            onChange={e => {
+            onChange={(e) => {
               setName(e.target.value);
             }}
           />
@@ -136,7 +136,7 @@ const EditBusinessForm = props => {
             variant='standard'
             disabled={!isEditing}
             value={url_Web}
-            onChange={e => {
+            onChange={(e) => {
               setUrl_Web(e.target.value);
             }}
           />
@@ -148,7 +148,7 @@ const EditBusinessForm = props => {
               setSelectItem={setSelectState}
               inputId={'state'}
               label={'Sede'}
-              options={states.map(state => (
+              options={states.map((state) => (
                 <MenuItem key={state.id} value={state.nameStates}>
                   {state.nameStates}
                 </MenuItem>
@@ -163,7 +163,7 @@ const EditBusinessForm = props => {
               setSelectItem={setSelectSector}
               inputId={'sector'}
               label={'Sector'}
-              options={sectors.map(sector => (
+              options={sectors.map((sector) => (
                 <MenuItem key={sector.id} value={sector.name}>
                   {sector.name}
                 </MenuItem>

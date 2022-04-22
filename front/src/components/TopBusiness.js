@@ -20,6 +20,7 @@ export const TopBusiness = (props) => {
             oportunities={parseInt(business.oportunities)}
             salary={parseInt(business.salary)}
             bussinesName={business.name}
+            avatar={business.avatar}
           />
         </div>
       ))}

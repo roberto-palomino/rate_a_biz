@@ -12,6 +12,7 @@ const Header = () => {
   const avatarUrl = user?.avatar
     ? `http://localhost:4000/static/uploads/${user?.avatar}`
     : '';
+  console.log(avatarUrl);
 
   return (
     <header>
