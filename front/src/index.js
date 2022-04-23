@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { SignUp, Login, Profile } from './pages';
+import { SignUp, Login, Profile, TermsAndConditions } from './pages';
 import Search from './pages/Search';
 import { LoginModal } from './components/LoginModal/LoginModal';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -64,6 +64,10 @@ ReactDOM.render(
               <Route
                 path='/businessProfile/:id'
                 element={<BusinessProfile />}
+              />
+              <Route
+                path='/TermsAndConditions'
+                element={<TermsAndConditions />}
               />
             </Routes>
           </main>
