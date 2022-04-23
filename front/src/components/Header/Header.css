@@ -1,19 +1,20 @@
 header a {
   text-decoration: none;
-  font-size: large;
+  /* font-size: large; */
   display: flex;
   align-items: center;
   color: rgb(59, 123, 159);
 }
 
 header button {
-  text-decoration: none;
+  /* text-decoration: none; */
   font-size: medium;
   display: flex;
   align-items: center;
   color: rgb(59, 123, 159);
   border: none;
   background-color: rgb(253, 242, 242);
+  cursor: pointer;
 }
 
 .profile {
@@ -21,7 +22,8 @@ header button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 5px;
+  margin-bottom: 0.8rem;
 }
 
 header .avatar-container {

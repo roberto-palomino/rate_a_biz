@@ -35,23 +35,22 @@ const Header = () => {
         {!token ? <SignUpModal className='signup' /> : null}{' '}
         {token ? (
           <div className='profile'>
-            <a href='/profile'>
-              <div>
-                <Avatar
-                  className='avatar'
-                  avatarUrl={avatarUrl}
-                  username={user?.username}
-                  hideFigCaption
-                />
-              </div>
-            </a>
+            <div>
+              <Avatar
+                className='avatar'
+                avatarUrl={avatarUrl}
+                username={user?.username}
+                hideFigCaption
+              />
+            </div>
+            <a href='/profile'>Mi perfil</a>
             <button
-              onClick={(e) => {
+              onClick={e => {
                 window.localStorage.clear();
                 window.location.reload();
               }}
             >
-              Cerrar <br></br>sesión
+              Cerrar sesión
             </button>
           </div>
         ) : null}
