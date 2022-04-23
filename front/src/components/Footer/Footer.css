@@ -1,5 +1,4 @@
 .footer-container {
-  /* border: 1px solid black; */
   display: flex;
   justify-content: space-between;
   color: rgb(59, 123, 159);
@@ -8,7 +7,6 @@
 .politics-terms {
   margin: 2rem;
   display: flex;
-  gap: 1.5rem;
 }
 .copyright {
   margin: 2rem;
