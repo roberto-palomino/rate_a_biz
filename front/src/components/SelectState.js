@@ -6,7 +6,7 @@ import Select from '@mui/material/Select';
 
 export const SelectState = (props) => {
   const [states] = useLoadStates();
-  const { setSelectedState } = props;
+  const { selectedState, setSelectedState } = props;
   const stateChange = (e) => {
     setSelectedState(e.target.value);
   };
@@ -18,7 +18,7 @@ export const SelectState = (props) => {
         <Select
           labelId='Provincia'
           id='Provincia'
-          value={''}
+          value={selectedState}
           label='Provincia'
           onChange={stateChange}
         >

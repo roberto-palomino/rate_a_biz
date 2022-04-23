@@ -1,8 +1,10 @@
-import { Rating, Typography } from '@mui/material';
+import { Button, Rating, Typography } from '@mui/material';
 import Avatar from './Avatar';
+import { useNavigate } from 'react-router';
 
 export const Preview = (props) => {
   const {
+    id,
     enviroment,
     conciliation,
     oportunities,
@@ -11,14 +13,34 @@ export const Preview = (props) => {
     description,
     stateName,
     bussinesName,
+    showProfileButton,
+    avatar,
   } = props;
+  const avatarUrl = avatar
+    ? `http://localhost:4000/static/uploads/${avatar}`
+    : '';
+  const navigate = useNavigate();
 
   return (
     <>
       <div className='info'>
         <h3> {bussinesName} </h3>
         <h5> {stateName}</h5>
-        <Avatar size='medium' />
+        <Avatar size='medium' hideFigCaption avatarUrl={avatarUrl} />
+        {showProfileButton ? (
+          <Button
+            id='register-login'
+            variant='outlined'
+            color='primary'
+            onClick={() => {
+              navigate(`/businessProfile/${id}`);
+            }}
+          >
+            {' '}
+            Ver Perfil
+          </Button>
+        ) : null}
+
         <h1> {title} </h1>
       </div>
       <div className='valorations'>

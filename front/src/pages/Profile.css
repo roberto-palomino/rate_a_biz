@@ -1,7 +1,21 @@
 .main-section {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  flex-grow: 1;
-  gap: 4rem;
+  /* margin: 3rem auto; */
+  /* border: 2px solid blue; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* background-color: rgb(59, 123, 159); */
+  /* min-height: 100vh; */
+  /* justify-content: center; */
+  /* margin-top: 2rem; */
+  /* gap: 8rem; */
+  /* max-width: 1200px; */
+
+  /* border: 2px solid blue; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* background-color: rgb(59, 123, 159); */
+  /* min-height: 100vh; */
+  /* justify-content: center; */
+  /* margin-top: 2rem; */
+  /* gap: 8rem; */
 }

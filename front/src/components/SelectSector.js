@@ -6,7 +6,7 @@ import Select from '@mui/material/Select';
 
 export const SelectSector = (props) => {
   const [sectors] = useLoadSectors();
-  const { setSelectedSector } = props;
+  const { selectedSector, setSelectedSector } = props;
   const sectorChange = (e) => {
     setSelectedSector(e.target.value);
   };
@@ -18,7 +18,7 @@ export const SelectSector = (props) => {
         <Select
           labelId='Sector'
           id='Sector'
-          value={''}
+          value={selectedSector}
           label='Sector'
           onChange={sectorChange}
         >

@@ -1,24 +1,35 @@
 import React from 'react';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
-const BusinessSelect = props => {
+const BusinessSelect = (props) => {
   const { selectItem, setSelectItem, disabled, options, inputId, label } =
     props;
-  const alignLabel = 'align-label';
-  const sectorChange = e => {
+
+  const selectChange = (e) => {
     setSelectItem(e.target.value);
   };
+
   return (
-    <div className={alignLabel}>
-      <label htmlFor={inputId}>{label}</label>
-      <select
-        id={inputId}
+    <FormControl
+      sx={{ m: 1, minWidth: 150 }}
+      className='BusinessSelect'
+      variant='standard'
+    >
+      <InputLabel id={inputId}>{label}</InputLabel>
+      <Select
+        labelId={inputId}
+        id={`select-id-${label}`}
         disabled={disabled}
         value={selectItem}
-        onChange={sectorChange}
+        onChange={selectChange}
       >
+        <MenuItem value={''}></MenuItem>
         {options}
-      </select>
-    </div>
+      </Select>
+    </FormControl>
   );
 };
 

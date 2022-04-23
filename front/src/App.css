@@ -8,8 +8,14 @@ body {
 }
 .App {
   background-color: rgb(59, 123, 159);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
+.top10 {
+  margin-top: 1.5rem;
+  color: rgb(253, 242, 242);
+}
 .top-preview {
   padding: 1rem;
   border: 1px solid black;
