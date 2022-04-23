@@ -3,17 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  display: grid;
-  /* border: 2px solid red; */
-  min-height: 100vh;
-}
+
 .App {
   background-color: rgb(59, 123, 159);
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  flex: 1;
 }
 .top10 {
   margin-top: 1.5rem;
