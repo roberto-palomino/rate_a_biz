@@ -1,6 +1,5 @@
 .avatar-section {
-  width: 21rem;
-  height: 15rem;
+  border: 2px solid #f2f2f2;
 }
 
 .avatar-container {
@@ -10,10 +9,12 @@
 }
 
 .avatar-form-button {
-  display: flex;
-  justify-content: center;
   width: 6rem;
   height: 1.5rem;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  border: solid #bdbdbd 1px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 .avatar-form-button:hover {
   background-color: rgb(224, 220, 220);
@@ -25,11 +26,23 @@
 }
 
 .label-avatar {
-  margin-top: 0.3rem;
+  height: 2rem;
+  width: 15rem;
+  padding: 1rem;
+  margin-top: 1.5rem;
   display: flex;
-  margin-left: 1.8rem;
   font-size: 0.8rem;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   cursor: pointer;
+  border-radius: 5px;
+  border: solid #bdbdbd 1px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 900px) {
+  .avatar-section {
+    margin-top: 1rem;
+    margin-left: 4rem;
+  }
 }

@@ -10,6 +10,9 @@ import Search from './pages/Search';
 import Review from './pages/Review';
 import { LoginModal } from './components/LoginModal/LoginModal';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { BusinessProfile } from './pages/BusinessProfile';
+import { GlobalStyles } from '@mui/material';
+import Header from './components/Header/Header';
 
 const theme = createTheme({
   palette: {
@@ -50,13 +53,14 @@ ReactDOM.render(
     <ThemeProvider theme={theme}>
       <TokenProvider>
         <BrowserRouter>
+          <Header />
           <Routes>
             <Route path='/' element={<App />} />
             <Route path='/signup' element={<SignUp />} />
             {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
             <Route path='/search' element={<Search />} />
             <Route path='/profile' element={<Profile />} />
-            <Route path='/review' element={<Review />} />
+            <Route path='/businessProfile/:id' element={<BusinessProfile />} />
           </Routes>
         </BrowserRouter>
       </TokenProvider>

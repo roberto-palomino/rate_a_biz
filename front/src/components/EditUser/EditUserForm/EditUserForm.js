@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { TokenContext } from '../../../index';
-import EditAvatar from '../EditAvatar';
+import { TextField } from '@mui/material';
 
 const EditUserForm = props => {
   const { user, userId, onUpdated } = props;
@@ -69,71 +69,50 @@ const EditUserForm = props => {
   }
 
   return (
-    <div className='information-form'>
-      {user && <EditAvatar user={user} userId={userId} onUpdated={onUpdated} />}
+    <div>
       <form className='user-data-form'>
-        <div className='align-label'>
-          <label htmlFor='username'>Usuario</label>
-          <input
-            disabled={!isEditing}
-            id='username'
-            name='username'
-            type='text'
-            value={username}
-            placeholder='Escriba su nombre de usuario...'
-            onChange={e => {
-              setUserName(e.target.value);
-            }}
-          />
-        </div>
-        <div className='align-label'>
-          <label htmlFor='email'>Email</label>
-          <input
-            disabled={!isEditing}
-            id='email'
-            name='email'
-            type='email'
-            placeholder='Escriba aquí su email...'
-            value={newEmail}
-            onChange={e => {
-              setNewEmail(e.target.value);
-            }}
-          />
-        </div>
-
-        <div className='align-label'>
-          <label htmlFor='name'>Nombre</label>
-          <input
-            disabled={!isEditing}
-            id='name'
-            name='name'
-            type='text'
-            placeholder='Escriba aquí su nombre...'
-            value={name}
-            onChange={e => {
-              setName(e.target.value);
-            }}
-          />
-        </div>
-        <div className='align-label'>
-          <label htmlFor='lastname'>Apellidos</label>
-          <input
-            disabled={!isEditing}
-            id='lastname'
-            name='Apellidos'
-            type='text'
-            placeholder='Escriba aquí sus apellidos...'
-            value={lastname}
-            onChange={e => {
-              setLastName(e.target.value);
-            }}
-          />
-        </div>
-
+        <TextField
+          label='Usuario'
+          variant='standard'
+          disabled={!isEditing}
+          value={username}
+          onChange={e => {
+            setUserName(e.target.value);
+          }}
+        />
+        <TextField
+          label='Email'
+          variant='standard'
+          disabled={!isEditing}
+          value={newEmail}
+          onChange={e => {
+            setNewEmail(e.target.value);
+          }}
+        />
+        <TextField
+          label='Nombre'
+          variant='standard'
+          disabled={!isEditing}
+          value={name}
+          onChange={e => {
+            setName(e.target.value);
+          }}
+        />
+        <TextField
+          label='Apellidos'
+          variant='standard'
+          disabled={!isEditing}
+          value={lastname}
+          onChange={e => {
+            setLastName(e.target.value);
+          }}
+        />
+      </form>
+      <div className='tabs-content-button'>
         <button className='form-button' type='submit' onClick={handleEditForm}>
           {buttonMessage}
         </button>
-      </form>
+      </div>
     </div>
   );
 };

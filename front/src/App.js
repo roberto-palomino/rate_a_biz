@@ -13,59 +13,8 @@ function App() {
   };
   return (
     <div className='App'>
-      <nav>
-        <NavLink
-          to='/signup'
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className='underline'
-        >
-          Registrarse
-        </NavLink>{' '}
-        |
-        {!token ? (
-          <NavLink
-            to='/login'
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            className='underline'
-          >
-            Iniciar Sesión
-          </NavLink>
-        ) : null}{' '}
-        |
-        <NavLink
-          to='/search'
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className='underline'
-        >
-          Buscar
-        </NavLink>
-        |
-        <NavLink
-          to='/review'
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className='underline'
-        >
-          Añadir valoración
-        </NavLink>
-        |
-        <NavLink
-          to='/profile'
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className='underline'
-        >
-          Perfil de Usuario
-        </NavLink>{' '}
-        {/* QUITAR EL BORRADO DE LOCAL STORAGE */}
-        <button
-          onClick={(e) => {
-            window.localStorage.clear();
-            window.location.reload();
-          }}
-        >
-          Cerrar sesión
-        </button>
-      </nav>
-      <Header />
+      {/* <Header /> */}
+      <h1 className='top10'>TOP 10 Empresas mejor valoradas de España</h1>
       <div className='top-reviews'>
         <TopBusiness className='top-preview' />
       </div>

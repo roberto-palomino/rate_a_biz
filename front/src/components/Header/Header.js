@@ -1,14 +1,19 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { TokenContext } from '../..';
+import Avatar from '../Avatar';
 import { LoginModal } from '../LoginModal/LoginModal';
 import { SignUpModal } from '../SignUpModal/SignUpModal';
+import useUserData from '../../hooks/useUserData';
 import './Header.css';
 const Header = () => {
   const [token] = useContext(TokenContext);
-  let activeStyle = {
-    color: 'green',
-  };
+  const { user } = useUserData(token);
+  const avatarUrl = user?.avatar
+    ? `http://localhost:4000/static/uploads/${user?.avatar}`
+    : '';
+  console.log(avatarUrl);
+
   return (
     <header>
       <a href='/' className='logo'>
@@ -19,43 +24,36 @@ const Header = () => {
         />
       </a>
       <nav className='nav'>
-        <NavLink
-          to='/search'
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className='link'
-        >
+        {' '}
+        <NavLink to='/search' className='link'>
           Buscar
-        </NavLink>{' '}
+        </NavLink>
+      </nav>
+      <nav className='nav'>
+        {' '}
         {!token ? <LoginModal className='login' /> : null}{' '}
         {!token ? <SignUpModal className='signup' /> : null}{' '}
         {token ? (
-          <NavLink
-            to='/profile'
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            className='link'
-          >
-            Perfil de Usuario
-          </NavLink>
-        ) : null}{' '}
-        {token ? (
-          <NavLink
-            to='/review'
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            className='link'
-          >
-            Añadir valoración
-          </NavLink>
-        ) : null}{' '}
-        {/* QUITAR EL BORRADO DE LOCAL STORAGE */}
-        {token ? (
-          <button
-            onClick={(e) => {
-              window.localStorage.clear();
-              window.location.reload();
-            }}
-          >
-            Cerrar sesión
-          </button>
+          <div className='profile'>
+            <a href='/profile'>
+              <div>
+                <Avatar
+                  className='avatar'
+                  avatarUrl={avatarUrl}
+                  username={user?.username}
+                  hideFigCaption
+                />
+              </div>
+            </a>
+            <button
+              onClick={(e) => {
+                window.localStorage.clear();
+                window.location.reload();
+              }}
+            >
+              Cerrar <br></br>sesión
+            </button>
+          </div>
         ) : null}
       </nav>
     </header>

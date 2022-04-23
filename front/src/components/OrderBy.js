@@ -5,7 +5,7 @@ import Select from '@mui/material/Select';
 
 /* Componente que nos devuelve las opciones por las que podemos ordenar los resultados */
 export const OrderBy = (props) => {
-  const { setOrderBy } = props;
+  const { orderBy, setOrderBy } = props;
   const orderByChange = (e) => {
     setOrderBy(e.target.value);
   };
@@ -17,7 +17,7 @@ export const OrderBy = (props) => {
         <Select
           labelId='ordenar'
           id='ordenar'
-          value={''}
+          value={orderBy}
           label='ordenar'
           onChange={orderByChange}
         >
