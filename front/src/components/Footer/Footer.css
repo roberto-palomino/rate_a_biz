@@ -1,18 +1,16 @@
 .footer-container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   justify-content: space-between;
-  margin: 0;
   color: rgb(59, 123, 159);
+  background-color: rgb(253, 242, 242);
 }
 .politics-terms {
-  /* border: 1px solid red; */
   margin: 2rem;
   display: flex;
   gap: 1.5rem;
 }
 .copyright {
-  /* border: 1px solid red; */
   margin: 2rem;
   display: flex;
 }
