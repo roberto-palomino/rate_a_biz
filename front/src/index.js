@@ -54,14 +54,19 @@ ReactDOM.render(
       <TokenProvider>
         <BrowserRouter>
           <Header />
-          <Routes>
-            <Route path='/' element={<App />} />
-            <Route path='/signup' element={<SignUp />} />
-            {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
-            <Route path='/search' element={<Search />} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/businessProfile/:id' element={<BusinessProfile />} />
-          </Routes>
+          <main className='main'>
+            <Routes>
+              <Route path='/' element={<App />} />
+              <Route path='/signup' element={<SignUp />} />
+              {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
+              <Route path='/search' element={<Search />} />
+              <Route path='/profile' element={<Profile />} />
+              <Route
+                path='/businessProfile/:id'
+                element={<BusinessProfile />}
+              />
+            </Routes>
+          </main>
           <Footer />
         </BrowserRouter>
       </TokenProvider>
