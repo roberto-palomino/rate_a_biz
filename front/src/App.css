@@ -5,12 +5,15 @@
 }
 body {
   display: grid;
+  /* border: 2px solid red; */
+  min-height: 100vh;
 }
 .App {
   background-color: rgb(59, 123, 159);
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100vw;
 }
 .top10 {
   margin-top: 1.5rem;
@@ -22,10 +25,10 @@ body {
   border-radius: 20px;
   box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
   display: grid;
-
   grid-template-columns: 1fr 1fr;
   background-color: rgb(253, 242, 242);
   margin: 3rem;
+  min-height: 58vh;
 }
 
 .top-preview .info {
