@@ -38,12 +38,12 @@
   max-height: 2rem;
   margin-top: 0.5rem;
   border-radius: 5px;
-  border: solid #bdbdbd 1px;
+  border: solid #bdbdbd 2px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .tabs-button:hover {
-  background-color: rgb(224, 220, 220);
+  background-color: rgb(229, 242, 246);
   cursor: pointer;
 }
 
