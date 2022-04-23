@@ -9,6 +9,7 @@
 }
 
 .avatar-form-button {
+  color: rgb(59, 123, 159);
   width: 6rem;
   height: 1.5rem;
   border-radius: 5px;
@@ -26,6 +27,7 @@
 }
 
 .label-avatar {
+  color: rgb(59, 123, 159);
   height: 2rem;
   width: 15rem;
   padding: 1rem;
