@@ -11,7 +11,7 @@ export const SelectOrder = (props) => {
 
   return (
     <>
-      <FormControl sx={{ m: 1, width: 90 }}>
+      <FormControl sx={{ m: 1, width: 90 }} className='select'>
         <InputLabel id='orden'>Orden</InputLabel>
         <Select
           labelId='orden'

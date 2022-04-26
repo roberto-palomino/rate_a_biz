@@ -14,7 +14,7 @@ export default function FilterButton(props) {
     }
   };
   return (
-    <Stack className='filter' width={150} spacing={2}>
+    <Stack className='select' width={150} spacing={2}>
       <Button
         className='filtrar'
         variant='outlined'

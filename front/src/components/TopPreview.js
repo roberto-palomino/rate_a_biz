@@ -1,9 +1,12 @@
-import { Rating, Typography } from '@mui/material';
+import { Button, Rating, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { useLoadTopBusiness } from '../hooks/useLoadTopBusiness';
 import Avatar from './Avatar';
 
 export const TopPreview = (props) => {
   const {
+    totalReviews,
+    id,
     idBusiness,
     enviroment,
     conciliation,
@@ -18,6 +21,8 @@ export const TopPreview = (props) => {
   comments = topBusinessInfo.filter(
     (comment) => comment.idBusiness === idBusiness
   );
+
+  const navigate = useNavigate();
   const avatarUrl = avatar
     ? `http://localhost:4000/static/uploads/${avatar}`
     : '';
@@ -27,7 +32,20 @@ export const TopPreview = (props) => {
       <div className='info'>
         <h1> {bussinesName} </h1>
         <Avatar size='medium' hideFigCaption avatarUrl={avatarUrl} />
+        <Button
+          id='register-login'
+          variant='outlined'
+          color='primary'
+          onClick={() => {
+            navigate(`/businessProfile/${id}`);
+          }}
+        >
+          {' '}
+          Ver Perfil
+        </Button>
+        <h5>{totalReviews} Valoraciones</h5>
         <div>
+          {''}
           <Typography component='legend'>Ambiente laboral</Typography>
           <Rating name='read-only' value={enviroment} readOnly />
           <Typography component='legend'>Conciliación</Typography>

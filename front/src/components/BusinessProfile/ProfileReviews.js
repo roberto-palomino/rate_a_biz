@@ -6,31 +6,40 @@ export const ProfileReviews = (props) => {
 
   return (
     <>
-      <div className='reviews'>
+      <div className='profile-reviews-info'>
         {reviews.map((r) => (
-          <div className='review' key={Math.random()}>
-            <div className='comments' key={Math.random()}>
-              <h1>{r.title}</h1>
-            </div>
-            <div className='valorations' key={Math.random()}>
-              <div>
+          <div className='profile-review' key={Math.random()}>
+            <div className='profile-left'>
+              <div className='profile-author' key={Math.random()}>
+                <Avatar
+                  size='small'
+                  username={r.username}
+                  avatarUrl={
+                    r.avatar
+                      ? `http://localhost:4000/static/uploads/${r.avatar}`
+                      : ''
+                  }
+                />
+              </div>
+              <div className='valorations' key={Math.random()}>
                 <Typography component='legend'>Ambiente laboral</Typography>
                 <Rating name='read-only' value={r.enviroment} readOnly />
-              </div>
-              <div>
+
                 <Typography component='legend'>Conciliación</Typography>
                 <Rating name='read-only' value={r.conciliation} readOnly />
-              </div>
-              <div>
+
                 <Typography component='legend'>Oportunidades</Typography>
                 <Rating name='read-only' value={r.oportunities} readOnly />
-              </div>
-              <div>
+
                 <Typography component='legend'>Salario</Typography>
                 <Rating name='read-only' value={r.salary} readOnly />
               </div>
             </div>
-            <p className='comment'>{r.description}</p>
+            <div className='comments' key={Math.random()}>
+              {' '}
+              <h1>{r.title}</h1>
+              <p className='comment'>{r.description}</p>
+            </div>
           </div>
         ))}
       </div>

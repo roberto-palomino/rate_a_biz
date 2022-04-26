@@ -3,18 +3,17 @@ import { useLoadBusinessProfile } from '../hooks/useLoadBusinessProfile';
 import { useParams } from 'react-router-dom';
 import { Profile } from '../components/BusinessProfile/Profile';
 import { ProfileReviews } from '../components/BusinessProfile/ProfileReviews';
+import './BusinessProfile.css';
 
 export const BusinessProfile = () => {
   const { id } = useParams();
 
   const [businessProfileInfo] = useLoadBusinessProfile(id);
 
-  console.log('respuesta en profile', businessProfileInfo);
-
   return (
     <>
       {businessProfileInfo ? (
-        <div className='profile'>
+        <div className='business-profile'>
           <div className='profile-preview'>
             <Profile
               businessName={businessProfileInfo.businessInfo.name}

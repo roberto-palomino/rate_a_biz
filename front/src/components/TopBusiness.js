@@ -13,6 +13,8 @@ export const TopBusiness = (props) => {
       {topBusiness.map((business) => (
         <div className='top-preview' key={business.idBusiness}>
           <TopPreview
+            totalReviews={business.total}
+            id={business.id}
             idBusiness={business.idBusiness}
             key={business.id}
             enviroment={parseInt(business.enviroment)}

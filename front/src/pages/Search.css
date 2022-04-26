@@ -1,7 +1,8 @@
-/* .search {
-  background-color: rgb(59, 123, 159);
+.search {
+  background-color: white;
+  background-image: url('/home/hack/Desktop/Rate a Biz/Rate_A_Biz_Front/front/src/assets/images/architecture-2.jpg');
 }
- */
+
 #order {
   min-width: 20px;
   padding: 5px;
@@ -15,13 +16,16 @@
 .search {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .filter {
   display: flex;
   flex-direction: row;
   padding: 1rem 2.5rem;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  column-gap: 1.2rem;
+  flex-wrap: wrap;
 }
 
 .reviews {
@@ -33,19 +37,19 @@
 .comment {
   font-size: 20px;
   padding: 1rem;
-  background-color: rgba(253, 253, 242);
-  border: 1px solid black;
+  background-color: white;
+  /*  border: 1px solid black; */
   border-radius: 20px;
 }
 
 .preview {
   padding: 1rem;
-  border: 1px solid black;
+  /*   border: 1px solid black; */
   border-radius: 20px;
   box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: rgb(253, 242, 242);
+  background-color: rgba(236, 236, 234);
   margin: 3rem;
 }
 
@@ -81,4 +85,38 @@ h5 {
 
 .profile-link {
   font-size: medium;
+}
+
+.comments-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.comments-preview h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.select {
+  background-color: rgba(236, 236, 234);
+}
+
+.button-search {
+  background-color: rgba(236, 236, 234);
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 2.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#apply {
+  background-color: rgba(236, 236, 234);
+}
+
+.css-d5qgd7-MuiStack-root {
+  display: flex;
+  align-items: center;
+  align-content: center;
 }

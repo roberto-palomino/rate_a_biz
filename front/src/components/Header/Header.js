@@ -12,7 +12,6 @@ const Header = () => {
   const avatarUrl = user?.avatar
     ? `http://localhost:4000/static/uploads/${user?.avatar}`
     : '';
-  console.log(avatarUrl);
 
   return (
     <header>
@@ -34,7 +33,7 @@ const Header = () => {
         {!token ? <LoginModal className='login' /> : null}{' '}
         {!token ? <SignUpModal className='signup' /> : null}{' '}
         {token ? (
-          <div className='profile'>
+          <div className='profile-user'>
             <a href='/profile'>
               <div>
                 <Avatar

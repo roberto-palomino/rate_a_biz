@@ -1,8 +1,14 @@
 .filtrar {
-  box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.178);
 }
 
 .filter .MuiSelect-select {
-  box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
-  text-decoration: underline rgb(117, 157, 241);
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.178);
+  /* text-decoration: underline rgb(117, 157, 241); */
+}
+
+.MuiButton-root {
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.178);
+  color: grey;
+  background-color: grey;
 }
