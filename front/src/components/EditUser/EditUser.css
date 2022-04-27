@@ -5,10 +5,10 @@
 }
 
 .title {
+  /* color: rgb(59, 123, 159); */
   text-align: center;
   margin-bottom: 2rem;
-  color: rgb(59, 123, 159);
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 @media (min-width: 900px) {
@@ -17,7 +17,8 @@
   }
 
   .title {
-    text-align: start;
-    padding: 1rem 1rem 1rem 3rem;
+    text-align: center;
+    /* padding: 1rem 1rem 1rem 3rem; */
+    margin-top: 1.5rem;
   }
 }

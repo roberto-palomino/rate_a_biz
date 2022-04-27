@@ -1,3 +1,9 @@
+.tabs {
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
+}
 .tabs-container {
   min-width: 20rem;
   display: flex;
@@ -8,7 +14,7 @@
 }
 
 .tabs-container Button {
-  color: #3b7b9f;
+  /* color: #3b7b9f; */
   opacity: unset;
 }
 
