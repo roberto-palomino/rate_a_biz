@@ -26,12 +26,11 @@ export const TopPreview = (props) => {
   const avatarUrl = avatar
     ? `http://localhost:4000/static/uploads/${avatar}`
     : '';
-
   return (
     <>
       <div className='info'>
         <h1> {bussinesName} </h1>
-        <Avatar size='medium' hideFigCaption avatarUrl={avatarUrl} />
+        <Avatar size='small' hideFigCaption avatarUrl={avatarUrl} />
         <Button
           id='register-login'
           variant='outlined'
@@ -44,6 +43,8 @@ export const TopPreview = (props) => {
           Ver Perfil
         </Button>
         <h5>{totalReviews} Valoraciones</h5>
+      </div>
+      <div className='comments'>
         <div>
           {''}
           <Typography component='legend'>Ambiente laboral</Typography>
@@ -55,13 +56,14 @@ export const TopPreview = (props) => {
           <Typography component='legend'>Salario</Typography>
           <Rating name='read-only' value={salary} readOnly />
         </div>
-      </div>
-      <div className='comments'>
-        {comments.map((comment) => (
-          <p className='comment' key={comment.id}>
-            {comment.description}
-          </p>
-        ))}
+        {/*   {comments.map((comment) => (
+          <>
+            <h5>{comment.username}:</h5>
+            <p className='comment' key={comment.id}>
+              {comment.title}
+            </p>
+          </>
+        ))} */}
       </div>
     </>
   );

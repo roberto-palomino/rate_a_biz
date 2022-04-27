@@ -1,8 +1,8 @@
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import './filter.css';
 
 export default function ResetButton(props) {
+  /* Obtenemos de props las funciones para setear los estados */
   const {
     setSelectedSalary,
     setSelectedJob,
@@ -13,6 +13,7 @@ export default function ResetButton(props) {
     setFilterBusiness,
   } = props;
 
+  /* Función que setea los estados a como estaban originalmente */
   const reset = () => {
     setSelectedSalary('');
     setSelectedState('');
@@ -24,7 +25,7 @@ export default function ResetButton(props) {
     setFilterBusiness('');
   };
   return (
-    <Stack className='select' width={150} spacing={2}>
+    <Stack id='apply' width={150} spacing={2}>
       <Button className='filtrar' variant='outlined' onClick={reset}>
         Reset
       </Button>

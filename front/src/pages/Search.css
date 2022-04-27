@@ -26,6 +26,7 @@
   align-items: center;
   column-gap: 1.2rem;
   flex-wrap: wrap;
+  z-index: 0;
 }
 
 .reviews {

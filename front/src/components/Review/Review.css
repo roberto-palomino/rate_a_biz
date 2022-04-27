@@ -1,0 +1,38 @@
+.review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.new-review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
+  background-color: rgba(236, 236, 234);
+  width: 80vw;
+}
+
+#review-selectors {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  z-index: 0;
+}
+
+#review-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 45vw;
+  margin-bottom: 1.5rem;
+}
+
+.reset {
+  display: flex;
+  justify-content: center;
+}

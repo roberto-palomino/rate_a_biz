@@ -37,6 +37,11 @@ body {
   background-color: rgba(236, 236, 234);
   margin: 3rem;
 }
+.top-reviews {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 .top-preview .info {
   display: flex;

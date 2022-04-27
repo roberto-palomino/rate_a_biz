@@ -58,7 +58,7 @@ export const Login = () => {
       console.error('Ha ocurrido un error', e);
     }
   };
-  if (token) return <Navigate to='/' />;
+  if (token) return <Navigate to='/#' />;
 
   return (
     <div>

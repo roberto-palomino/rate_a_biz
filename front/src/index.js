@@ -33,13 +33,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiRating: {
-      styleOverrides: {
-        root: {
-          /*   color: '#3b7b9f', */
-        },
-      },
-    },
   },
 });
 
@@ -60,7 +53,7 @@ ReactDOM.render(
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path='/' element={<App />} />
+            <Route exact path='/' element={<App />} />
             <Route path='/signup' element={<SignUp />} />
             {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
             <Route path='/search' element={<Search />} />

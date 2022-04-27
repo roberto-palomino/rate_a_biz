@@ -1,7 +1,3 @@
-import { Button, Stack } from '@mui/material';
-import { Preview } from './Preview';
-import { useLoadBusiness } from '../hooks/useLoadBusiness';
-import SendIcon from '@mui/icons-material/Send';
 import { useLoadTopBusiness } from '../hooks/useLoadTopBusiness';
 import { TopPreview } from './TopPreview';
 
