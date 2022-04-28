@@ -19,7 +19,6 @@ import {
   Stack,
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
-import { useLoadBusiness } from '../hooks/useLoadBusiness';
 
 export const SignUp = () => {
   const [mail, setMail] = useState('');

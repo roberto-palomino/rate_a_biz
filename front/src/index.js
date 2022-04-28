@@ -19,19 +19,18 @@ const theme = createTheme({
     primary: {
       main: '#3b7b9f',
     },
+    secondary: {
+      main: '#616161',
+    },
+    background: {
+      default: '#ffffff',
+    },
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
           textTransform: 'none',
-        },
-      },
-    },
-    MuiRating: {
-      styleOverrides: {
-        root: {
-          /*   color: '#3b7b9f', */
         },
       },
     },

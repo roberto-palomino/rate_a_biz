@@ -13,7 +13,7 @@ export const SelectJob = (props) => {
 
   return (
     <>
-      <FormControl sx={{ m: 1, width: 120 }}>
+      <FormControl sx={{ m: 1, width: 120 }} className='select'>
         <InputLabel id='Trabajo'>Trabajo</InputLabel>
         <Select
           labelId='Trabajo'

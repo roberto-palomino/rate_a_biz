@@ -41,28 +41,23 @@ export const Preview = (props) => {
           </Button>
         ) : null}
 
-        <h1> {title} </h1>
-      </div>
-      <div className='valorations'>
-        <div>
+        <div className='valorations'>
           <Typography component='legend'>Ambiente laboral</Typography>
           <Rating name='read-only' value={enviroment} readOnly />
-        </div>
-        <div>
+
           <Typography component='legend'>Conciliación</Typography>
           <Rating name='read-only' value={conciliation} readOnly />
-        </div>
-        <div>
+
           <Typography component='legend'>Oportunidades</Typography>
           <Rating name='read-only' value={oportunities} readOnly />
-        </div>
-        <div>
+
           <Typography component='legend'>Salario</Typography>
           <Rating name='read-only' value={salary} readOnly />
         </div>
       </div>
 
-      <div className='comments'>
+      <div className='comments-preview'>
+        <h1> {title} </h1>
         <p className='comment'>{description}</p>
       </div>
     </>

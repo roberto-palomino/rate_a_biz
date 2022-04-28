@@ -1,4 +1,3 @@
-import { Rating, Typography } from '@mui/material';
 import Avatar from '../Avatar';
 
 export const Profile = (props) => {

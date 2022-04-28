@@ -22,9 +22,6 @@ function Search() {
   const [orderBy, setOrderBy] = useState('');
 
   const [filterBusiness, setFilterBusiness] = useState('');
-  console.log(selectedOrder);
-
-  console.log('orden', orderBy);
 
   return (
     <>
@@ -40,6 +37,7 @@ function Search() {
             <>
               {' '}
               <SelectState
+                className='select'
                 selectedState={selectedState}
                 setSelectedState={setSelectedState}
               />

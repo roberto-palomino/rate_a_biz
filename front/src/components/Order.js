@@ -20,20 +20,23 @@ export const Order = (props) => {
   return (
     <>
       <Stack className='filter' width={40} spacing={1}>
-        <abbr title='ORDEN ASCENDENTE'>
+        <abbr title='ORDEN ASCENDENTE' className='select'>
           <Button
             id='order'
             variant='outlined'
             startIcon={<ArrowDropUpSharpIcon id='arrow' />}
             onClick={orderUp}
+            color='secondary'
+            className='select'
           ></Button>
         </abbr>
-        <abbr title='ORDEN DESCENDENTE'>
+        <abbr title='ORDEN DESCENDENTE' className='select'>
           <Button
             id='order'
             variant='outlined'
             startIcon={<ArrowDropDownSharpIcon id='arrow' />}
             onClick={orderDown}
+            color='secondary'
           ></Button>
         </abbr>
       </Stack>
