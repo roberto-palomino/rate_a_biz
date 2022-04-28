@@ -1,3 +1,7 @@
+.header {
+  background-color: rgb(229, 240, 244);
+}
+
 header a {
   text-decoration: none;
   /* font-size: large; */
@@ -13,7 +17,7 @@ header button {
   align-items: center;
   color: rgb(59, 123, 159);
   border: none;
-  background-color: rgb(253, 242, 242);
+  background-color: rgb(229, 240, 244);
   cursor: pointer;
 }
 
