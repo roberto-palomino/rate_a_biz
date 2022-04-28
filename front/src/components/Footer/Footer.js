@@ -11,7 +11,7 @@ const Footer = () => {
           Política de privacidad | Términos y condiciones | Política de cookies
         </NavLink>
       </div>
-      <p className='copyright'>©️2022</p>
+      <p className='copyright'>©️2022 Rate A Biz</p>
     </footer>
   );
 };
