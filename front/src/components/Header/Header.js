@@ -19,21 +19,21 @@ const Header = () => {
     ? `http://localhost:4000/static/uploads/${user?.avatar}`
     : '';
 
-  const handleClick = event => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handleClick = event => {
+  //   setAnchorEl(event.currentTarget);
+  // };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
 
-  const closeSession = e => {
-    window.localStorage.clear();
-    window.location.reload();
-  };
+  // const closeSession = e => {
+  //   window.localStorage.clear();
+  //   window.location.reload();
+  // };
 
   return (
-    <header>
+    <header className='header'>
       <a href='/' className='logo'>
         <img
           src='https://i.ibb.co/KmZ0GVL/Logo-Grande.png'
