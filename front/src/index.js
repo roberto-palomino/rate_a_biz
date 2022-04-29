@@ -12,6 +12,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { BusinessProfile } from './pages/BusinessProfile';
 import { GlobalStyles } from '@mui/material';
 import Header from './components/Header/Header';
+import { Validate } from './components/Validate/Validate';
 
 const theme = createTheme({
   palette: {
@@ -23,6 +24,7 @@ const theme = createTheme({
     },
     background: {
       default: '#ffffff',
+      paper: '#ececea',
     },
   },
   components: {
@@ -59,6 +61,7 @@ ReactDOM.render(
             <Route path='/search' element={<Search />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/businessProfile/:id' element={<BusinessProfile />} />
+            <Route path='/validate/:registrationCode' element={<Validate />} />
           </Routes>
         </BrowserRouter>
       </TokenProvider>

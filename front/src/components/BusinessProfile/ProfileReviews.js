@@ -20,23 +20,76 @@ export const ProfileReviews = (props) => {
                       : ''
                   }
                 />
-              </div>
-              <div className='valorations' key={Math.random()}>
-                <Typography component='legend'>Ambiente laboral</Typography>
-                <Rating name='read-only' value={r.enviroment} readOnly />
-
-                <Typography component='legend'>Conciliación</Typography>
-                <Rating name='read-only' value={r.conciliation} readOnly />
-
-                <Typography component='legend'>Oportunidades</Typography>
-                <Rating name='read-only' value={r.oportunities} readOnly />
-
-                <Typography component='legend'>Salario</Typography>
-                <Rating name='read-only' value={r.salary} readOnly />
+                <div className='profile-rigth'>
+                  <h5>
+                    <b>Puesto: </b>
+                    {r.job}
+                  </h5>
+                  <h5>
+                    <b>Rango salarial:</b> {r.salary_range}
+                  </h5>
+                  <h5>
+                    <b>Año de comienzo:</b> {r.start_year}
+                  </h5>{' '}
+                  <h5>
+                    {' '}
+                    <b>Año de fin: </b>
+                    {r.end_year}
+                  </h5>
+                </div>
               </div>
             </div>
             <div className='comments' key={Math.random()}>
-              {' '}
+              <div className='profile-valorations' key={Math.random()}>
+                <div>
+                  <Typography component='legend'>
+                    <h5>Ambiente laboral</h5>
+                  </Typography>
+                  <Rating
+                    name='read-only'
+                    value={r.enviroment}
+                    readOnly
+                    size='large'
+                  />
+                </div>
+
+                <div>
+                  <Typography component='legend'>
+                    <h5>Conciliación</h5>
+                  </Typography>
+                  <Rating
+                    name='read-only'
+                    value={r.conciliation}
+                    readOnly
+                    size='large'
+                  />
+                </div>
+
+                <div>
+                  <Typography component='legend'>
+                    <h5>Oportunidades</h5>
+                  </Typography>
+                  <Rating
+                    name='read-only'
+                    value={r.oportunities}
+                    readOnly
+                    size='large'
+                  />
+                </div>
+
+                <div>
+                  {' '}
+                  <Typography component='legend'>
+                    <h5>Salario</h5>
+                  </Typography>
+                  <Rating
+                    name='read-only'
+                    value={r.salary}
+                    readOnly
+                    size='large'
+                  />
+                </div>
+              </div>{' '}
               <h1>{r.title}</h1>
               <p className='comment'>{r.description}</p>
             </div>

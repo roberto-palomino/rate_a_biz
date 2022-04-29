@@ -23,24 +23,22 @@
 .profile-reviews {
   padding: 1rem;
 
-  border-radius: 20px;
-  box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
-  background-color: rgba(236, 236, 234);
   width: 85vw;
   margin: 3rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   gap: 1rem;
 }
+
 .profile-review {
   display: grid;
   grid-template-columns: 1fr 3fr;
   border-radius: 20px;
   box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
-
-  margin-top: 1rem;
+  background-color: rgba(236, 236, 234);
+  margin: 1rem;
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
@@ -50,4 +48,30 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.profile-valorations {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.profile-left {
+  margin: 1.5rem;
+}
+
+.comments {
+  margin: 1.5rem;
+}
+
+.profile-orders {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
 }

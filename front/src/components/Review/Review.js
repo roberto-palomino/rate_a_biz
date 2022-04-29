@@ -107,7 +107,8 @@ export default function Review() {
     }
   };
 
-  console.log('salario', salary);
+  console.log('texto', description);
+  console.log('title', title);
   return (
     <div className='review'>
       <Stack className='select' width={150} spacing={2}>
