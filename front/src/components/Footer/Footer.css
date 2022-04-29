@@ -1,12 +1,20 @@
 .footer-container {
-  display: flex;
-  justify-content: space-between;
+  /* border: 1px solid red; */
+  /* display: flex; */
+  /* justify-content: space-between; */
   color: rgb(59, 123, 159);
   background-color: rgb(229, 240, 244);
-}
-.politics-terms {
-  margin: 2rem;
   display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* gap: 0.5rem; */
+  min-width: 462px;
+}
+
+.politics-terms {
+  margin: 1rem;
+  /* display: flex; */
   text-decoration: none;
 }
 .politics-terms a {
@@ -14,6 +22,21 @@
   color: rgb(59, 123, 159);
 }
 .copyright {
-  margin: 2rem;
-  display: flex;
+  /* border: 1px solid red; */
+  margin: 1rem;
+  /* display: flex; */
+}
+
+@media (min-width: 900px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .politics-terms {
+    margin: 2rem;
+  }
+}
+.copyright {
+  margin-right: 2rem;
 }

@@ -19,23 +19,24 @@ const Header = () => {
     ? `http://localhost:4000/static/uploads/${user?.avatar}`
     : '';
 
-  // const handleClick = event => {
-  //   setAnchorEl(event.currentTarget);
-  // };
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
 
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-  // const closeSession = e => {
-  //   window.localStorage.clear();
-  //   window.location.reload();
-  // };
+  const closeSession = e => {
+    window.localStorage.clear();
+    window.location.reload();
+  };
 
   return (
     <header className='header'>
       <a href='/' className='logo'>
         <img
+          className='image-logo'
           src='https://i.ibb.co/KmZ0GVL/Logo-Grande.png'
           alt='Logo-Grande'
           border='0'
@@ -53,7 +54,7 @@ const Header = () => {
         {!token ? <SignUpModal className='signup' /> : null}{' '}
         {token ? (
           <div className='profile'>
-            {/* <Button
+            <Button
               aria-controls='simple-menu'
               aria-haspopup='true'
               onClick={handleClick}
@@ -66,6 +67,7 @@ const Header = () => {
               />
             </Button>
             <Menu
+              className='header-profile-menu'
               id='simple-menu'
               anchorEl={anchorEl}
               keepMounted
@@ -93,16 +95,16 @@ const Header = () => {
               >
                 Cerrar sesión
               </MenuItem>
-            </Menu> */}
+            </Menu>
 
-            <div>
+            {/* <div>
               <Avatar
                 className='avatar'
                 avatarUrl={avatarUrl}
                 username={user?.username}
                 hideFigCaption
               />
-            </div>
+            </div> */}
             <a href='/profile'>Mi perfil</a>
             <button
               onClick={e => {

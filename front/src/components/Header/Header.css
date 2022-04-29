@@ -1,35 +1,141 @@
 .header {
+  /* border: 2px solid red; */
   background-color: rgb(229, 240, 244);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-width: 462px;
+  height: 180px;
+  align-items: center;
 }
 
-header a {
+.nav {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-content: center; */
+
+  /* gap: 2rem; */
+  /* margin-right: 8rem; */
+}
+
+header {
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* background-color: rgba(236, 236, 234, 0.473); */
+}
+
+.header-profile-menu a {
   text-decoration: none;
-  /* font-size: large; */
-  display: flex;
-  align-items: center;
-  height: 1.5rem;
-  color: rgb(59, 123, 159);
+  color: inherit;
+}
+.profile a {
+  display: none;
 }
 
+/* .closeSession-button {
+  display: none;
+} */
+
+.image-logo {
+  margin-top: 2rem;
+  width: 275px;
+  /* height: 90px; */
+}
 header button {
-  /* text-decoration: none; */
-  font-size: medium;
+  display: none;
+  /* font-size: medium;
   display: flex;
   align-items: center;
   color: rgb(59, 123, 159);
-  border: none;
+  
   background-color: rgba(236, 236, 234, 0.473);
-  cursor: pointer;
+  cursor: pointer; */
 }
 
-.profile-user {
+.logo {
+  /* margin: 1rem; */
+}
+.link {
+  text-decoration: none;
+  /* margin-top: 1rem; */
+  font-size: x-large;
   display: flex;
+  /* align-items: center; */
+  color: rgb(59, 123, 159);
+}
+
+.profile {
+  display: flex;
+  /* padding: 1rem; */
+
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 0.3rem;
 }
 
-header .avatar-container {
-  max-height: 82px;
+.profile .MuiButton-root {
+  box-shadow: none;
+}
+
+.profile .MuiButton-root img {
+  /* box-shadow: none; */
+  width: 90px;
+  height: 90px;
+}
+
+@media (min-width: 900px) {
+  .header {
+    flex-direction: row;
+    /* flex-direction: column; */
+    /* justify-content: space-evenly; */
+    align-items: center;
+
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-content: center; */
+
+    /* gap: 2rem; */
+    margin: 0rem 2rem 0 2rem;
+  }
+
+  header button {
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    color: rgb(59, 123, 159);
+    border: none;
+    background-color: rgba(236, 236, 234, 0.473);
+    cursor: pointer;
+  }
+
+  .profile a {
+    text-decoration: none;
+    /* font-size: large; */
+    display: flex;
+    align-items: center;
+    /* height: 1.5rem; */
+    color: rgb(59, 123, 159);
+  }
+
+  .profile .MuiButton-root img {
+    /* box-shadow: none; */
+    width: 75px;
+    height: 75px;
+  }
+
+  .image-logo {
+    margin-top: 0;
+  }
+
+  .link {
+    font-size: xx-large;
+  }
 }

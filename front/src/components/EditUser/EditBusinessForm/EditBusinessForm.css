@@ -2,12 +2,15 @@
   display: flex;
   padding: 1rem;
   align-items: flex-start;
+  margin-left: 3rem;
+
   gap: 2rem;
 }
 
 @media (min-width: 900px) {
   .business-data-form {
     margin-top: 4rem;
+    margin-left: 0;
     flex-direction: row;
     flex-wrap: wrap;
   }
