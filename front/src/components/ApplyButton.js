@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import './filter.css';
 
 export default function ApplyButton(props) {
@@ -10,6 +11,7 @@ export default function ApplyButton(props) {
     selectedSector,
     orderBy,
     direction,
+    name,
     apply,
     setFilterBusiness,
   } = props;
@@ -24,6 +26,7 @@ export default function ApplyButton(props) {
         idSector: selectedSector,
         orderBy: orderBy,
         direction: direction,
+        name: name,
       };
       const serializedData = JSON.stringify(data);
       const res = await fetch(' http://localhost:4000/business ', {
@@ -56,9 +59,14 @@ export default function ApplyButton(props) {
     } */
   };
   return (
-    <Stack className='filter' width={150} spacing={2}>
-      <Button className='filtrar' variant='outlined' onClick={loadBusiness}>
-        Aplicar
+    <Stack id='apply' width={150} spacing={2}>
+      <Button
+        className='filtrar'
+        variant='outlined'
+        onClick={loadBusiness}
+        endIcon={<SearchSharpIcon />}
+      >
+        Buscar
       </Button>
     </Stack>
   );

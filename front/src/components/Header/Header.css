@@ -3,6 +3,7 @@ header a {
   font-size: large;
   display: flex;
   align-items: center;
+  height: 1.5rem;
   color: rgb(59, 123, 159);
 }
 
@@ -13,15 +14,15 @@ header button {
   align-items: center;
   color: rgb(59, 123, 159);
   border: none;
-  background-color: rgb(253, 242, 242);
+  background-color: rgba(236, 236, 234, 0.473);
 }
 
-.profile {
+.profile-user {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 2.5rem;
 }
 
 header .avatar-container {

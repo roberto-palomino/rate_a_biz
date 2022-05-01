@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import './filter.css';
 
 export default function FilterButton(props) {
-  const { filterVisible, setFilterVisible } = props;
+  const { filterVisible, setFilterVisible, text } = props;
   /* Con esta función mostramos u ocultamos las opciones de filtrado, cambiando el estado del botón a true o false */
   const filterChange = (e) => {
     if (!filterVisible) {
@@ -14,14 +14,14 @@ export default function FilterButton(props) {
     }
   };
   return (
-    <Stack className='filter' width={150} spacing={2}>
+    <Stack className='select' width={150} spacing={2}>
       <Button
         className='filtrar'
         variant='outlined'
-        startIcon={<SearchSharpIcon />}
+        /* endIcon={<SearchSharpIcon />} */
         onClick={filterChange}
       >
-        Filtrar
+        {text}
       </Button>
     </Stack>
   );

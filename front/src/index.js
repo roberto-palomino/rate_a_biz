@@ -13,11 +13,19 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { BusinessProfile } from './pages/BusinessProfile';
 import { GlobalStyles } from '@mui/material';
 import Header from './components/Header/Header';
+import { Validate } from './components/Validate/Validate';
 
 const theme = createTheme({
   palette: {
     primary: {
       main: '#3b7b9f',
+    },
+    secondary: {
+      main: '#616161',
+    },
+    background: {
+      default: '#ffffff',
+      paper: '#ececea',
     },
   },
   components: {
@@ -25,13 +33,6 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: 'none',
-        },
-      },
-    },
-    MuiRating: {
-      styleOverrides: {
-        root: {
-          /*   color: '#3b7b9f', */
         },
       },
     },
@@ -55,12 +56,13 @@ ReactDOM.render(
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path='/' element={<App />} />
+            <Route exact path='/' element={<App />} />
             <Route path='/signup' element={<SignUp />} />
             {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
             <Route path='/search' element={<Search />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/businessProfile/:id' element={<BusinessProfile />} />
+            <Route path='/validate/:registrationCode' element={<Validate />} />
           </Routes>
         </BrowserRouter>
       </TokenProvider>
