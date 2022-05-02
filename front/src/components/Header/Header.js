@@ -6,8 +6,10 @@ import { LoginModal } from '../LoginModal/LoginModal';
 import { SignUpModal } from '../SignUpModal/SignUpModal';
 import useUserData from '../../hooks/useUserData';
 import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+// import Menu from '@material-ui/core/Menu';
+// import MenuItem from '@material-ui/core/MenuItem';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
 import './Header.css';
 
 const Header = () => {
@@ -73,7 +75,7 @@ const Header = () => {
               keepMounted
               open={Boolean(anchorEl)}
               onClose={handleClose}
-              getContentAnchorEl={null}
+              // getContentAnchorEl={null}
               anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'right',
