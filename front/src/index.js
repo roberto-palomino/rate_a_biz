@@ -13,6 +13,7 @@ import { BusinessProfile } from './pages/BusinessProfile';
 import { GlobalStyles } from '@mui/material';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import { Validate } from './components/Validate/Validate';
 
 const theme = createTheme({
   palette: {
@@ -24,6 +25,7 @@ const theme = createTheme({
     },
     background: {
       default: '#ffffff',
+      paper: '#ececea',
     },
   },
   components: {

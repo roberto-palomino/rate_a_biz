@@ -11,6 +11,7 @@ import { BusinessPreview } from './BusinessPreview';
 import ApplyButton from '../components/ApplyButton';
 
 import ResetButton from '../components/ResetButton';
+import { NameSearch } from '../components/Search/NameSearch';
 
 function Search() {
   const [filterVisible, setFilterVisible] = useState('');
@@ -20,6 +21,7 @@ function Search() {
   const [selectedSector, setSelectedSector] = useState('');
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [orderBy, setOrderBy] = useState('');
+  const [name, setName] = useState('');
 
   const [filterBusiness, setFilterBusiness] = useState('');
 
@@ -28,56 +30,68 @@ function Search() {
       {/* <Header /> */}
       <div className='search'>
         <div className='filter'>
-          <FilterButton
-            className='button'
-            filterVisible={filterVisible}
-            setFilterVisible={setFilterVisible}
-          />
+          <div className='searching'>
+            <NameSearch name={name} setName={setName} />
+            <ApplyButton
+              selectedState={selectedState}
+              selectedJob={selectedJob}
+              selectedSalary={selectedSalary}
+              selectedSector={selectedSector}
+              orderBy={orderBy}
+              direction={selectedOrder}
+              name={name}
+              filterBusiness={filterBusiness}
+              setFilterBusiness={setFilterBusiness}
+            />
+            <ResetButton
+              setSelectedState={setSelectedState}
+              setSelectedJob={setSelectedJob}
+              setSelectedSalary={setSelectedSalary}
+              setSelectedSector={setSelectedSector}
+              setOrderBy={setOrderBy}
+              setSelectedOrder={setSelectedOrder}
+              setFilterBusiness={setFilterBusiness}
+              setName={setName}
+            />
+
+            <FilterButton
+              className='button'
+              filterVisible={filterVisible}
+              setFilterVisible={setFilterVisible}
+              text='Filtrar por'
+            />
+          </div>
+
           {filterVisible ? (
             <>
-              {' '}
-              <SelectState
-                className='select'
-                selectedState={selectedState}
-                setSelectedState={setSelectedState}
-              />
-              <SelectJob
-                selectedJob={selectedJob}
-                setSelectedJob={setSelectedJob}
-              />
-              <SelectSalary
-                selectedSalary={selectedSalary}
-                setSelectedSalary={setSelectedSalary}
-              />
-              <SelectSector
-                selectedSector={selectedSector}
-                setSelectedSector={setSelectedSector}
-              />
-              <OrderBy
-                className='button'
-                orderBy={orderBy}
-                setOrderBy={setOrderBy}
-              />
-              <Order setSelectedOrder={setSelectedOrder} />
-              <ApplyButton
-                selectedState={selectedState}
-                selectedJob={selectedJob}
-                selectedSalary={selectedSalary}
-                selectedSector={selectedSector}
-                orderBy={orderBy}
-                direction={selectedOrder}
-                filterBusiness={filterBusiness}
-                setFilterBusiness={setFilterBusiness}
-              />
-              <ResetButton
-                setSelectedState={setSelectedState}
-                setSelectedJob={setSelectedJob}
-                setSelectedSalary={setSelectedSalary}
-                setSelectedSector={setSelectedSector}
-                setOrderBy={setOrderBy}
-                setSelectedOrder={setSelectedOrder}
-                setFilterBusiness={setFilterBusiness}
-              />
+              <div className='filters'>
+                <SelectState
+                  className='select'
+                  selectedState={selectedState}
+                  setSelectedState={setSelectedState}
+                />
+                <SelectJob
+                  selectedJob={selectedJob}
+                  setSelectedJob={setSelectedJob}
+                />
+                <SelectSalary
+                  selectedSalary={selectedSalary}
+                  setSelectedSalary={setSelectedSalary}
+                />
+                <SelectSector
+                  selectedSector={selectedSector}
+                  setSelectedSector={setSelectedSector}
+                />
+              </div>
+
+              <div className='orders'>
+                <OrderBy
+                  className='button'
+                  orderBy={orderBy}
+                  setOrderBy={setOrderBy}
+                />
+                <Order setSelectedOrder={setSelectedOrder} />
+              </div>
             </>
           ) : null}
 

@@ -19,7 +19,7 @@ export const Order = (props) => {
 
   return (
     <>
-      <Stack className='filter' width={40} spacing={1}>
+      <div className='filter-buttons'>
         <abbr title='ORDEN ASCENDENTE' className='select'>
           <Button
             id='order'
@@ -39,7 +39,7 @@ export const Order = (props) => {
             color='secondary'
           ></Button>
         </abbr>
-      </Stack>
+      </div>
     </>
   );
 };

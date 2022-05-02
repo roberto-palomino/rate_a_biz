@@ -11,6 +11,7 @@ export default function ResetButton(props) {
     setOrderBy,
     setSelectedOrder,
     setFilterBusiness,
+    setName,
   } = props;
 
   /* Función que setea los estados a como estaban originalmente */
@@ -23,6 +24,7 @@ export default function ResetButton(props) {
     setOrderBy('');
     setSelectedOrder(null);
     setFilterBusiness('');
+    setName('');
   };
   return (
     <Stack id='apply' width={150} spacing={2}>

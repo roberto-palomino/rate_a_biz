@@ -5,7 +5,7 @@ export function useLoadBusinessProfile(id) {
   const loadBusinessProfile = async () => {
     try {
       const res = await fetch(`http://localhost:4000/business/${id}`, {
-        method: 'GET',
+        method: 'POST',
       });
       const body = await res.json();
 
