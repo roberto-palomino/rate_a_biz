@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { TokenContext } from '../../../index';
 import { TextField } from '@mui/material';
+import toast, { Toaster } from 'react-hot-toast';
 
 const EditUserForm = props => {
   const { user, userId, onUpdated } = props;
@@ -47,12 +48,14 @@ const EditUserForm = props => {
       const body = await response.json();
       if (body.status === 'ok') {
         onUpdated(true);
-        const message = body.message;
+        // const message = body.message;
         // TODO: Implementar mensajes mostrado al usuario
-        console.log('Success:', message);
+        // console.log('Success:', message);
+        toast.success('¡Datos actualizados!');
       }
     } catch (error) {
-      console.error('Error al conectar con el servidor:', error);
+      // console.error('Error al conectar con el servidor:', error);
+      toast.error('¡Se ha producido un error!');
     }
   };
 
@@ -70,6 +73,9 @@ const EditUserForm = props => {
 
   return (
     <div>
+      <div>
+        <Toaster />
+      </div>
       <form className='user-data-form'>
         <TextField
           label='Usuario'
