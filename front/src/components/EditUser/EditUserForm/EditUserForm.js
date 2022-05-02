@@ -46,16 +46,17 @@ const EditUserForm = props => {
       });
       // TODO: Enviar mensajes a los usuarios
       const body = await response.json();
+      const message = body.message;
       if (body.status === 'ok') {
         onUpdated(true);
-        // const message = body.message;
-        // TODO: Implementar mensajes mostrado al usuario
-        // console.log('Success:', message);
-        toast.success('¡Datos actualizados!');
+        toast.success(message);
+      } else {
+        toast.error(message);
       }
+      // TODO: Implementar mensajes mostrado al usuario
+      // console.log('Success:', message);
     } catch (error) {
       // console.error('Error al conectar con el servidor:', error);
-      toast.error('¡Se ha producido un error!');
     }
   };
 

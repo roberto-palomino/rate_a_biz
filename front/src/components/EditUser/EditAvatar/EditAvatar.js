@@ -49,15 +49,15 @@ const EditAvatar = props => {
       );
 
       const responseData = await response.json();
+      const message = responseData.message;
       if (responseData.status === 'ok') {
         onUpdated(true);
-        // TODO: Implementar mensajes mostrado al usuario
-        // console.log('La imagen se ha subido correctamente');
-        toast.success('¡La imagen se ha subido correctamente!');
+        toast.success(message);
+      } else {
+        toast.error(message);
       }
     } catch (error) {
-      // console.error('Ha surgido un error al intentar subir la imagen');
-      toast.error('¡Ha surgido un error al intentar subir la imagen!');
+      // console.error('body', body);
     }
   };
 

@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { TokenContext } from '../../../index';
-import toast, { Toaster } from 'react-hot-toast';
 import { TextField } from '@mui/material';
+import toast, { Toaster } from 'react-hot-toast';
 
 const EditUserPass = props => {
   const { userId } = props;
@@ -34,11 +34,14 @@ const EditUserPass = props => {
       );
       // TODO: Enviar mensajes al usurio
       const body = await response.json();
-      toast.success('¡Datos actualizados!');
-      // console.log('body', body);
+      const message = body.message;
+      if (body.status === 'ok') {
+        toast.success(message);
+      } else {
+        toast.error(message);
+      }
     } catch (error) {
-      // console.error('Error en la llamada al API');
-      toast.error('¡Se ha producido un error!');
+      // console.error('body', body);
     }
   };
 
@@ -49,7 +52,6 @@ const EditUserPass = props => {
     if (isEditing) {
       updateUserPass(e);
       setButtonMessage('Editar datos');
-      // toast.success('¡Datos actualizados!');
     } else {
       setButtonMessage('Guardar cambios');
     }

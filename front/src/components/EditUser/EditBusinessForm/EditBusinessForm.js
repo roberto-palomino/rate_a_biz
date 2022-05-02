@@ -74,16 +74,18 @@ const EditBusinessForm = props => {
       });
       // TODO: Enviar mensajes a los usuarios
       const body = await response.json();
+      const message = body.message;
       if (body.status === 'ok') {
         onUpdated(true);
-        // const message = body.message;
-        toast.success('¡Datos actualizados!');
-        // TODO: Implementar mensajes mostrado al usuario
-        // console.log('Success:', message);
+        toast.success(message);
+      } else {
+        toast.error(message);
       }
+      // TODO: Implementar mensajes mostrado al usuario
+      // console.log('Success:', message);
     } catch (error) {
-      console.error('Error al conectar con el servidor:', error);
-      toast.error('¡Se ha producido un error!');
+      // console.error('Error al conectar con el servidor:', error);
+      // toast.error('Error al conectar con el servidor:', error);
     }
   };
 
@@ -94,7 +96,6 @@ const EditBusinessForm = props => {
     if (isEditing) {
       updateBusiness(e);
       setButtonMessage('Editar datos');
-      // toast.success('¡Datos actualizados!');
     } else {
       setButtonMessage('Guardar cambios');
     }
