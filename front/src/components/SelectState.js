@@ -13,7 +13,11 @@ export const SelectState = (props) => {
 
   return (
     <>
-      <FormControl sx={{ m: 1, width: 145 }} className='select'>
+      <FormControl
+        variant='standard'
+        sx={{ m: 1, width: 145 }}
+        className='select'
+      >
         <InputLabel id='Provincia'>Provincia</InputLabel>
         <Select
           labelId='Provincia'

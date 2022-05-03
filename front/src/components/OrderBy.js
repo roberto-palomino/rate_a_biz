@@ -13,7 +13,7 @@ export const OrderBy = (props) => {
   return (
     <>
       <FormControl
-        sx={{ m: 1, width: 125, borderRadius: 1 }}
+        sx={{ m: 1, width: 125, borderRadius: 2 }}
         className='select'
       >
         <InputLabel id='ordenar'>Ordenar por</InputLabel>

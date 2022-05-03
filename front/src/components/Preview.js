@@ -26,7 +26,6 @@ export const Preview = (props) => {
     : '';
   const navigate = useNavigate();
 
-  console.log(url_web);
 
   return (
     <>

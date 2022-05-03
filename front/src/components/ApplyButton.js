@@ -59,7 +59,15 @@ export default function ApplyButton(props) {
     } */
   };
   return (
-    <Stack id='apply' width={150} spacing={2}>
+    <Stack
+      id='apply'
+      width={150}
+      spacing={2}
+      sx={{
+        boxShadow: 1,
+        borderRadius: 2,
+      }}
+    >
       <Button
         className='filtrar'
         variant='outlined'

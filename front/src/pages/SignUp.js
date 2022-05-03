@@ -108,6 +108,7 @@ export const SignUp = () => {
               type='email'
               value={mail}
               onChange={mailChange}
+              autoComplete='off'
               endAdornment={
                 <InputAdornment position='end'>
                   <AccountCircle />

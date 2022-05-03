@@ -43,6 +43,7 @@ export default function Review() {
   /* Estado para hacer visible el formulario u ocultarlo */
   const [reviewVisible, setReviewVisible] = useState('');
   const [loginVisible, setLoginVisible] = useState('');
+  const [profileId, setProfileId] = useState('');
 
   /* Funciones para guardar los cambios de estado */
   const salaryChange = (e) => {
@@ -67,6 +68,7 @@ export default function Review() {
   /* Función que muestra el componente de comentar si hay token
   o te muestra el enlace a login */
   const showChange = (e) => {
+    setProfileId(id);
     if (!reviewVisible) {
       setReviewVisible('visible');
       if (!token) setLoginVisible('visible');
@@ -107,8 +109,6 @@ export default function Review() {
     }
   };
 
-  console.log('texto', description);
-  console.log('title', title);
   return (
     <div className='review'>
       <Stack className='select' width={150} spacing={2}>
@@ -121,7 +121,7 @@ export default function Review() {
           Comentar
         </Button>
       </Stack>
-      {loginVisible ? <LoginModal /> : null}
+      {loginVisible ? <LoginModal profileId={profileId} /> : null}
       {reviewVisible && token ? (
         <>
           <div className='new-review'>
