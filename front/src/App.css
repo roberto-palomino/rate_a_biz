@@ -36,8 +36,6 @@
   grid-template-columns: 1fr 1fr;
   background-color: rgba(236, 236, 234);
   margin: 3rem;
-  min-height: 58vh;
-  min-width: 840px;
 }
 .top-reviews {
   display: flex;
