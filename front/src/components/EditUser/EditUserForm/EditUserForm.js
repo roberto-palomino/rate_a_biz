@@ -44,7 +44,7 @@ const EditUserForm = props => {
           Authorization: token,
         },
       });
-      // TODO: Enviar mensajes a los usuarios
+
       const body = await response.json();
       const message = body.message;
       if (body.status === 'ok') {
@@ -53,11 +53,7 @@ const EditUserForm = props => {
       } else {
         toast.error(message);
       }
-      // TODO: Implementar mensajes mostrado al usuario
-      // console.log('Success:', message);
-    } catch (error) {
-      // console.error('Error al conectar con el servidor:', error);
-    }
+    } catch (error) {}
   };
 
   function handleEditForm(e) {
@@ -73,7 +69,7 @@ const EditUserForm = props => {
   }
 
   return (
-    <div>
+    <>
       <div>
         <Toaster />
       </div>
@@ -120,7 +116,7 @@ const EditUserForm = props => {
           {buttonMessage}
         </button>
       </div>
-    </div>
+    </>
   );
 };
 
