@@ -32,7 +32,7 @@ const EditUserPass = props => {
           },
         }
       );
-      // TODO: Enviar mensajes al usurio
+
       const body = await response.json();
       const message = body.message;
       if (body.status === 'ok') {
@@ -40,9 +40,7 @@ const EditUserPass = props => {
       } else {
         toast.error(message);
       }
-    } catch (error) {
-      // console.error('body', body);
-    }
+    } catch (error) {}
   };
 
   function handleEditForm(e) {
@@ -58,7 +56,7 @@ const EditUserPass = props => {
   }
 
   return (
-    <div>
+    <>
       <div>
         <Toaster />
       </div>
@@ -95,7 +93,7 @@ const EditUserPass = props => {
           {buttonMessage}
         </button>
       </div>
-    </div>
+    </>
   );
 };
 
