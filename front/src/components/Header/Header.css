@@ -24,7 +24,7 @@
 
 .image-logo {
   margin-top: 2rem;
-  width: 275px;
+  width: 330px;
 }
 
 .header-menu a {
@@ -121,5 +121,6 @@ header button {
 
   .link {
     font-size: xx-large;
+    width: 15rem;
   }
 }
