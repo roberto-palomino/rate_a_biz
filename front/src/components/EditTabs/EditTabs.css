@@ -1,11 +1,13 @@
 .tabs {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
   padding: 1rem;
   min-width: 400px;
-  border-radius: 20px;
-  box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
 }
 .tabs-container {
-  min-width: 20rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,10 +21,7 @@
 }
 
 .tabs-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-  padding: 2rem;
+  width: 100%;
 }
 
 .tabs-content-button {
@@ -49,14 +48,24 @@
 }
 
 .tabs-button:hover {
-  background-color: rgb(229, 242, 246);
+  background-color: rgba(236, 236, 234);
   cursor: pointer;
 }
 
 @media (min-width: 900px) {
   .tabs {
-    display: flex;
+    flex-direction: row;
     gap: 2rem;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.47);
+  }
+
+  .tabs-container {
+    min-width: 20rem;
+  }
+
+  .tabs-content {
+    padding: 2rem;
   }
 
   .tabs-button {
