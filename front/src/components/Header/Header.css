@@ -29,7 +29,11 @@
 
 .header-menu a {
   text-decoration: none;
-  color: inherit;
+  color: rgb(59, 123, 159);
+}
+
+.header-menu .close-session {
+  color: rgb(59, 123, 159);
 }
 
 header button {

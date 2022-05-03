@@ -87,6 +87,7 @@ const Header = () => {
                 <a href='/profile'>Mi perfil</a>
               </MenuItem>
               <MenuItem
+                className='close-session'
                 onClick={() => {
                   handleClose();
                   closeSession();
