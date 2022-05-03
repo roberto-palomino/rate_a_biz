@@ -3,7 +3,6 @@ import EditUser from '../components/EditUser';
 import useUserData from '../hooks/useUserData';
 import useBusinessData from '../hooks/useBusinessData';
 import { TokenContext } from '../index';
-import './Profile.css';
 
 export const Profile = () => {
   const [hasUpdated, setHasUpdated] = useState(false);
