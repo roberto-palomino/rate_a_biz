@@ -1,6 +1,5 @@
 .header {
-  /* border: 2px solid red; */
-  background-color: rgb(229, 240, 244);
+  background-color: rgba(236, 236, 234);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -11,69 +10,49 @@
   align-items: center;
 }
 
-.nav {
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-content: center; */
-
-  /* gap: 2rem; */
-  /* margin-right: 8rem; */
-}
-
-header {
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* background-color: rgba(236, 236, 234, 0.473); */
-}
-
-.header-profile-menu a {
+.nav-links a {
+  display: flex;
+  align-content: center;
+  margin: 0.5rem;
   text-decoration: none;
-  color: inherit;
+  color: rgb(59, 123, 159);
 }
+
 .profile a {
   display: none;
 }
 
-/* .closeSession-button {
-  display: none;
-} */
-
 .image-logo {
   margin-top: 2rem;
   width: 275px;
-  /* height: 90px; */
 }
+
+.header-menu a {
+  text-decoration: none;
+  color: inherit;
+}
+
 header button {
   display: none;
-  /* font-size: medium;
-  display: flex;
-  align-items: center;
-  color: rgb(59, 123, 159);
-  
-  background-color: rgba(236, 236, 234, 0.473);
-  cursor: pointer; */
 }
 
 .logo {
-  /* margin: 1rem; */
+  margin: 0;
 }
+
 .link {
   text-decoration: none;
-  /* margin-top: 1rem; */
   font-size: x-large;
   display: flex;
-  /* align-items: center; */
   color: rgb(59, 123, 159);
 }
 
 .profile {
   display: flex;
-  /* padding: 1rem; */
-
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.3rem;
+  gap: 2rem;
 }
 
 .profile .MuiButton-root {
@@ -81,7 +60,6 @@ header button {
 }
 
 .profile .MuiButton-root img {
-  /* box-shadow: none; */
   width: 90px;
   height: 90px;
 }
@@ -89,44 +67,46 @@ header button {
 @media (min-width: 900px) {
   .header {
     flex-direction: row;
-    /* flex-direction: column; */
-    /* justify-content: space-evenly; */
     align-items: center;
-
     justify-content: space-between;
     align-items: center;
   }
 
-  .nav {
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-content: center; */
-
-    /* gap: 2rem; */
-    margin: 0rem 2rem 0 2rem;
+  .nav-links {
+    display: flex;
+    margin-right: 1.5rem;
+    font-size: large;
   }
 
-  header button {
-    font-size: medium;
+  .profile {
+    gap: 0;
+  }
+
+  .profile-links {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 10rem;
+    gap: 5px;
     align-items: center;
+  }
+  .profile-links a {
+    display: flex;
+    font-size: medium;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .profile-links button {
+    display: flex;
+    font-size: medium;
     color: rgb(59, 123, 159);
     border: none;
     background-color: rgba(236, 236, 234, 0.473);
     cursor: pointer;
   }
 
-  .profile a {
-    text-decoration: none;
-    /* font-size: large; */
-    display: flex;
-    align-items: center;
-    /* height: 1.5rem; */
-    color: rgb(59, 123, 159);
-  }
-
   .profile .MuiButton-root img {
-    /* box-shadow: none; */
     width: 75px;
     height: 75px;
   }

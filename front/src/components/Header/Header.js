@@ -6,8 +6,6 @@ import { LoginModal } from '../LoginModal/LoginModal';
 import { SignUpModal } from '../SignUpModal/SignUpModal';
 import useUserData from '../../hooks/useUserData';
 import Button from '@material-ui/core/Button';
-// import Menu from '@material-ui/core/Menu';
-// import MenuItem from '@material-ui/core/MenuItem';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import './Header.css';
@@ -50,7 +48,7 @@ const Header = () => {
           Buscar
         </NavLink>
       </nav>
-      <nav className='nav'>
+      <nav className='nav-links'>
         {' '}
         {!token ? <LoginModal className='login' /> : null}{' '}
         {!token ? <SignUpModal className='signup' /> : null}{' '}
@@ -69,13 +67,12 @@ const Header = () => {
               />
             </Button>
             <Menu
-              className='header-profile-menu'
+              className='header-menu'
               id='simple-menu'
               anchorEl={anchorEl}
               keepMounted
               open={Boolean(anchorEl)}
               onClose={handleClose}
-              // getContentAnchorEl={null}
               anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'right',
@@ -99,23 +96,17 @@ const Header = () => {
               </MenuItem>
             </Menu>
 
-            {/* <div>
-              <Avatar
-                className='avatar'
-                avatarUrl={avatarUrl}
-                username={user?.username}
-                hideFigCaption
-              />
-            </div> */}
-            <a href='/profile'>Mi perfil</a>
-            <button
-              onClick={e => {
-                window.localStorage.clear();
-                window.location.reload();
-              }}
-            >
-              Cerrar sesión
-            </button>
+            <div className='profile-links'>
+              <a href='/profile'>Mi perfil</a>
+              <button
+                onClick={e => {
+                  window.localStorage.clear();
+                  window.location.reload();
+                }}
+              >
+                Cerrar sesión
+              </button>
+            </div>
           </div>
         ) : null}
       </nav>
