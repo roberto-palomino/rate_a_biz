@@ -19,22 +19,22 @@ import { LoginModal } from '../components/LoginModal/LoginModal';
 export const Login = () => {
   const [token, setToken] = useContext(TokenContext);
   const [mail, setMail] = useState('');
-  const mailChange = (e) => {
+  const mailChange = e => {
     setMail(e.target.value);
   };
   const [pass, setPass] = useState('');
-  const passChange = (e) => {
+  const passChange = e => {
     setPass(e.target.value);
   };
   const [visibility, setVisibility] = useState('');
-  const visibilityChange = (e) => {
+  const visibilityChange = e => {
     if (!visibility) {
       setVisibility('text');
     } else {
       setVisibility('');
     }
   };
-  const register = async (e) => {
+  const register = async e => {
     e.preventDefault();
     try {
       e.preventDefault();
@@ -63,7 +63,7 @@ export const Login = () => {
   return (
     <div>
       <form id='form-login'>
-        <FormControl id='email' variant='standard'>
+        <FormControl sx={{ m: 1, minWidth: 252 }} id='email' variant='standard'>
           <InputLabel htmlFor='email-login-input'>Email</InputLabel>
           <Input
             id='email-login-input'
@@ -78,7 +78,8 @@ export const Login = () => {
             label='Email'
           />
         </FormControl>
-        <FormControl sx={{ m: 1, width: '25ch' }} variant='standard'>
+        {/* <FormControl sx={{ m: 1, width: '25ch' }} variant='standard'> */}
+        <FormControl sx={{ m: 1, minWidth: 252 }} variant='standard'>
           <InputLabel htmlFor='password-login'>Contraseña</InputLabel>
           <Input
             id='password-login'
