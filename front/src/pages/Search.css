@@ -1,7 +1,11 @@
 .search {
-  background-color: white;
+  /* background-color: white; */
   /* background-image: url('/home/hack/Desktop/Rate a Biz/Rate_A_Biz_Front/front/src/assets/images/architecture-2.jpg'); */
-  background-image: url('../assets/images/architecture-2.jpg');
+  /* background-repeat: no-repeat; */
+  /* background-image: url('../assets/images/architecture-2.jpg');
+  background-position: 100%;
+  background-size: cover; */
+  flex: 1;
 }
 
 #order {

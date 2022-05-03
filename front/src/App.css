@@ -5,14 +5,16 @@
 }
 
 .App {
-  background-color: white;
+  /* background-color: white; */
   /* background-image: url('/home/hack/Desktop/Rate a Biz/Rate_A_Biz_Front/front/src/assets/images/architecture-1.jpg'); */
 
-  background-image: url('./assets/images/architecture-1.jpg');
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1;
+  /* background-image: url('./assets/images/architecture-1.jpg');
+  background-position: 100%;
+  background-size: cover; */
 }
 .top10 {
   margin-top: 1.5rem;

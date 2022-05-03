@@ -1,6 +1,6 @@
 .business-profile {
   /* background-image: url('/home/hack/Desktop/Rate a Biz/Rate_A_Biz_Front/front/src/assets/images/building-1.jpg'); */
-  background-image: url('../assets/images/building-1.jpg');
+  /* background-image: url('../assets/images/building-1.jpg'); */
   display: flex;
   flex-direction: column;
   justify-content: center;
