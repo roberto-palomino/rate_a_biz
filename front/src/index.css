@@ -22,11 +22,11 @@ code {
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-image: url('./assets/images/architecture-1.jpg');
+  /* background-image: url('./assets/images/perspective-g06b649021_1920.jpg'); */
   background-image: linear-gradient(
       to bottom,
-      rgba(202, 197, 197, 0.6) 0%,
-      rgba(98, 97, 97, 0.6) 100%
+      rgba(223, 222, 222, 0.6) 0%,
+      rgba(36, 36, 36, 0.6) 100%
     ),
     url('./assets/images/architecture-1.jpg');
   background-position: 100%;
