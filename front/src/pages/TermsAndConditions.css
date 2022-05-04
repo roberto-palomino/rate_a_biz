@@ -1,5 +1,5 @@
 .terms-container {
-  margin: 4rem;
+  margin: 1rem;
   font-size: large;
   padding: 2rem;
   border-radius: 20px;
@@ -14,4 +14,10 @@
 .terms-container h2 {
   margin-bottom: 1rem;
   text-align: center;
+}
+
+@media (min-width: 900px) {
+  .terms-container {
+    margin: 4rem;
+  }
 }
