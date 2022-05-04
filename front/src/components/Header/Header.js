@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { TokenContext } from '../..';
 import Avatar from '../Avatar';
 import { LoginModal } from '../LoginModal/LoginModal';
@@ -12,6 +12,7 @@ import './Header.css';
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const navigate = useNavigate();
 
   const [token] = useContext(TokenContext);
   const { user } = useUserData(token);
@@ -29,6 +30,7 @@ const Header = () => {
 
   const closeSession = e => {
     window.localStorage.clear();
+    navigate('/');
     window.location.reload();
   };
 
@@ -49,7 +51,6 @@ const Header = () => {
         </NavLink>
       </nav>
       <nav className='nav-links'>
-        {' '}
         {!token ? <LoginModal className='login' /> : null}{' '}
         {!token ? <SignUpModal className='signup' /> : null}{' '}
         {token ? (
@@ -101,8 +102,7 @@ const Header = () => {
               <a href='/profile'>Mi perfil</a>
               <button
                 onClick={e => {
-                  window.localStorage.clear();
-                  window.location.reload();
+                  closeSession();
                 }}
               >
                 Cerrar sesión
