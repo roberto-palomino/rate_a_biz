@@ -74,5 +74,6 @@
 
 .filter-buttons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  border-radius: 20px;
 }

@@ -16,7 +16,8 @@ import { Navigate } from 'react-router-dom';
 import { TokenContext } from '../index';
 import { LoginModal } from '../components/LoginModal/LoginModal';
 
-export const Login = () => {
+export const Login = (props) => {
+  const { profileId } = props;
   const [token, setToken] = useContext(TokenContext);
   const [mail, setMail] = useState('');
   const mailChange = e => {
@@ -58,7 +59,9 @@ export const Login = () => {
       console.error('Ha ocurrido un error', e);
     }
   };
-  if (token) return <Navigate to='/#' />;
+  if (token && profileId)
+    return <Navigate to={`/businessProfile/${profileId}`} />;
+  else if (token) return <Navigate to='/#' />;
 
   return (
     <div>
@@ -70,6 +73,7 @@ export const Login = () => {
             type='email'
             value={mail}
             onChange={mailChange}
+            autoComplete='off'
             endAdornment={
               <InputAdornment position='end'>
                 <AccountCircle />

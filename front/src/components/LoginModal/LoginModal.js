@@ -2,7 +2,8 @@ import { Login } from '../../pages';
 import './LoginModal.css';
 import close from '../../assets/images/close.png';
 
-export const LoginModal = () => {
+export const LoginModal = (props) => {
+  const { profileId } = props;
   return (
     <>
       <a href='#LoginModal'>Iniciar sesión</a>
@@ -12,7 +13,7 @@ export const LoginModal = () => {
           <a href='/#' className='close'>
             <img src={close} alt='cerrar' className='close-img' />
           </a>
-          <Login />
+          <Login profileId={profileId} />
           <div className='enlace'>
             ¿Aun no tienes cuenta?
             <a href='/#SignUpModal' className='signup'>
