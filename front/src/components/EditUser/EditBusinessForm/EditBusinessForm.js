@@ -3,6 +3,7 @@ import { TokenContext } from '../../../index';
 import BusinessSelect from './BusinessSelect';
 import { useLoadSectors } from '../../../hooks/useLoadSectors';
 import { useLoadStates } from '../../../hooks/useLoadStates';
+import DeleteUser from '../DeleteUser/DeleteUser';
 import toast, { Toaster } from 'react-hot-toast';
 import MenuItem from '@mui/material/MenuItem';
 import { TextField } from '@mui/material';
@@ -176,6 +177,7 @@ const EditBusinessForm = props => {
         <button className='form-button' type='submit' onClick={handleEditForm}>
           {buttonMessage}
         </button>
+        <DeleteUser />
       </div>
     </>
   );
