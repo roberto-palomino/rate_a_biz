@@ -21,7 +21,6 @@ const EditAvatar = props => {
     userAvatar &&
       setAvatarUrl(`http://localhost:4000/static/uploads/${userAvatar}`);
   }, [user]);
-  // TODO: ENVIAR MENSAJES A LOS USUARIOS
 
   useEffect(() => {
     getUserImage();
@@ -56,9 +55,7 @@ const EditAvatar = props => {
       } else {
         toast.error(message);
       }
-    } catch (error) {
-      // console.error('body', body);
-    }
+    } catch (error) {}
   };
 
   const onFileChange = event => {
