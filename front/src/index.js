@@ -67,6 +67,10 @@ ReactDOM.render(
                 element={<BusinessProfile />}
               />
               <Route
+                path='/validate/:registrationCode'
+                element={<Validate />}
+              />
+              <Route
                 path='/TermsAndConditions'
                 element={<TermsAndConditions />}
               />
