@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { TokenContext } from '../../../index';
 import { TextField } from '@mui/material';
 import toast, { Toaster } from 'react-hot-toast';
+import DeleteUser from '../DeleteUser/DeleteUser';
 
 const EditUserForm = props => {
   const { user, userId, onUpdated } = props;
@@ -115,6 +116,7 @@ const EditUserForm = props => {
         <button className='form-button' type='submit' onClick={handleEditForm}>
           {buttonMessage}
         </button>
+        <DeleteUser userId={userId} />
       </div>
     </>
   );
