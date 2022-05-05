@@ -4,18 +4,31 @@
   padding: 1rem;
 }
 
+.business-data-form .MuiFormControl-root,
+.user-data-form-pass .MuiFormControl-root,
+.user-data-form .MuiFormControl-root {
+  width: 100%;
+}
+
 .form-button {
-  border-radius: 5px;
-  width: 8rem;
-  height: 2rem;
-  border-radius: 5px;
-  background-color: #f8f8f8;
-  border: solid #bdbdbd 1px;
+  width: 100%;
+  min-height: 2rem;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  padding: 5px 15px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid rgba(59, 123, 159, 0.5);
+  color: #3b7b9f;
+  text-transform: none;
 }
 
 .form-button:hover {
-  background-color: rgb(224, 220, 220);
+  background-color: rgb(219, 219, 219);
   cursor: pointer;
 }
 
@@ -24,5 +37,17 @@
     margin-top: 4rem;
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  .business-data-form .MuiFormControl-root,
+  .user-data-form-pass .MuiFormControl-root,
+  .user-data-form .MuiFormControl-root {
+    width: auto;
+  }
+
+  .form-button {
+    margin-left: 0;
+    min-width: 8rem;
+    width: auto;
   }
 }

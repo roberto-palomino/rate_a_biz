@@ -3,12 +3,12 @@ import { TokenContext } from '../../../index';
 import BusinessSelect from './BusinessSelect';
 import { useLoadSectors } from '../../../hooks/useLoadSectors';
 import { useLoadStates } from '../../../hooks/useLoadStates';
-
+import toast, { Toaster } from 'react-hot-toast';
 import MenuItem from '@mui/material/MenuItem';
 import { TextField } from '@mui/material';
 import './EditBusinessForm.css';
 
-const EditBusinessForm = (props) => {
+const EditBusinessForm = props => {
   const { userId, onUpdated, business } = props;
 
   const [token] = useContext(TokenContext);
@@ -53,7 +53,7 @@ const EditBusinessForm = (props) => {
     onUpdated && !isEditing && onUpdated(false);
   }, [onUpdated, isEditing]);
 
-  const updateBusiness = async (e) => {
+  const updateBusiness = async e => {
     const businessData = {
       username: username,
       newEmail: email,
@@ -72,17 +72,16 @@ const EditBusinessForm = (props) => {
           Authorization: token,
         },
       });
-      // TODO: Enviar mensajes a los usuarios
+
       const body = await response.json();
+      const message = body.message;
       if (body.status === 'ok') {
         onUpdated(true);
-        const message = body.message;
-        // TODO: Implementar mensajes mostrado al usuario
-        console.log('Success:', message);
+        toast.success(message);
+      } else {
+        toast.error(message);
       }
-    } catch (error) {
-      console.error('Error al conectar con el servidor:', error);
-    }
+    } catch (error) {}
   };
 
   function handleEditForm(e) {
@@ -100,86 +99,83 @@ const EditBusinessForm = (props) => {
   return (
     <>
       <div>
-        <form className='business-data-form'>
-          <TextField
-            label='Usuario'
-            variant='standard'
+        <Toaster />
+      </div>
+      <form className='business-data-form'>
+        <TextField
+          label='Usuario'
+          variant='standard'
+          disabled={!isEditing}
+          value={username}
+          onChange={e => {
+            setUserName(e.target.value);
+          }}
+        />
+
+        <TextField
+          label='Email'
+          variant='standard'
+          disabled={!isEditing}
+          value={email}
+          onChange={e => {
+            setEmail(e.target.value);
+          }}
+        />
+
+        <TextField
+          label='Nombre'
+          variant='standard'
+          disabled={!isEditing}
+          value={name}
+          onChange={e => {
+            setName(e.target.value);
+          }}
+        />
+
+        <TextField
+          label='Sitio web'
+          variant='standard'
+          disabled={!isEditing}
+          value={url_Web}
+          onChange={e => {
+            setUrl_Web(e.target.value);
+          }}
+        />
+
+        {states.length > 0 && (
+          <BusinessSelect
             disabled={!isEditing}
-            value={username}
-            onChange={(e) => {
-              setUserName(e.target.value);
-            }}
+            selectItem={selectState}
+            setSelectItem={setSelectState}
+            inputId={'state'}
+            label={'Sede'}
+            options={states.map(state => (
+              <MenuItem key={state.id} value={state.nameStates}>
+                {state.nameStates}
+              </MenuItem>
+            ))}
           />
+        )}
 
-          <TextField
-            label='Email'
-            variant='standard'
+        {sectors.length > 0 && (
+          <BusinessSelect
             disabled={!isEditing}
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
+            selectItem={selectSector}
+            setSelectItem={setSelectSector}
+            inputId={'sector'}
+            label={'Sector'}
+            options={sectors.map(sector => (
+              <MenuItem key={sector.id} value={sector.name}>
+                {sector.name}
+              </MenuItem>
+            ))}
           />
-
-          <TextField
-            label='Nombre'
-            variant='standard'
-            disabled={!isEditing}
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
-
-          <TextField
-            label='Sitio web'
-            variant='standard'
-            disabled={!isEditing}
-            value={url_Web}
-            onChange={(e) => {
-              setUrl_Web(e.target.value);
-            }}
-          />
-
-          {states.length > 0 && (
-            <BusinessSelect
-              disabled={!isEditing}
-              selectItem={selectState}
-              setSelectItem={setSelectState}
-              inputId={'state'}
-              label={'Sede'}
-              options={states.map((state) => (
-                <MenuItem key={state.id} value={state.nameStates}>
-                  {state.nameStates}
-                </MenuItem>
-              ))}
-            />
-          )}
-
-          {sectors.length > 0 && (
-            <BusinessSelect
-              disabled={!isEditing}
-              selectItem={selectSector}
-              setSelectItem={setSelectSector}
-              inputId={'sector'}
-              label={'Sector'}
-              options={sectors.map((sector) => (
-                <MenuItem key={sector.id} value={sector.name}>
-                  {sector.name}
-                </MenuItem>
-              ))}
-            />
-          )}
-        </form>
-        <div className='tabs-content-button'>
-          <button
-            className='form-button'
-            type='submit'
-            onClick={handleEditForm}
-          >
-            {buttonMessage}
-          </button>
-        </div>
+        )}
+      </form>
+      <div className='tabs-content-button'>
+        <button className='form-button' type='submit' onClick={handleEditForm}>
+          {buttonMessage}
+        </button>
       </div>
     </>
   );

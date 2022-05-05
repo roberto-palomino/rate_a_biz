@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback, useContext } from 'react';
 import BackupIcon from '@material-ui/icons/Backup';
 import Avatar from '../../Avatar';
 import { TokenContext } from '../../../index';
+import toast, { Toaster } from 'react-hot-toast';
 import './EditAvatar.css';
 
 const EditAvatar = props => {
@@ -20,7 +21,6 @@ const EditAvatar = props => {
     userAvatar &&
       setAvatarUrl(`http://localhost:4000/static/uploads/${userAvatar}`);
   }, [user]);
-  // TODO: ENVIAR MENSAJES A LOS USUARIOS
 
   useEffect(() => {
     getUserImage();
@@ -48,14 +48,14 @@ const EditAvatar = props => {
       );
 
       const responseData = await response.json();
+      const message = responseData.message;
       if (responseData.status === 'ok') {
         onUpdated(true);
-        // TODO: Implementar mensajes mostrado al usuario
-        console.log('La imagen se ha subido correctamente');
+        toast.success(message);
+      } else {
+        toast.error(message);
       }
-    } catch (error) {
-      console.error('Ha surgido un error al intentar subir la imagen');
-    }
+    } catch (error) {}
   };
 
   const onFileChange = event => {
@@ -70,6 +70,9 @@ const EditAvatar = props => {
 
   return (
     <div className='avatar-section'>
+      <div>
+        <Toaster />
+      </div>
       <form onSubmit={uploadFile}>
         <div className='avatar-container'>
           <Avatar

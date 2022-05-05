@@ -7,7 +7,7 @@ function EditUser(props) {
 
   return (
     <div className='main-section'>
-      <h2 className='title'>Mi cuenta</h2>
+      <h2 className='title'>Datos de mi cuenta</h2>
       <EditTabs
         user={user}
         userId={userId}

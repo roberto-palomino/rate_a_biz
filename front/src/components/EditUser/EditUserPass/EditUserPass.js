@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { TokenContext } from '../../../index';
 import { TextField } from '@mui/material';
+import toast, { Toaster } from 'react-hot-toast';
 
 const EditUserPass = props => {
   const { userId } = props;
@@ -31,12 +32,15 @@ const EditUserPass = props => {
           },
         }
       );
-      // TODO: Enviar mensajes al usurio
+
       const body = await response.json();
-      console.log('body', body);
-    } catch (error) {
-      console.error('Error en la llamada al API');
-    }
+      const message = body.message;
+      if (body.status === 'ok') {
+        toast.success(message);
+      } else {
+        toast.error(message);
+      }
+    } catch (error) {}
   };
 
   function handleEditForm(e) {
@@ -52,7 +56,10 @@ const EditUserPass = props => {
   }
 
   return (
-    <div>
+    <>
+      <div>
+        <Toaster />
+      </div>
       <form className='user-data-form-pass' onSubmit={updateUserPass}>
         <TextField
           label='Antigua contraseña'
@@ -86,7 +93,7 @@ const EditUserPass = props => {
           {buttonMessage}
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -4,17 +4,17 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-const BusinessSelect = (props) => {
+const BusinessSelect = props => {
   const { selectItem, setSelectItem, disabled, options, inputId, label } =
     props;
 
-  const selectChange = (e) => {
+  const selectChange = e => {
     setSelectItem(e.target.value);
   };
 
   return (
     <FormControl
-      sx={{ m: 1, minWidth: 150 }}
+      sx={{ minWidth: 202 }}
       className='BusinessSelect'
       variant='standard'
     >

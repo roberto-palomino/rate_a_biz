@@ -22,13 +22,7 @@ const EditTabs = props => {
   return (
     <div className='tabs'>
       <div className='tabs-container'>
-        <Avatar
-          avatarUrl={avatarUrl}
-          username={user?.username}
-          // hideFigCaption
-          // figcaption={user.username}
-          size='medium'
-        />
+        <Avatar avatarUrl={avatarUrl} username={user?.username} size='medium' />
 
         <Tab
           fullWidth

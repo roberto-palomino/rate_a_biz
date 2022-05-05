@@ -3,8 +3,6 @@ import EditUser from '../components/EditUser';
 import useUserData from '../hooks/useUserData';
 import useBusinessData from '../hooks/useBusinessData';
 import { TokenContext } from '../index';
-import Header from '../components/Header/Header';
-import './Profile.css';
 
 export const Profile = () => {
   const [hasUpdated, setHasUpdated] = useState(false);
@@ -14,16 +12,13 @@ export const Profile = () => {
 
   return (
     <>
-      {/* <Header /> */}
-      <div>
-        <EditUser
-          user={user}
-          userId={userId}
-          onUpdated={setHasUpdated}
-          userRole={userRole}
-          business={business}
-        />
-      </div>
+      <EditUser
+        user={user}
+        userId={userId}
+        onUpdated={setHasUpdated}
+        userRole={userRole}
+        business={business}
+      />
     </>
   );
 };

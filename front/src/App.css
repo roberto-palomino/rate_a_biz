@@ -3,15 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  display: grid;
-}
+
 .App {
-  background-color: white;
-  background-image: url('/home/hack/Desktop/Rate a Biz/Rate_A_Biz_Front/front/src/assets/images/architecture-1.jpg');
+  /* background-color: white; */
+  /* background-image: url('/home/hack/Desktop/Rate a Biz/Rate_A_Biz_Front/front/src/assets/images/architecture-1.jpg'); */
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
+  /* background-image: url('./assets/images/architecture-1.jpg');
+  background-position: 100%;
+  background-size: cover; */
 }
 .top10 {
   margin-top: 1.5rem;
@@ -32,7 +35,6 @@ body {
   border-radius: 20px;
   box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.322);
   display: grid;
-
   grid-template-columns: 1fr 1fr;
   background-color: rgba(236, 236, 234);
   margin: 3rem;

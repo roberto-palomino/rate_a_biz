@@ -1,11 +1,11 @@
 .user-data-form-pass {
-  gap: 2rem;
-  padding: 1rem;
+  gap: 1rem;
 }
 @media (min-width: 900px) {
   .user-data-form-pass {
-    margin-top: 4rem;
+    margin-left: 0;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 2rem;
   }
 }
