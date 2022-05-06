@@ -177,7 +177,7 @@ const EditBusinessForm = props => {
         <button className='form-button' type='submit' onClick={handleEditForm}>
           {buttonMessage}
         </button>
-        <DeleteUser />
+        <DeleteUser userId={userId} />
       </div>
     </>
   );
