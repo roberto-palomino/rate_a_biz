@@ -3,6 +3,10 @@
   gap: 2rem;
 }
 
+.business-data-form.disabled .MuiInputLabel-root {
+  color: rgba(0, 0, 0, 0.38);
+}
+
 @media (min-width: 900px) {
   .business-data-form {
     flex-direction: row;

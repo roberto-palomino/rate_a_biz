@@ -13,11 +13,7 @@ const BusinessSelect = props => {
   };
 
   return (
-    <FormControl
-      sx={{ minWidth: 202 }}
-      className='BusinessSelect'
-      variant='standard'
-    >
+    <FormControl sx={{ minWidth: 202 }} variant='standard'>
       <InputLabel id={inputId}>{label}</InputLabel>
       <Select
         labelId={inputId}
