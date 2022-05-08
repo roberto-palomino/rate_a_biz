@@ -73,7 +73,7 @@ const EditAvatar = props => {
       <div>
         <Toaster />
       </div>
-      <form onSubmit={uploadFile}>
+      <form className='avatar-form' onSubmit={uploadFile}>
         <div className='avatar-container'>
           <Avatar
             avatarUrl={avatarUrl}
