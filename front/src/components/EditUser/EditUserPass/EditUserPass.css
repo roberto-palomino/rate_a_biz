@@ -1,11 +1,16 @@
 .user-data-form-pass {
   gap: 1rem;
 }
+
+.user-data-form-pass.disabled .MuiInputLabel-root,
+.user-data-form-pass.disabled .MuiIconButton-root {
+  color: rgba(0, 0, 0, 0.38);
+}
+
 @media (min-width: 900px) {
   .user-data-form-pass {
     margin-left: 0;
-    flex-direction: row;
-    flex-wrap: wrap;
+    align-items: flex-start;
     gap: 2rem;
   }
 }
