@@ -2,12 +2,10 @@ import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useContext } from 'react';
 import { TokenContext } from '../../../index';
-import { useNavigate } from 'react-router-dom';
 
 const DeleteUser = props => {
   const { userId } = props;
   const [token] = useContext(TokenContext);
-  const navigate = useNavigate();
 
   const deleteUser = async e => {
     try {
@@ -22,17 +20,18 @@ const DeleteUser = props => {
       const message = body.message;
       if (body.status === 'ok') {
         toast.success(message);
+        logout();
       } else {
         toast.error(message);
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error(error);
+    }
   };
 
-  function handleDelete(e) {
-    deleteUser(e);
-    window.localStorage.clear();
-    navigate('/');
-    window.location.reload();
+  function logout() {
+    localStorage.clear();
+    window.location.href = '/';
   }
 
   function handleEditForm(e) {
@@ -45,7 +44,7 @@ const DeleteUser = props => {
             <button
               className='form-button form-button-delete'
               onClick={() => {
-                handleDelete();
+                deleteUser(e);
                 toast.dismiss(t.id);
               }}
             >
@@ -71,7 +70,7 @@ const DeleteUser = props => {
       <div>
         <Toaster />
       </div>
-      <div className='tabs-content-button'>
+      <div>
         <button className='form-button' type='submit' onClick={handleEditForm}>
           Eliminar cuenta
         </button>
