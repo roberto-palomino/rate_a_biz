@@ -25,6 +25,8 @@ function Search() {
 
   const [filterBusiness, setFilterBusiness] = useState('');
 
+  console.log('filter en search', filterBusiness);
+
   return (
     <>
       {/* <Header /> */}

@@ -59,10 +59,9 @@ ReactDOM.render(
             <Header />
             <main className='main'>
               <Routes>
+                <Route path='/' element={<App />} />
                 <Route path='/signup' element={<SignUp />} />
                 {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
-                <Route path='/' element={<App />} />
-
                 <Route path='/search' element={<Search />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route
