@@ -9,6 +9,7 @@ import { SignUp, Login, Profile, TermsAndConditions } from './pages';
 import Search from './pages/Search';
 import { LoginModal } from './components/LoginModal/LoginModal';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { UserProvider } from './components/contexts/UserContext';
 import { BusinessProfile } from './pages/BusinessProfile';
 import { GlobalStyles } from '@mui/material';
 import Header from './components/Header/Header';
@@ -53,31 +54,34 @@ ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <TokenProvider>
-        <BrowserRouter>
-          <Header />
-          <main className='main'>
-            <Routes>
-              <Route path='/' element={<App />} />
-              <Route path='/signup' element={<SignUp />} />
-              {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
-              <Route path='/search' element={<Search />} />
-              <Route path='/profile' element={<Profile />} />
-              <Route
-                path='/businessProfile/:id'
-                element={<BusinessProfile />}
-              />
-              <Route
-                path='/validate/:registrationCode'
-                element={<Validate />}
-              />
-              <Route
-                path='/TermsAndConditions'
-                element={<TermsAndConditions />}
-              />
-            </Routes>
-          </main>
-          <Footer />
-        </BrowserRouter>
+        <UserProvider>
+          <BrowserRouter>
+            <Header />
+            <main className='main'>
+              <Routes>
+                <Route path='/signup' element={<SignUp />} />
+                {/*  <Route path='/loginModal' element={<LoginModal />} /> */}
+                <Route path='/' element={<App />} />
+
+                <Route path='/search' element={<Search />} />
+                <Route path='/profile' element={<Profile />} />
+                <Route
+                  path='/businessProfile/:id'
+                  element={<BusinessProfile />}
+                />
+                <Route
+                  path='/validate/:registrationCode'
+                  element={<Validate />}
+                />
+                <Route
+                  path='/TermsAndConditions'
+                  element={<TermsAndConditions />}
+                />
+              </Routes>
+            </main>
+            <Footer />
+          </BrowserRouter>
+        </UserProvider>
       </TokenProvider>
     </ThemeProvider>
   </React.StrictMode>,
