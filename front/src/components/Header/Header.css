@@ -177,7 +177,7 @@ header button {
     font-size: medium;
     color: rgb(59, 123, 159);
     border: none;
-    background-color: rgba(236, 236, 234, 0.473);
+    background-color: #f5f6f7;
     cursor: pointer;
     align-items: center;
     gap: 5px;
