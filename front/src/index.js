@@ -40,7 +40,7 @@ const theme = createTheme({
 });
 
 export const TokenContext = React.createContext();
-const TokenProvider = props => {
+const TokenProvider = (props) => {
   const [token, setToken] = useLocalStorage('token');
   return (
     <TokenContext.Provider value={[token, setToken]}>
@@ -65,6 +65,10 @@ ReactDOM.render(
               <Route
                 path='/businessProfile/:id'
                 element={<BusinessProfile />}
+              />
+              <Route
+                path='/validate/:registrationCode'
+                element={<Validate />}
               />
               <Route
                 path='/TermsAndConditions'

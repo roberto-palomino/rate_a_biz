@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+/* import { useState, useEffect } from 'react';
 export function useLoadBusiness() {
   const [business, setBusiness] = useState([]);
   const loadBusiness = async () => {
@@ -19,3 +19,4 @@ export function useLoadBusiness() {
 
   return [business, setBusiness];
 }
+ */

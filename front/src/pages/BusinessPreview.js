@@ -4,10 +4,11 @@ import { useLoadBusiness } from '../hooks/useLoadBusiness';
 import { useState } from 'react';
 import { TopBusiness } from '../components/TopBusiness';
 import { NotMaches } from '../components/Search/NotMatches';
+import { PreviewNoReviews } from '../components/Search/PreviewNoReviews';
 
 export const BusinessPreview = (props) => {
   const { filterBusiness } = props;
-  const [business, setBusiness] = useLoadBusiness();
+
   const [showProfileButton, setShowProfileButton] = useState(true);
   console.log('filterbusiness', filterBusiness);
 
@@ -15,9 +16,9 @@ export const BusinessPreview = (props) => {
     <>
       <div className='info'>
         {filterBusiness ? (
-          filterBusiness.length === 0 ? (
+          filterBusiness === 'no matches' ? (
             <NotMaches />
-          ) : (
+          ) : filterBusiness[0].enviroment ? (
             filterBusiness.map((business) => (
               <div className='preview' key={Math.random()}>
                 <Preview
@@ -30,7 +31,7 @@ export const BusinessPreview = (props) => {
                   title={business.title}
                   description={business.description}
                   stateName={business.nameStates}
-                  bussinesName={business.name}
+                  businessName={business.name}
                   showProfileButton={showProfileButton}
                   avatar={business.avatar}
                   startYear={business.start_year}
@@ -41,6 +42,20 @@ export const BusinessPreview = (props) => {
                 />
               </div>
             ))
+          ) : (
+            <div className='preview' key={Math.random()}>
+              <PreviewNoReviews
+                id={filterBusiness[0].idUser}
+                key={Math.random()}
+                sector={filterBusiness[0].sector}
+                description={filterBusiness[0].description}
+                headquarter={filterBusiness[0].headquarter}
+                businessName={filterBusiness[0].name}
+                showProfileButton={showProfileButton}
+                avatar={filterBusiness[0].avatar}
+                url_web={filterBusiness[0].url_web}
+              />
+            </div>
           )
         ) : (
           <>
