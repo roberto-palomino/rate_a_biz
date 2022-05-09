@@ -43,12 +43,42 @@
 }
 
 .header-menu a {
+  /* text-decoration: none;
+  color: rgb(59, 123, 159); */
   text-decoration: none;
   color: rgb(59, 123, 159);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 10px;
 }
 
 .header-menu .close-session {
+  /* color: rgb(59, 123, 159); */
   color: rgb(59, 123, 159);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: auto;
+  gap: 10px;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  /* padding: 0; */
+  padding: 19px;
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  outline: 0;
+  /* min-width: 145px; */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  align-content: stretch;
 }
 
 header button {
@@ -115,27 +145,48 @@ header button {
   }
 
   .profile-links {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     min-width: 10rem;
     gap: 5px;
+    align-items: center; */
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    justify-content: center;
+    min-width: 6rem;
+    /* gap: 25px; */
+    /* flex-wrap: wrap; */
     align-items: center;
   }
   .profile-links a {
-    display: flex;
+    /* display: flex;
     font-size: medium;
     flex-direction: column;
+    margin: 0; */
+    display: flex;
+    font-size: medium;
     margin: 0;
+    gap: 3px;
+    align-items: center;
   }
 
   .profile-links button {
+    /* display: flex;
+    font-size: medium;
+    color: rgb(59, 123, 159);
+    border: none;
+    background-color: rgba(236, 236, 234, 0.473);
+    cursor: pointer; */
     display: flex;
     font-size: medium;
     color: rgb(59, 123, 159);
     border: none;
     background-color: rgba(236, 236, 234, 0.473);
     cursor: pointer;
+    align-items: center;
+    gap: 5px;
   }
 
   .image-logo {

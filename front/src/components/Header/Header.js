@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { TokenContext } from '../..';
 import Avatar from '../Avatar';
 import { LoginModal } from '../LoginModal/LoginModal';
@@ -8,11 +8,12 @@ import useUserData from '../../hooks/useUserData';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
 import './Header.css';
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const navigate = useNavigate();
 
   const [token] = useContext(TokenContext);
   const { user } = useUserData(token);
@@ -28,11 +29,10 @@ const Header = () => {
     setAnchorEl(null);
   };
 
-  const closeSession = e => {
-    window.localStorage.clear();
-    navigate('/');
-    window.location.reload();
-  };
+  function logout() {
+    localStorage.clear();
+    window.location.href = '/';
+  }
 
   return (
     <header className='header'>
@@ -85,27 +85,35 @@ const Header = () => {
             >
               <MenuItem onClick={handleClose}>
                 {' '}
-                <a href='/profile'>Mi perfil</a>
+                <a href='/profile'>
+                  <AccountCircleIcon fontSize='medium' />
+                  Mi perfil
+                </a>
               </MenuItem>
               <MenuItem
                 className='close-session'
                 onClick={() => {
                   handleClose();
-                  closeSession();
+                  logout();
                 }}
               >
+                <LogoutIcon fontSize='medium' />
                 Cerrar sesión
               </MenuItem>
             </Menu>
 
             <div className='profile-links'>
-              <a href='/profile'>Mi perfil</a>
+              {/* <a href='/profile'>
+                <AccountCircleIcon fontSize='medium' />
+                Perfil
+              </a> */}
               <button
                 onClick={e => {
-                  closeSession();
+                  logout();
                 }}
               >
-                Cerrar sesión
+                <LogoutIcon fontSize='medium' />
+                Salir
               </button>
             </div>
           </div>
