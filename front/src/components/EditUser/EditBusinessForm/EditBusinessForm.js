@@ -3,6 +3,7 @@ import { TokenContext } from '../../../index';
 import BusinessSelect from './BusinessSelect';
 import { useLoadSectors } from '../../../hooks/useLoadSectors';
 import { useLoadStates } from '../../../hooks/useLoadStates';
+import DeleteUser from '../DeleteUser/DeleteUser';
 import toast, { Toaster } from 'react-hot-toast';
 import MenuItem from '@mui/material/MenuItem';
 import { TextField } from '@mui/material';
@@ -25,6 +26,7 @@ const EditBusinessForm = props => {
   const [selectSector, setSelectSector] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [buttonMessage, setButtonMessage] = useState('Editar datos');
+  const disabledClassname = !isEditing ? 'disabled' : '';
 
   useEffect(() => {
     if (businessData && userData) {
@@ -101,7 +103,7 @@ const EditBusinessForm = props => {
       <div>
         <Toaster />
       </div>
-      <form className='business-data-form'>
+      <form className={`business-data-form ${disabledClassname}`}>
         <TextField
           label='Usuario'
           variant='standard'
@@ -111,7 +113,6 @@ const EditBusinessForm = props => {
             setUserName(e.target.value);
           }}
         />
-
         <TextField
           label='Email'
           variant='standard'
@@ -121,7 +122,6 @@ const EditBusinessForm = props => {
             setEmail(e.target.value);
           }}
         />
-
         <TextField
           label='Nombre'
           variant='standard'
@@ -131,7 +131,6 @@ const EditBusinessForm = props => {
             setName(e.target.value);
           }}
         />
-
         <TextField
           label='Sitio web'
           variant='standard'
@@ -141,7 +140,6 @@ const EditBusinessForm = props => {
             setUrl_Web(e.target.value);
           }}
         />
-
         {states.length > 0 && (
           <BusinessSelect
             disabled={!isEditing}
@@ -156,7 +154,6 @@ const EditBusinessForm = props => {
             ))}
           />
         )}
-
         {sectors.length > 0 && (
           <BusinessSelect
             disabled={!isEditing}
@@ -176,6 +173,7 @@ const EditBusinessForm = props => {
         <button className='form-button' type='submit' onClick={handleEditForm}>
           {buttonMessage}
         </button>
+        <DeleteUser userId={userId} />
       </div>
     </>
   );

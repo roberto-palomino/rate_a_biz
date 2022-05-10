@@ -1,13 +1,18 @@
 .user-data-form {
   display: flex;
   gap: 2rem;
-  padding: 1rem;
 }
 
 .business-data-form .MuiFormControl-root,
 .user-data-form-pass .MuiFormControl-root,
 .user-data-form .MuiFormControl-root {
   width: 100%;
+}
+
+.toast-button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
 }
 
 .form-button {
@@ -27,14 +32,27 @@
   text-transform: none;
 }
 
+.form-button-delete {
+  background-color: rgba(233, 78, 78, 0.855);
+  color: white;
+  border-color: rgba(233, 78, 78, 0.855);
+}
 .form-button:hover {
   background-color: rgb(219, 219, 219);
   cursor: pointer;
 }
+.form-button-delete:hover {
+  background-color: rgba(193, 57, 57, 0.855);
+}
+
+/* .form-button-delete:hover {
+  background-color: rgb(219, 219, 219);
+  cursor: pointer;
+} */
 
 @media (min-width: 900px) {
   .user-data-form {
-    margin-top: 4rem;
+    /* margin-top: 4rem; */
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -45,7 +63,8 @@
     width: auto;
   }
 
-  .form-button {
+  .form-button,
+  .form-button-delete {
     margin-left: 0;
     min-width: 8rem;
     width: auto;

@@ -1,8 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import decodeTokenData from '../helpers/decodeTokenData';
+import { useUserContext } from '../components/contexts/UserContext';
 
 const useUserData = (token, hasUpdated) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useUserContext();
   const decodedToken = decodeTokenData(token);
   const userId = decodedToken?.id;
   const userRole = decodedToken?.role;
@@ -21,7 +22,7 @@ const useUserData = (token, hasUpdated) => {
     } catch (error) {
       console.error(error);
     }
-  }, [userId, token]);
+  }, [userId, token, setUser]);
 
   useEffect(() => {
     if (token || hasUpdated) {

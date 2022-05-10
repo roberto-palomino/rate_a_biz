@@ -1,5 +1,13 @@
 .avatar-section {
-  border: 2px solid #f2f2f2;
+  height: 100%;
+}
+.avatar-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
 }
 
 .avatar-container {
@@ -24,12 +32,13 @@
 
 .input-avatar {
   visibility: hidden;
+  position: absolute;
 }
 
 .label-avatar {
   color: rgb(59, 123, 159);
   height: 2rem;
-  width: 15rem;
+  min-width: 15rem;
   padding: 1rem;
   margin-top: 1.5rem;
   display: flex;
@@ -43,4 +52,10 @@
 }
 .label-avatar:hover {
   background-color: rgb(229, 242, 246);
+}
+
+@media (min-width: 900px) {
+  .avatar-form {
+    width: 330px;
+  }
 }
