@@ -3,39 +3,60 @@ import { useLoadBusiness } from '../hooks/useLoadBusiness';
 
 import { useState } from 'react';
 import { TopBusiness } from '../components/TopBusiness';
+import { NotMaches } from '../components/Search/NotMatches';
+import { PreviewNoReviews } from '../components/Search/PreviewNoReviews';
 
 export const BusinessPreview = (props) => {
   const { filterBusiness } = props;
-  const [business, setBusiness] = useLoadBusiness();
+
   const [showProfileButton, setShowProfileButton] = useState(true);
+  console.log('filterbusiness', filterBusiness);
 
   return (
     <>
       <div className='info'>
         {filterBusiness ? (
-          filterBusiness.map((business) => (
+          filterBusiness === 'no matches' ? (
+            <NotMaches />
+          ) : filterBusiness[0].enviroment ? (
+            filterBusiness.map((business) => (
+              <div className='preview' key={Math.random()}>
+                <Preview
+                  id={business.idUser}
+                  key={Math.random()}
+                  enviroment={business.enviroment}
+                  conciliation={business.conciliation}
+                  oportunities={business.oportunities}
+                  salary={business.salary}
+                  title={business.title}
+                  description={business.description}
+                  stateName={business.nameStates}
+                  businessName={business.name}
+                  showProfileButton={showProfileButton}
+                  avatar={business.avatar}
+                  startYear={business.start_year}
+                  endYear={business.end_year}
+                  url_web={business.url_web}
+                  salary_range={business.salary_range}
+                  job={business.job}
+                />
+              </div>
+            ))
+          ) : (
             <div className='preview' key={Math.random()}>
-              <Preview
-                id={business.idUser}
+              <PreviewNoReviews
+                id={filterBusiness[0].idUser}
                 key={Math.random()}
-                enviroment={business.enviroment}
-                conciliation={business.conciliation}
-                oportunities={business.oportunities}
-                salary={business.salary}
-                title={business.title}
-                description={business.description}
-                stateName={business.nameStates}
-                bussinesName={business.name}
+                sector={filterBusiness[0].sector}
+                description={filterBusiness[0].description}
+                headquarter={filterBusiness[0].headquarter}
+                businessName={filterBusiness[0].name}
                 showProfileButton={showProfileButton}
-                avatar={business.avatar}
-                startYear={business.start_year}
-                endYear={business.end_year}
-                url_web={business.url_web}
-                salary_range={business.salary_range}
-                job={business.job}
+                avatar={filterBusiness[0].avatar}
+                url_web={filterBusiness[0].url_web}
               />
             </div>
-          ))
+          )
         ) : (
           <>
             <div className='top10'>

@@ -27,7 +27,15 @@ export default function ResetButton(props) {
     setName('');
   };
   return (
-    <Stack id='apply' width={150} spacing={2}>
+    <Stack
+      id='apply'
+      width={150}
+      spacing={2}
+      sx={{
+        boxShadow: 1,
+        borderRadius: 2,
+      }}
+    >
       <Button className='filtrar' variant='outlined' onClick={reset}>
         Reset
       </Button>

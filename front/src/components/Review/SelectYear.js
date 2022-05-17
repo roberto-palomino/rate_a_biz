@@ -93,7 +93,11 @@ export const SelectYear = (props) => {
   return (
     <>
       {start ? (
-        <FormControl sx={{ m: 1, width: 145 }} className='select'>
+        <FormControl
+          variant='standard'
+          sx={{ m: 1, width: 145 }}
+          className='select'
+        >
           <InputLabel id='start-year'>Año comienzo</InputLabel>
           <Select
             labelId='start-year'
@@ -110,7 +114,11 @@ export const SelectYear = (props) => {
           </Select>
         </FormControl>
       ) : (
-        <FormControl sx={{ m: 1, width: 145 }} className='select'>
+        <FormControl
+          variant='standard'
+          sx={{ m: 1, width: 145 }}
+          className='select'
+        >
           <InputLabel id='end-year'>Año fin</InputLabel>
           <Select
             labelId='end-year'

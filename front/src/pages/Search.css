@@ -1,17 +1,25 @@
 .search {
-  background-color: white;
-  background-image: url('/home/cristina/ProyectoHAB/Rate_A_Biz_Front/front/src/assets/images/perspective-g06b649021_1920.jpg');
+  /* background-color: white; */
+  /* background-image: url('/home/hack/Desktop/Rate a Biz/Rate_A_Biz_Front/front/src/assets/images/architecture-2.jpg'); */
+  /* background-repeat: no-repeat; */
+  /* background-image: url('../assets/images/architecture-2.jpg');
+  background-position: 100%;
+  background-size: cover; */
+  flex: 1;
 }
 
 #order {
-  min-width: 20px;
+  width: 20px;
   padding: 5px;
+  border-radius: 10px;
+  display: contents;
 }
 #arrow {
   display: flex;
   align-items: center;
   justify-content: center;
   justify-items: center;
+  color: grey;
 }
 .search {
   display: flex;
@@ -27,6 +35,7 @@
   column-gap: 1.2rem;
   flex-wrap: wrap;
   z-index: 0;
+  gap: 1.5rem;
 }
 
 .reviews {
@@ -102,6 +111,7 @@ h5 {
 
 .select {
   background-color: rgba(236, 236, 234);
+  border-radius: 5px;
 }
 
 .button-search {
@@ -115,6 +125,7 @@ h5 {
 
 #apply {
   background-color: rgba(236, 236, 234);
+  border-radius: 5px;
 }
 
 .css-d5qgd7-MuiStack-root {
@@ -200,4 +211,21 @@ h5 {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.filters {
+  background-color: rgba(236, 236, 234);
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 20px;
+}
+
+.select-abbr {
+  background-color: rgba(236, 236, 234);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  height: 25px;
 }

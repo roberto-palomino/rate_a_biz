@@ -12,7 +12,7 @@ export const Preview = (props) => {
     title,
     description,
     stateName,
-    bussinesName,
+    businessName,
     showProfileButton,
     avatar,
     startYear,
@@ -26,14 +26,12 @@ export const Preview = (props) => {
     : '';
   const navigate = useNavigate();
 
-  console.log(url_web);
-
   return (
     <>
       <div className='business-review'>
         <div className='business'>
           <div className='business-info'>
-            <h3> {bussinesName} </h3>
+            <h3> {businessName} </h3>
             <h5> {stateName}</h5>
             <Avatar size='medium' hideFigCaption avatarUrl={avatarUrl} />
             <h5>{url_web}</h5>

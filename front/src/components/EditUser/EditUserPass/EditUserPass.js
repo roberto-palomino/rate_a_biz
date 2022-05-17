@@ -1,6 +1,13 @@
 import { useState, useContext } from 'react';
 import { TokenContext } from '../../../index';
-import { TextField } from '@mui/material';
+import toast, { Toaster } from 'react-hot-toast';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
 
 const EditUserPass = props => {
   const { userId } = props;
@@ -10,7 +17,25 @@ const EditUserPass = props => {
   const [newPassword, setNewPassword] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [buttonMessage, setButtonMessage] = useState('Editar datos');
+  const disabledClassname = !isEditing ? 'disabled' : '';
+  const [visibility, setVisibility] = useState('');
+  const [visibility2, setVisibility2] = useState('');
 
+  const visibilityChange = e => {
+    if (!visibility) {
+      setVisibility('text');
+    } else {
+      setVisibility('');
+    }
+  };
+
+  const visibility2Change = e => {
+    if (!visibility2) {
+      setVisibility2('text');
+    } else {
+      setVisibility2('');
+    }
+  };
   const updateUserPass = async e => {
     e.preventDefault();
 
@@ -31,12 +56,15 @@ const EditUserPass = props => {
           },
         }
       );
-      // TODO: Enviar mensajes al usurio
+
       const body = await response.json();
-      console.log('body', body);
-    } catch (error) {
-      console.error('Error en la llamada al API');
-    }
+      const message = body.message;
+      if (body.status === 'ok') {
+        toast.success(message);
+      } else {
+        toast.error(message);
+      }
+    } catch (error) {}
   };
 
   function handleEditForm(e) {
@@ -52,29 +80,64 @@ const EditUserPass = props => {
   }
 
   return (
-    <div>
-      <form className='user-data-form-pass' onSubmit={updateUserPass}>
-        <TextField
-          label='Antigua contraseña'
-          variant='standard'
-          multiline
-          disabled={!isEditing}
-          value={oldPassword}
-          placeholder='***********'
-          onChange={e => {
-            setOldPassword(e.target.value);
-          }}
-        />
+    <>
+      <div>
+        <Toaster />
+      </div>
+      <form
+        className={`user-data-form-pass ${disabledClassname}`}
+        onSubmit={updateUserPass}
+      >
+        <FormControl sx={{ minWidth: 202 }} variant='standard'>
+          <InputLabel htmlFor='password'>Antigua contraseña</InputLabel>
+          <Input
+            className='form-pass-input'
+            id='password'
+            disabled={!isEditing}
+            type={visibility ? 'text' : 'password'}
+            value={oldPassword}
+            onChange={e => {
+              setOldPassword(e.target.value);
+            }}
+            endAdornment={
+              <InputAdornment position='end'>
+                <IconButton
+                  aria-label='toggle password visibility'
+                  onClick={visibilityChange}
+                  edge='end'
+                >
+                  {visibility ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+            label='Password'
+          />
+        </FormControl>
 
-        <TextField
-          label='Nueva contraseña'
-          variant='standard'
-          disabled={!isEditing}
-          value={newPassword}
-          onChange={e => {
-            setNewPassword(e.target.value);
-          }}
-        />
+        <FormControl sx={{ minWidth: 202 }} variant='standard'>
+          <InputLabel htmlFor='new-password'>Nueva contraseña</InputLabel>
+          <Input
+            id='new-password'
+            disabled={!isEditing}
+            type={visibility2 ? 'text' : 'password'}
+            value={newPassword}
+            onChange={e => {
+              setNewPassword(e.target.value);
+            }}
+            endAdornment={
+              <InputAdornment position='end'>
+                <IconButton
+                  aria-label='toggle password visibility'
+                  onClick={visibility2Change}
+                  edge='end'
+                >
+                  {visibility2 ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+            label='new-password'
+          />
+        </FormControl>
       </form>
       <div className='tabs-content-button'>
         <button
@@ -86,7 +149,7 @@ const EditUserPass = props => {
           {buttonMessage}
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

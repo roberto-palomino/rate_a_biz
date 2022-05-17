@@ -1,5 +1,13 @@
 .avatar-section {
-  border: 2px solid #f2f2f2;
+  height: 100%;
+}
+.avatar-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
 }
 
 .avatar-container {
@@ -9,6 +17,7 @@
 }
 
 .avatar-form-button {
+  color: rgb(59, 123, 159);
   width: 6rem;
   height: 1.5rem;
   border-radius: 5px;
@@ -17,17 +26,19 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 .avatar-form-button:hover {
-  background-color: rgb(224, 220, 220);
+  background-color: rgb(229, 242, 246);
   cursor: pointer;
 }
 
 .input-avatar {
   visibility: hidden;
+  position: absolute;
 }
 
 .label-avatar {
+  color: rgb(59, 123, 159);
   height: 2rem;
-  width: 15rem;
+  min-width: 15rem;
   padding: 1rem;
   margin-top: 1.5rem;
   display: flex;
@@ -39,10 +50,12 @@
   border: solid #bdbdbd 1px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
+.label-avatar:hover {
+  background-color: rgb(229, 242, 246);
+}
 
 @media (min-width: 900px) {
-  .avatar-section {
-    margin-top: 1rem;
-    margin-left: 4rem;
+  .avatar-form {
+    width: 330px;
   }
 }

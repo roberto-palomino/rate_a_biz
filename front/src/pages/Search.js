@@ -25,11 +25,32 @@ function Search() {
 
   const [filterBusiness, setFilterBusiness] = useState('');
 
+  console.log('filter en search', filterBusiness);
+
   return (
     <>
       {/* <Header /> */}
       <div className='search'>
         <div className='filter'>
+          {filterVisible ? (
+            <>
+              <div className='filters'>
+                <SelectState
+                  className='select'
+                  selectedState={selectedState}
+                  setSelectedState={setSelectedState}
+                />
+                <SelectJob
+                  selectedJob={selectedJob}
+                  setSelectedJob={setSelectedJob}
+                />
+                <SelectSalary
+                  selectedSalary={selectedSalary}
+                  setSelectedSalary={setSelectedSalary}
+                />
+              </div>
+            </>
+          ) : null}
           <div className='searching'>
             <NameSearch name={name} setName={setName} />
             <ApplyButton
@@ -58,32 +79,10 @@ function Search() {
               className='button'
               filterVisible={filterVisible}
               setFilterVisible={setFilterVisible}
-              text='Filtrar por'
             />
           </div>
-
           {filterVisible ? (
             <>
-              <div className='filters'>
-                <SelectState
-                  className='select'
-                  selectedState={selectedState}
-                  setSelectedState={setSelectedState}
-                />
-                <SelectJob
-                  selectedJob={selectedJob}
-                  setSelectedJob={setSelectedJob}
-                />
-                <SelectSalary
-                  selectedSalary={selectedSalary}
-                  setSelectedSalary={setSelectedSalary}
-                />
-                <SelectSector
-                  selectedSector={selectedSector}
-                  setSelectedSector={setSelectedSector}
-                />
-              </div>
-
               <div className='orders'>
                 <OrderBy
                   className='button'

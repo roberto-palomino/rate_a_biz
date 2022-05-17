@@ -1,0 +1,19 @@
+.not-matches {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-matches-image {
+  /* background-image: url('/home/hack/Desktop/Rate a Biz/Rate_A_Biz_Front/front/src/assets/images/detective-1424831_960_720.webp'); */
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 60vh;
+  width: 48vw;
+}
+#no-results {
+  background-color: rgba(236, 236, 234);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: xx-large;
+}

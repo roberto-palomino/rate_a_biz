@@ -16,25 +16,26 @@ import { Navigate } from 'react-router-dom';
 import { TokenContext } from '../index';
 import { LoginModal } from '../components/LoginModal/LoginModal';
 
-export const Login = () => {
+export const Login = (props) => {
+  const { profileId } = props;
   const [token, setToken] = useContext(TokenContext);
   const [mail, setMail] = useState('');
-  const mailChange = (e) => {
+  const mailChange = e => {
     setMail(e.target.value);
   };
   const [pass, setPass] = useState('');
-  const passChange = (e) => {
+  const passChange = e => {
     setPass(e.target.value);
   };
   const [visibility, setVisibility] = useState('');
-  const visibilityChange = (e) => {
+  const visibilityChange = e => {
     if (!visibility) {
       setVisibility('text');
     } else {
       setVisibility('');
     }
   };
-  const register = async (e) => {
+  const register = async e => {
     e.preventDefault();
     try {
       e.preventDefault();
@@ -58,18 +59,21 @@ export const Login = () => {
       console.error('Ha ocurrido un error', e);
     }
   };
-  if (token) return <Navigate to='/#' />;
+  if (token && profileId)
+    return <Navigate to={`/businessProfile/${profileId}`} />;
+  else if (token) return <Navigate to='/#' />;
 
   return (
     <div>
       <form id='form-login'>
-        <FormControl id='email' variant='standard'>
+        <FormControl sx={{ m: 1, minWidth: 252 }} id='email' variant='standard'>
           <InputLabel htmlFor='email-login-input'>Email</InputLabel>
           <Input
             id='email-login-input'
             type='email'
             value={mail}
             onChange={mailChange}
+            autoComplete='off'
             endAdornment={
               <InputAdornment position='end'>
                 <AccountCircle />
@@ -78,7 +82,8 @@ export const Login = () => {
             label='Email'
           />
         </FormControl>
-        <FormControl sx={{ m: 1, width: '25ch' }} variant='standard'>
+        {/* <FormControl sx={{ m: 1, width: '25ch' }} variant='standard'> */}
+        <FormControl sx={{ m: 1, minWidth: 252 }} variant='standard'>
           <InputLabel htmlFor='password-login'>Contraseña</InputLabel>
           <Input
             id='password-login'

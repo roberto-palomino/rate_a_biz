@@ -1,0 +1,33 @@
+.footer-container {
+  background: rgba(236, 236, 234);
+  color: rgb(59, 123, 159);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.politics-terms {
+  margin: 1rem;
+  text-decoration: none;
+}
+.politics-terms a {
+  text-decoration: none;
+  color: rgb(59, 123, 159);
+}
+.copyright {
+  margin: 1rem;
+}
+
+@media (min-width: 900px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .politics-terms {
+    margin: 2rem;
+  }
+}
+.copyright {
+  margin-right: 2rem;
+}

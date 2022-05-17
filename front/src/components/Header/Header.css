@@ -1,30 +1,195 @@
-header a {
-  text-decoration: none;
-  font-size: large;
+.header {
+  background: #f5f6f7;
+  justify-content: space-evenly;
+  height: 180px;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 70% 30%;
+  gap: 4px;
+  padding: 1rem;
+}
+
+.header .nav {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .nav-links {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
   display: flex;
   align-items: center;
-  height: 1.5rem;
+  justify-content: center;
+}
+
+.nav-links a {
+  display: flex;
+  align-content: center;
+  margin: 0.5rem;
+  text-decoration: none;
   color: rgb(59, 123, 159);
+}
+
+.profile a {
+  display: none;
+}
+
+.image-logo {
+  margin-top: 2rem;
+  width: 265px;
+}
+
+.header-menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+.header-menu a {
+  /* text-decoration: none;
+  color: rgb(59, 123, 159); */
+  text-decoration: none;
+  color: rgb(59, 123, 159);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.header-menu .close-session {
+  /* color: rgb(59, 123, 159); */
+  color: rgb(59, 123, 159);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: auto;
+  gap: 10px;
 }
 
 header button {
-  text-decoration: none;
-  font-size: medium;
-  display: flex;
-  align-items: center;
-  color: rgb(59, 123, 159);
-  border: none;
-  background-color: rgba(236, 236, 234, 0.473);
+  display: none;
 }
 
-.profile-user {
+.logo {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  font-size: x-large;
+  text-align: center;
+  color: rgb(59, 123, 159);
+}
+
+.profile {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
-header .avatar-container {
-  max-height: 82px;
+.profile .MuiButton-root {
+  box-shadow: none;
+}
+
+@media (min-width: 900px) {
+  .header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .logo {
+    grid-column: 1 / 2;
+  }
+
+  .header .nav {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header .nav-links {
+    margin-right: 1.5rem;
+    font-size: large;
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    justify-content: flex-end;
+  }
+
+  .header-menu ul {
+    gap: 1rem;
+    padding: 15px;
+  }
+
+  .profile {
+    gap: 0;
+  }
+
+  .profile-links {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 10rem;
+    gap: 5px;
+    align-items: center; */
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    justify-content: center;
+    min-width: 6rem;
+    /* gap: 25px; */
+    /* flex-wrap: wrap; */
+    align-items: center;
+  }
+  .profile-links a {
+    /* display: flex;
+    font-size: medium;
+    flex-direction: column;
+    margin: 0; */
+    display: flex;
+    font-size: medium;
+    margin: 0;
+    gap: 3px;
+    align-items: center;
+  }
+
+  .profile-links button {
+    /* display: flex;
+    font-size: medium;
+    color: rgb(59, 123, 159);
+    border: none;
+    background-color: rgba(236, 236, 234, 0.473);
+    cursor: pointer; */
+    display: flex;
+    font-size: medium;
+    color: rgb(59, 123, 159);
+    border: none;
+    background-color: #f5f6f7;
+    cursor: pointer;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .image-logo {
+    margin-top: 0;
+    width: 330px;
+  }
+
+  .link {
+    font-size: xx-large;
+    width: 16rem;
+  }
 }
