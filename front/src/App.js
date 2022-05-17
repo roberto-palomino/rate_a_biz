@@ -22,15 +22,15 @@ function App() {
   };
   return (
     <div className='App'>
+      <h1 className='home_text'>{raw}</h1>
       {/* <Header /> */}
       <div className='top10'>
         {' '}
-        <h1>TOP 10 Empresas mejor valoradas de España</h1>
+        <h2>TOP 10 Empresas mejor valoradas de España</h2>
       </div>
       <div className='top-reviews'>
         <TopBusiness className='top-preview' />
       </div>
-      <h2>{raw}</h2>
     </div>
   );
 }

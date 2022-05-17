@@ -75,3 +75,13 @@ body {
 .css-ahj2mt-MuiTypography-root {
   font-weight: bold;
 }
+
+.home_text {
+  background-color: rgb(245, 242, 238);
+  padding: 20px;
+  margin: 25px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.322);
+  font: roboto;
+  /* font-size: medium; */
+}
