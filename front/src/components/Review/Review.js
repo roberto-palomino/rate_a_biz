@@ -19,6 +19,7 @@ import './Review.css';
 import { TokenContext } from '../../../src/index';
 import { LoginModal } from '../LoginModal/LoginModal';
 import MessageIcon from '@mui/icons-material/Message';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Review() {
   /* Obtenemos el ID de la empresa de los params */
@@ -46,28 +47,28 @@ export default function Review() {
   const [profileId, setProfileId] = useState('');
 
   /* Funciones para guardar los cambios de estado */
-  const salaryChange = (e) => {
+  const salaryChange = e => {
     setSalary(e.target.value);
   };
-  const enviromentChange = (e) => {
+  const enviromentChange = e => {
     setEnviroment(e.target.value);
   };
-  const conciliationChange = (e) => {
+  const conciliationChange = e => {
     setConciliation(e.target.value);
   };
-  const oportunitiesChange = (e) => {
+  const oportunitiesChange = e => {
     setOportunities(e.target.value);
   };
-  const titleChange = (e) => {
+  const titleChange = e => {
     setTitle(e.target.value);
   };
-  const descriptionChange = (e) => {
+  const descriptionChange = e => {
     setDescription(e.target.value);
   };
 
   /* Función que muestra el componente de comentar si hay token
   o te muestra el enlace a login */
-  const showChange = (e) => {
+  const showChange = e => {
     setProfileId(id);
     if (!reviewVisible) {
       setReviewVisible('visible');
@@ -78,7 +79,7 @@ export default function Review() {
   };
 
   /* Función que envía la información y crea la review */
-  const newReview = async (e) => {
+  const newReview = async e => {
     try {
       /* Creamos una constante con la información para enviarla */
       const data = {
@@ -104,130 +105,142 @@ export default function Review() {
         },
       });
       const bodyRes = await res.json();
-    } catch (e) {
+      const message = bodyRes.message;
+      console.log('Respuesta a newReview:', message);
+      if (bodyRes.status === 'ok') {
+        toast.success(message);
+      } else {
+        toast.error(message);
+      }
+    } catch (error) {
       console.error('Ha ocurrido un error', e);
     }
   };
 
   return (
-    <div className='review'>
-      <Stack className='select' width={150} spacing={2}>
-        <Button
-          className='filtrar'
-          variant='outlined'
-          startIcon={<MessageIcon />}
-          onClick={showChange}
-        >
-          Comentar
-        </Button>
-      </Stack>
-      {loginVisible ? <LoginModal profileId={profileId} /> : null}
-      {reviewVisible && token ? (
-        <>
-          <div className='new-review'>
-            {' '}
-            <div id='review-selectors'>
-              <SelectState
-                className='select'
-                selectedState={selectedState}
-                setSelectedState={setSelectedState}
-              />
-              <SelectJob
-                selectedJob={selectedJob}
-                setSelectedJob={setSelectedJob}
-              />
-              <SelectSalary
-                selectedSalary={selectedSalary}
-                setSelectedSalary={setSelectedSalary}
-              />
+    <>
+      <div>
+        <Toaster />
+      </div>
+      <div className='review'>
+        <Stack className='select' width={150} spacing={2}>
+          <Button
+            className='filtrar'
+            variant='outlined'
+            startIcon={<MessageIcon />}
+            onClick={showChange}
+          >
+            Comentar
+          </Button>
+        </Stack>
+        {loginVisible ? <LoginModal profileId={profileId} /> : null}
+        {reviewVisible && token ? (
+          <>
+            <div className='new-review'>
+              {' '}
+              <div id='review-selectors'>
+                <SelectState
+                  className='select'
+                  selectedState={selectedState}
+                  setSelectedState={setSelectedState}
+                />
+                <SelectJob
+                  selectedJob={selectedJob}
+                  setSelectedJob={setSelectedJob}
+                />
+                <SelectSalary
+                  selectedSalary={selectedSalary}
+                  setSelectedSalary={setSelectedSalary}
+                />
 
-              <SelectYear
-                endYear={endYear}
-                setEndYear={setEndYear}
-                startYear={startYear}
-                setStartYear={setStartYear}
-                start={true}
-              />
-              <SelectYear
-                endYear={endYear}
-                setEndYear={setEndYear}
-                startYear={startYear}
-                setStartYear={setStartYear}
-              />
-              <ReviewResetButton
-                setSelectedState={setSelectedState}
-                setSelectedJob={setSelectedJob}
-                setSelectedSalary={setSelectedSalary}
-                setTitle={setTitle}
-                setDescription={setDescription}
-                setStartYear={setStartYear}
-                setEndYear={setEndYear}
-                setSalary={setSalary}
-                setEnviroment={setEnviroment}
-                setConciliation={setConciliation}
-                setOportunities={setOportunities}
-              />
+                <SelectYear
+                  endYear={endYear}
+                  setEndYear={setEndYear}
+                  startYear={startYear}
+                  setStartYear={setStartYear}
+                  start={true}
+                />
+                <SelectYear
+                  endYear={endYear}
+                  setEndYear={setEndYear}
+                  startYear={startYear}
+                  setStartYear={setStartYear}
+                />
+                <ReviewResetButton
+                  setSelectedState={setSelectedState}
+                  setSelectedJob={setSelectedJob}
+                  setSelectedSalary={setSelectedSalary}
+                  setTitle={setTitle}
+                  setDescription={setDescription}
+                  setStartYear={setStartYear}
+                  setEndYear={setEndYear}
+                  setSalary={setSalary}
+                  setEnviroment={setEnviroment}
+                  setConciliation={setConciliation}
+                  setOportunities={setOportunities}
+                />
+              </div>
+              <div id='review-rating'>
+                {''}
+                <Typography component='legend'>Ambiente laboral</Typography>
+                <Rating
+                  name='read-only'
+                  value={parseInt(enviroment)}
+                  onChange={enviromentChange}
+                />
+                <Typography component='legend'>Conciliación</Typography>
+                <Rating
+                  name='read-only'
+                  value={parseInt(conciliation)}
+                  onChange={conciliationChange}
+                />
+                <Typography component='legend'>Oportunidades</Typography>
+                <Rating
+                  name='read-only'
+                  value={parseInt(oportunities)}
+                  onChange={oportunitiesChange}
+                />
+                <Typography component='legend'>Salario</Typography>
+                <Rating
+                  name='read-only'
+                  value={parseInt(salary)}
+                  onChange={salaryChange}
+                />
+              </div>
+              <div id='review-text'>
+                <TextField
+                  autoComplete='off'
+                  required
+                  id='standard-required'
+                  label='Required'
+                  defaultValue={title}
+                  variant='standard'
+                  onChange={titleChange}
+                />
+                <TextareaAutosize
+                  autoComplete='off'
+                  aria-label='minimum height'
+                  minRows={10}
+                  placeholder={description}
+                  style={{ width: 700 }}
+                  onChange={descriptionChange}
+                />
+              </div>
+              <Stack className='filter' width={200} spacing={2}>
+                <Button
+                  id='register-login'
+                  variant='outlined'
+                  color='primary'
+                  endIcon={<SendIcon />}
+                  onClick={newReview}
+                >
+                  Enviar
+                </Button>
+              </Stack>
             </div>
-            <div id='review-rating'>
-              {''}
-              <Typography component='legend'>Ambiente laboral</Typography>
-              <Rating
-                name='read-only'
-                value={parseInt(enviroment)}
-                onChange={enviromentChange}
-              />
-              <Typography component='legend'>Conciliación</Typography>
-              <Rating
-                name='read-only'
-                value={parseInt(conciliation)}
-                onChange={conciliationChange}
-              />
-              <Typography component='legend'>Oportunidades</Typography>
-              <Rating
-                name='read-only'
-                value={parseInt(oportunities)}
-                onChange={oportunitiesChange}
-              />
-              <Typography component='legend'>Salario</Typography>
-              <Rating
-                name='read-only'
-                value={parseInt(salary)}
-                onChange={salaryChange}
-              />
-            </div>
-            <div id='review-text'>
-              <TextField
-                autoComplete='off'
-                required
-                id='standard-required'
-                label='Required'
-                defaultValue={title}
-                variant='standard'
-                onChange={titleChange}
-              />
-              <TextareaAutosize
-                autoComplete='off'
-                aria-label='minimum height'
-                minRows={10}
-                placeholder={description}
-                style={{ width: 700 }}
-                onChange={descriptionChange}
-              />
-            </div>
-            <Stack className='filter' width={200} spacing={2}>
-              <Button
-                id='register-login'
-                variant='outlined'
-                color='primary'
-                endIcon={<SendIcon />}
-                onClick={newReview}
-              >
-                Enviar
-              </Button>
-            </Stack>
-          </div>
-        </>
-      ) : null}
-    </div>
+          </>
+        ) : null}
+      </div>
+    </>
   );
 }
