@@ -7,6 +7,7 @@ import { TokenContext } from '.';
 import { TopBusiness } from './components/TopBusiness';
 import Header from './components/Header/Header';
 import { RemoveFromQueue } from '@material-ui/icons';
+import SliderHomeWrapper from './components/Slider/SliderHome';
 
 function App() {
   const [raw, setRaw] = useState('');
@@ -22,7 +23,17 @@ function App() {
   };
   return (
     <div className='App'>
-      <h1 className='home_text'>{raw}</h1>
+      <div className='textandslider'>
+        <h1 className='home_text'>{raw}</h1>
+        <div className='slider-home'>
+          <SliderHomeWrapper className='carouselhome' />
+        </div>
+      </div>
+
+      {/* <h1 className='home_text'>{raw}</h1>
+      <div className='slider-home'>
+        <SliderHomeWrapper className='carouselhome' />
+      </div> */}
       {/* <Header /> */}
       <div className='top10'>
         {' '}
