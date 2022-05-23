@@ -1,4 +1,26 @@
-- Proyecto Validación de empresas:
+#Título del proyecto:
+
+- Validación de empresas
+
+#Descripción:
+
+Portal de búsqueda de empresas que muestra información acerca de las mismas, basada en las valoraciones aportadas por empleados anteriores registrados en la web, para que cualquier usuario pueda obtener información veraz a la hora de buscar empresas donde trabajar y poder encontrarla facilmente.
+
+#Construido con:
+
+- HTML
+- CSS
+- JAVASCRIPT
+- NODE.JS
+- REACT
+
+#Autores:
+
+- Roberto
+- Martín
+- Cristina
+
+#Instrucciones de inicio:
 
 1. Clonar ambos repositorios (Back y Front).
 2. Abrir cada carpeta con Visual Studio Code o acceder al contenido de cada una de ellas y allí clickar con botón
