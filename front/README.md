@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Rate a biz App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción:
 
-## Available Scripts
+Portal de búsqueda de empresas que muestra información acerca de las mismas, basada en las valoraciones aportadas por empleados anteriores registrados en la web, para que cualquier usuario pueda obtener información veraz a la hora de buscar empresas donde trabajar y poder encontrarla facilmente.
 
-In the project directory, you can run:
+## Desarrollado con:
 
-### `npm start`
+- HTML
+- CSS
+- JAVASCRIPT
+- NODE.JS
+- REACT
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Autores:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Martín García García: [github](https://github.com/AgoladaMartin)
+- Cristina López Rey: [github](https://github.com/krizs981)
+- Roberto Palomino de la Cruz: [github](https://github.com/roberto-palomino)
 
-### `npm test`
+## Prerrequisitos:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para poder usar esta aplicación y probar todas sus funcionalidades necesitarás tener instalados las siguientes herramientas:
 
-### `npm run build`
+- NodeJS y npm. Para comprobrar si dispones de ellos ejecuta en una terminal:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+node --version
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Consulta [aquí](https://nodejs.org/es/) cómo instalarlo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- MySQL Server. Si tienes Ubuntu desde la terminal lanza la siguiente línea de código:
 
-### `npm run eject`
+```bash
+sudo apt-get install mysql-server
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Para más información sobre cómo descargarlo puedes acceder a [esta página](https://dev.mysql.com/downloads/mysql/).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- MySQL Workbench. Puedes obtenerlo desde [esta página](https://dev.mysql.com/downloads/workbench/) y en Ubuntu desde la terminal de comandos con la siguiente línea de código:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+sudo snap install mysql-workbench-community
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Instrucciones de inicio:
 
-## Learn More
+1. Para arrancar la aplicación necesitarás clonar tanto el [repositorio de back](https://github.com/AgoladaMartin/Rate-a-Biz-Back) como este repositorio de front.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Accede a cada repositorio desde la terminal y una vez dentro, instala las dependencias para cada uno de ellos con el comando:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+   npm install
+```
 
-### Code Splitting
+3. En el repositorio de backend, renombra el archivo .env.example a .env y complétalo con tus datos.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Crea una base de datos nueva en SQL con el nombre "rate_a_biz" (sin comillas), con el comando:
 
-### Analyzing the Bundle Size
+```sql
+CREATE DATABASE rate_a_biz
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5. Necesitaremos crear las columnas para la base de datos, para ello, introduce en la terminal del backend el comando:
 
-### Making a Progressive Web App
+```bash
+ npm run initDB
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+6. Para inicializar la base de datos creada, lanza en esta misma terminal del backend el comando:
 
-### Advanced Configuration
+```bash
+ npm run dev
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+7. Una vez lanzado el servidor del backend, accede a la terminal del repositorio del frontend e inicializa la app y ejecuta el comando:
 
-### Deployment
+```bash
+ npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Se abrirá una nueva ventana en tu navegador con la aplicación funcionando.
