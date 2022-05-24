@@ -7,6 +7,8 @@ import Avatar from '../Avatar';
 import EditAvatar from '../EditUser/EditAvatar';
 import './EditTabs.css';
 
+//  Se muestra en pantalla 3 tabs y dependiendo del rol que esté logueado, worker o business, se muestran unos campos u otros.
+
 const EditTabs = props => {
   const { user, userId, onUpdated, userRole, business } = props;
   const [activeTabUser, setActiveTabUser] = useState('personal-data');

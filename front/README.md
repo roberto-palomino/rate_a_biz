@@ -4,7 +4,7 @@
 
 Portal de búsqueda de empresas que muestra información acerca de las mismas, basada en las valoraciones aportadas por empleados anteriores registrados en la web, para que cualquier usuario pueda obtener información veraz a la hora de buscar empresas donde trabajar y poder encontrarla facilmente.
 
-## Construido con:
+## Desarrollado con:
 
 - HTML
 - CSS
@@ -14,9 +14,9 @@ Portal de búsqueda de empresas que muestra información acerca de las mismas, b
 
 ## Autores:
 
-- Martín García García (https://github.com/AgoladaMartin)
-- Cristina López Rey (https://github.com/krizs981)
-- Roberto Palomino de la Cruz (https://github.com/roberto-palomino)
+- Martín García García: [github](https://github.com/AgoladaMartin)
+- Cristina López Rey: [github](https://github.com/krizs981)
+- Roberto Palomino de la Cruz: [github](https://github.com/roberto-palomino)
 
 ## Prerrequisitos:
 
@@ -30,11 +30,13 @@ node --version
 
 Consulta [aquí](https://nodejs.org/es/) cómo instalarlo
 
-- MySQL Server. Puedes obtenerlo desde [esta página](https://dev.mysql.com/downloads/mysql/) y en Ubuntu desde la terminal de comandos con la siguiente línea de código:
+- MySQL Server. Si tienes Ubuntu desde la terminal lanza la siguiente línea de código:
 
 ```bash
 sudo apt-get install mysql-server
 ```
+
+Para más información sobre cómo descargarlo puedes acceder a [esta página](https://dev.mysql.com/downloads/mysql/).
 
 - MySQL Workbench. Puedes obtenerlo desde [esta página](https://dev.mysql.com/downloads/workbench/) y en Ubuntu desde la terminal de comandos con la siguiente línea de código:
 
@@ -46,41 +48,36 @@ sudo snap install mysql-workbench-community
 
 1. Para arrancar la aplicación necesitarás clonar tanto el [repositorio de back](https://github.com/AgoladaMartin/Rate-a-Biz-Back) como este repositorio de front.
 
-2. Abrir cada carpeta con Visual Studio Code o acceder al contenido de cada una de ellas. Una vez dentro clickar con el botón
-   derecho del ratón y seleccionar: 'Abrir en un terminal'. Tras iniciar la terminal de comandos introducir:
-
-   ```bash
-   code .
-   ```
-
-3. Una vez abierto Visual Code, escribir en la terminal del programa para cada repositorio:
+2. Accede a cada repositorio desde la terminal y una vez dentro, instala las dependencias para cada uno de ellos con el comando:
 
 ```bash
    npm install
 ```
 
-4. Renombrar el archivo .env.example del backend a .env y completarlo con los datos del usuario.
+3. En el repositorio de backend, renombra el archivo .env.example a .env y complétalo con tus datos.
 
-5. Crear una base de datos nueva en SQL con el nombre "rate_a_biz" (sin comillas), con el comando:
+4. Crea una base de datos nueva en SQL con el nombre "rate_a_biz" (sin comillas), con el comando:
 
 ```sql
 CREATE DATABASE rate_a_biz
 ```
 
-6. Crear las columnas para la base de datos, introduciendo en la terminal de Visual Studio de backend el comando:
+5. Necesitaremos crear las columnas para la base de datos, para ello, introduce en la terminal del backend el comando:
 
 ```bash
  npm run initDB
 ```
 
-7. Inicializar la base de datos en la terminal de Visual Studio de backend con el comando:
+6. Para inicializar la base de datos creada, lanza en esta misma terminal del backend el comando:
 
 ```bash
  npm run dev
 ```
 
-8. Inicializar la app introduciendo en la terminal de Visual Studio correspondiente a frontend el comando:
+7. Una vez lanzado el servidor del backend, accede a la terminal del repositorio del frontend e inicializa la app y ejecuta el comando:
 
 ```bash
  npm start
 ```
+
+Se abrirá una nueva ventana en tu navegador con la aplicación funcionando.

@@ -2,7 +2,10 @@ import React from 'react';
 import './Avatar.css';
 import avatarLogo from '../../assets/images/default-avatar.jpeg';
 
-const Avatar = (props) => {
+// Se añaden al componente Avatar las props: hideFigCaption, size y avatarUrl. Para ocultar el nombre del usuario
+// para seleccionar el tamaño del avatar y para indicar la ruta al archivo de imagen.
+
+const Avatar = props => {
   const { avatarUrl, username, size, hideFigCaption } = props;
   return (
     <div className='avatar-container'>
