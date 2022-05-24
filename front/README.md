@@ -22,7 +22,7 @@ Portal de búsqueda de empresas que muestra información acerca de las mismas, b
 
 Para poder usar esta aplicación y probar todas sus funcionalidades necesitarás tener instalados las siguientes herramientas:
 
-- Nodejs y npm. Para comprobrar si dispones de ellos ejecuta en una terminal:
+- NodeJS y npm. Para comprobrar si dispones de ellos ejecuta en una terminal:
 
 ```bash
 node --version
