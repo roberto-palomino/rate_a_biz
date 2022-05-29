@@ -7,10 +7,16 @@ import Avatar from '../Avatar';
 import EditAvatar from '../EditUser/EditAvatar';
 import './EditTabs.css';
 
-//  Se muestra en pantalla 3 tabs y dependiendo del rol que esté logueado, worker o business, se muestran unos campos u otros.
+//  Se muestra en pantalla tres tabs que muestran al pulsarlos información de la cuenta . Dependiendo del rol logueado,
+//  se mostrarán unos campos u otros al clickar sobre "Datos personales". Las otros dos apartados son los mismos para
+//  ambos perfiles.
 
 const EditTabs = props => {
+  //  La prop onUpdated es un evento con el que comunicamos al padre eventos de actualización
+
   const { user, userId, onUpdated, userRole, business } = props;
+
+  //  Se utiliza el perfil de worker como valor por defecto
   const [activeTabUser, setActiveTabUser] = useState('personal-data');
   useEffect(() => {
     if (userRole === 'business') {

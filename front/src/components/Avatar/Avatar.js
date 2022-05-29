@@ -2,9 +2,7 @@ import React from 'react';
 import './Avatar.css';
 import avatarLogo from '../../assets/images/default-avatar.jpeg';
 
-// Se añaden al componente Avatar las props: hideFigCaption, size y avatarUrl. Para ocultar el nombre del usuario
-// para seleccionar el tamaño del avatar y para indicar la ruta al archivo de imagen.
-
+// Se añade hideFigcaption como prop al componente Avatar, para poder ocultar o mostrar el nombre del usuario.
 const Avatar = props => {
   const { avatarUrl, username, size, hideFigCaption } = props;
   return (
@@ -12,6 +10,7 @@ const Avatar = props => {
       <div className={`avatar ${size === 'medium' ? 'medium' : 'small'}`}>
         <img
           className='image-avatar'
+          // Por defecto se muestra una imagen por si no se proporciona una url
           src={avatarUrl ? avatarUrl : avatarLogo}
           alt={`avatar de ${username || 'usuario'}`}
         />

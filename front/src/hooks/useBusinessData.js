@@ -20,7 +20,7 @@ const useBusinessData = (token, hasUpdated) => {
 
         const responseData = await response.json();
         const businessData = responseData.data;
-        console.log('Datos de empresa', responseData);
+
         setBusiness(businessData);
       } catch (error) {
         console.error(error);
@@ -28,6 +28,7 @@ const useBusinessData = (token, hasUpdated) => {
     }
   }, [businessId, token, businessRole]);
 
+  // Si hay token o se ha actualizado un usuario o el role es igual a business, pedimos una actualizaciónd de datos al servidor
   useEffect(() => {
     if (token || hasUpdated || businessRole === 'business') {
       getBusinessData();
