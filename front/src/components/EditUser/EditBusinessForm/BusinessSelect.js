@@ -4,6 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+// Componente utilizado para los "select" en el formulario del perfil de business
 const BusinessSelect = props => {
   const { selectItem, setSelectItem, disabled, options, inputId, label } =
     props;

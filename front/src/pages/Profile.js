@@ -5,8 +5,9 @@ import useBusinessData from '../hooks/useBusinessData';
 import { TokenContext } from '../index';
 
 export const Profile = () => {
-  const [hasUpdated, setHasUpdated] = useState(false);
   const [token] = useContext(TokenContext);
+  // Utilizamos el valor del evento onUpdated para forzar una petición al servidor con hasUpdated
+  const [hasUpdated, setHasUpdated] = useState(false);
   const { user, userId, userRole } = useUserData(token, hasUpdated);
   const { business } = useBusinessData(token, hasUpdated);
 

@@ -5,6 +5,7 @@ import { TokenContext } from '../../../index';
 import toast, { Toaster } from 'react-hot-toast';
 import './EditAvatar.css';
 
+//  La prop onUpdated es un evento con el que comunicamos al padre si se ha actualizado o no el avatar
 const EditAvatar = props => {
   const { user, userId, onUpdated } = props;
   const [token] = useContext(TokenContext);
@@ -12,10 +13,12 @@ const EditAvatar = props => {
   const [avatarUrl, setAvatarUrl] = useState('');
   const [isEditing, setIsEditing] = useState(false);
 
+  //  Se muestra este botón cuando la edición está habilitada
   const ShowButtonAvatar = () => {
     return <button className='avatar-form-button'>Guardar</button>;
   };
 
+  //  Escuchamos los cambios de user para poder obtener el avatar
   const getUserImage = useCallback(() => {
     const userAvatar = user?.avatar;
     userAvatar &&
@@ -26,6 +29,7 @@ const EditAvatar = props => {
     getUserImage();
   }, [getUserImage]);
 
+  // Mientras no se esté editando el avatar mantenemos el onUpdated en false
   useEffect(() => {
     onUpdated && !isEditing && onUpdated(false);
   }, [onUpdated, isEditing]);
@@ -50,14 +54,20 @@ const EditAvatar = props => {
       const responseData = await response.json();
       const message = responseData.message;
       if (responseData.status === 'ok') {
+        // Cuando obtenemos respuesta del servidor con el cambio en el avatar, informamos al padre de que se ha actualizado
         onUpdated(true);
         toast.success(message);
       } else {
         toast.error(message);
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error(
+        `Error al intentar acceder al avatar del usuario ${userId}: ${error}`
+      );
+    }
   };
 
+  //  Setea la imagen y la url para poder previsualizar el avatar mientras se está editando
   const onFileChange = event => {
     const imageObj = event.target.files[0];
     setImage(imageObj);
