@@ -29,6 +29,7 @@ const Header = () => {
     setAnchorEl(null);
   };
 
+  //  Función para cerrar sesión y regresar a la página de inicio
   function logout() {
     localStorage.clear();
     window.location.href = '/';
@@ -103,10 +104,6 @@ const Header = () => {
             </Menu>
 
             <div className='profile-links'>
-              {/* <a href='/profile'>
-                <AccountCircleIcon fontSize='medium' />
-                Perfil
-              </a> */}
               <button
                 onClick={(e) => {
                   logout();

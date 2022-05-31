@@ -9,6 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { TextField } from '@mui/material';
 import './EditBusinessForm.css';
 
+//  La prop onUpdated es un evento con el que comunicamos al padre si se ha actualizado o no los datos del usuario
 const EditBusinessForm = props => {
   const { userId, onUpdated, business } = props;
 
@@ -26,6 +27,8 @@ const EditBusinessForm = props => {
   const [selectSector, setSelectSector] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [buttonMessage, setButtonMessage] = useState('Editar datos');
+
+  //  Usamos la clase "disabled" mientras no se esté editando el formulario.
   const disabledClassname = !isEditing ? 'disabled' : '';
 
   useEffect(() => {
@@ -51,6 +54,7 @@ const EditBusinessForm = props => {
     selectSector,
   ]);
 
+  // Mientras no se esté editando el formulario mantenemos el onUpdated en false
   useEffect(() => {
     onUpdated && !isEditing && onUpdated(false);
   }, [onUpdated, isEditing]);
@@ -78,14 +82,21 @@ const EditBusinessForm = props => {
       const body = await response.json();
       const message = body.message;
       if (body.status === 'ok') {
+        // Cuando obtenemos respuesta del servidor con el cambio en el usuario, informamos al padre de que se ha actualizado
         onUpdated(true);
         toast.success(message);
       } else {
         toast.error(message);
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error(
+        `Error al intentar editar los datos del usuario ${userId}: ${error}`
+      );
+    }
   };
 
+  // Alternamos la edición del formulario, habilitándolo o deshabilitándolo.
+  // Se modifica el texto que muestra el botón dependiendo del estado en el que se encuentre
   function handleEditForm(e) {
     e.preventDefault();
     setIsEditing(!isEditing);

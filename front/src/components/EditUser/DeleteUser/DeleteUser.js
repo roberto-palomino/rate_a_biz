@@ -25,15 +25,19 @@ const DeleteUser = props => {
         toast.error(message);
       }
     } catch (error) {
-      toast.error(error);
+      toast.error(
+        `Error al intentar eliminar la cuenta del usuario ${userId}: ${error}`
+      );
     }
   };
 
+  //  Función para eliminar el token y regresar a la página de inicio
   function logout() {
     localStorage.clear();
     window.location.href = '/';
   }
 
+  // Función que muestra en pantalla un mensaje para confirmar la eliminación de la cuenta o cancelar la petición.
   function handleEditForm(e) {
     e.preventDefault();
     toast(

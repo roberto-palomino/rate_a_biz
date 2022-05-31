@@ -17,11 +17,20 @@ const EditUserPass = props => {
   const [newPassword, setNewPassword] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [buttonMessage, setButtonMessage] = useState('Editar datos');
-  const disabledClassname = !isEditing ? 'disabled' : '';
-  const [visibility, setVisibility] = useState('');
-  const [visibility2, setVisibility2] = useState('');
+  const [oldPasswordVisibility, setOldPasswordVisibility] = useState('');
+  const [newPasswordVisibility, setNewPasswordVisibility] = useState('');
 
-  const visibilityChange = e => {
+  //  Usamos la clase "disabled" mientras no se esté editando el formulario.
+  const disabledClassname = !isEditing ? 'disabled' : '';
+
+  //  Constante que permite ver el contendido del input u ocultarlo.
+  const changeVisibility = (e, type) => {
+    e.preventDefault();
+    const visibility =
+      type === 'old' ? oldPasswordVisibility : newPasswordVisibility;
+    const setVisibility =
+      type === 'old' ? setOldPasswordVisibility : setNewPasswordVisibility;
+
     if (!visibility) {
       setVisibility('text');
     } else {
@@ -29,13 +38,6 @@ const EditUserPass = props => {
     }
   };
 
-  const visibility2Change = e => {
-    if (!visibility2) {
-      setVisibility2('text');
-    } else {
-      setVisibility2('');
-    }
-  };
   const updateUserPass = async e => {
     e.preventDefault();
 
@@ -64,9 +66,15 @@ const EditUserPass = props => {
       } else {
         toast.error(message);
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error(
+        `Error al intentar editar la contraseña del usuario ${userId}: ${error}`
+      );
+    }
   };
 
+  // Alternamos la edición del formulario, habilitándolo o deshabilitándolo.
+  // Se modifica el texto que muestra el botón dependiendo del estado en el que se encuentre
   function handleEditForm(e) {
     e.preventDefault();
     setIsEditing(!isEditing);
@@ -94,7 +102,7 @@ const EditUserPass = props => {
             className='form-pass-input'
             id='password'
             disabled={!isEditing}
-            type={visibility ? 'text' : 'password'}
+            type={oldPasswordVisibility ? 'text' : 'password'}
             value={oldPassword}
             onChange={e => {
               setOldPassword(e.target.value);
@@ -102,11 +110,13 @@ const EditUserPass = props => {
             endAdornment={
               <InputAdornment position='end'>
                 <IconButton
-                  aria-label='toggle password visibility'
-                  onClick={visibilityChange}
+                  aria-label='toggle old Password Visibility'
+                  onClick={e => {
+                    changeVisibility(e, 'old');
+                  }}
                   edge='end'
                 >
-                  {visibility ? <VisibilityOff /> : <Visibility />}
+                  {oldPasswordVisibility ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
             }
@@ -119,7 +129,7 @@ const EditUserPass = props => {
           <Input
             id='new-password'
             disabled={!isEditing}
-            type={visibility2 ? 'text' : 'password'}
+            type={newPasswordVisibility ? 'text' : 'password'}
             value={newPassword}
             onChange={e => {
               setNewPassword(e.target.value);
@@ -127,11 +137,13 @@ const EditUserPass = props => {
             endAdornment={
               <InputAdornment position='end'>
                 <IconButton
-                  aria-label='toggle password visibility'
-                  onClick={visibility2Change}
+                  aria-label='toggle new Password Visibility'
+                  onClick={e => {
+                    changeVisibility(e);
+                  }}
                   edge='end'
                 >
-                  {visibility2 ? <VisibilityOff /> : <Visibility />}
+                  {newPasswordVisibility ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
             }

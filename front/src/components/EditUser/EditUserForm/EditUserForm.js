@@ -4,6 +4,7 @@ import { TextField } from '@mui/material';
 import toast, { Toaster } from 'react-hot-toast';
 import DeleteUser from '../DeleteUser/DeleteUser';
 
+//  La prop onUpdated es un evento con el que comunicamos al padre si se ha actualizado o no los datos del usuario
 const EditUserForm = props => {
   const { user, userId, onUpdated } = props;
   const [token] = useContext(TokenContext);
@@ -24,6 +25,7 @@ const EditUserForm = props => {
     }
   }, [isEditing, newEmail, username, name, lastname, user]);
 
+  // Mientras no se esté editando el formulario mantenemos el onUpdated en false
   useEffect(() => {
     onUpdated && !isEditing && onUpdated(false);
   }, [onUpdated, isEditing]);
@@ -49,14 +51,21 @@ const EditUserForm = props => {
       const body = await response.json();
       const message = body.message;
       if (body.status === 'ok') {
+        // Cuando obtenemos respuesta del servidor con el cambio en el usuario, informamos al padre de que se ha actualizado
         onUpdated(true);
         toast.success(message);
       } else {
         toast.error(message);
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error(
+        `Error al intentar editar los datos del usuario ${userId}: ${error}`
+      );
+    }
   };
 
+  // Alternamos la edición del formulario, habilitándolo o deshabilitándolo.
+  // Se modifica el texto que muestra el botón dependiendo del estado en el que se encuentre
   function handleEditForm(e) {
     e.preventDefault();
     setIsEditing(!isEditing);
