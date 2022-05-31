@@ -1,3 +1,9 @@
+#logo {
+  height: 5rem;
+  background-color: #292c37;
+  padding: 0.5rem;
+  border-radius: 20px;
+}
 .header {
   background: #f5f6f7;
   justify-content: space-evenly;
@@ -25,12 +31,13 @@
   justify-content: center;
 }
 
-.nav-links a {
+.nav-links > a {
   display: flex;
   align-content: center;
   margin: 0.5rem;
   text-decoration: none;
-  color: rgb(59, 123, 159);
+  color: #292c37;
+  font-weight: bolder;
 }
 
 .profile a {
@@ -39,35 +46,16 @@
 
 .image-logo {
   margin-top: 2rem;
-  width: 265px;
-}
-
-.header-menu ul {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 10px;
+  width: 250px;
 }
 
 .header-menu a {
-  /* text-decoration: none;
-  color: rgb(59, 123, 159); */
   text-decoration: none;
   color: rgb(59, 123, 159);
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: row;
-  gap: 10px;
 }
 
 .header-menu .close-session {
-  /* color: rgb(59, 123, 159); */
   color: rgb(59, 123, 159);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  min-width: auto;
-  gap: 10px;
 }
 
 header button {
@@ -84,7 +72,7 @@ header button {
   text-decoration: none;
   font-size: x-large;
   text-align: center;
-  color: rgb(59, 123, 159);
+  color: #292c37;
 }
 
 .profile {
@@ -129,58 +117,32 @@ header button {
     justify-content: flex-end;
   }
 
-  .header-menu ul {
-    gap: 1rem;
-    padding: 15px;
-  }
-
   .profile {
     gap: 0;
   }
 
   .profile-links {
-    /* display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     min-width: 10rem;
     gap: 5px;
-    align-items: center; */
-    display: flex;
-    flex-direction: row;
-    /* justify-content: space-between; */
-    justify-content: center;
-    min-width: 6rem;
-    /* gap: 25px; */
-    /* flex-wrap: wrap; */
     align-items: center;
   }
   .profile-links a {
-    /* display: flex;
-    font-size: medium;
-    flex-direction: column;
-    margin: 0; */
     display: flex;
     font-size: medium;
+    flex-direction: column;
     margin: 0;
-    gap: 3px;
-    align-items: center;
   }
 
   .profile-links button {
-    /* display: flex;
+    display: flex;
     font-size: medium;
     color: rgb(59, 123, 159);
     border: none;
     background-color: rgba(236, 236, 234, 0.473);
-    cursor: pointer; */
-    display: flex;
-    font-size: medium;
-    color: rgb(59, 123, 159);
-    border: none;
-    background-color: #f5f6f7;
     cursor: pointer;
-    align-items: center;
-    gap: 5px;
   }
 
   .image-logo {

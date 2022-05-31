@@ -21,7 +21,7 @@ const Header = () => {
     ? `http://localhost:4000/static/uploads/${user?.avatar}`
     : '';
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -38,9 +38,9 @@ const Header = () => {
     <header className='header'>
       <a href='/' className='logo'>
         <img
-          className='image-logo'
-          src='https://i.ibb.co/KmZ0GVL/Logo-Grande.png'
-          alt='Logo-Grande'
+          id='logo'
+          src='https://i.ibb.co/3hLZGDP/Logo-Ratebiz-Blanco.png'
+          alt='Logo-Ratebiz-Blanco'
           border='0'
         />
       </a>
@@ -108,7 +108,7 @@ const Header = () => {
                 Perfil
               </a> */}
               <button
-                onClick={e => {
+                onClick={(e) => {
                   logout();
                 }}
               >

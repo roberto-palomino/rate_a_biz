@@ -19,7 +19,7 @@ import { Validate } from './components/Validate/Validate';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#3b7b9f',
+      main: '#292c37',
     },
     secondary: {
       main: '#616161',
@@ -33,7 +33,13 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
+          color: '#ececea',
           textTransform: 'none',
+          backgroundColor: '#292c37',
+          '&:hover': {
+            backgroundColor: '#111111',
+            boxShadow: 'none',
+          },
         },
       },
     },
@@ -41,7 +47,7 @@ const theme = createTheme({
 });
 
 export const TokenContext = React.createContext();
-const TokenProvider = props => {
+const TokenProvider = (props) => {
   const [token, setToken] = useLocalStorage('token');
   return (
     <TokenContext.Provider value={[token, setToken]}>

@@ -47,28 +47,28 @@ export default function Review() {
   const [profileId, setProfileId] = useState('');
 
   /* Funciones para guardar los cambios de estado */
-  const salaryChange = e => {
+  const salaryChange = (e) => {
     setSalary(e.target.value);
   };
-  const enviromentChange = e => {
+  const enviromentChange = (e) => {
     setEnviroment(e.target.value);
   };
-  const conciliationChange = e => {
+  const conciliationChange = (e) => {
     setConciliation(e.target.value);
   };
-  const oportunitiesChange = e => {
+  const oportunitiesChange = (e) => {
     setOportunities(e.target.value);
   };
-  const titleChange = e => {
+  const titleChange = (e) => {
     setTitle(e.target.value);
   };
-  const descriptionChange = e => {
+  const descriptionChange = (e) => {
     setDescription(e.target.value);
   };
 
   /* Función que muestra el componente de comentar si hay token
   o te muestra el enlace a login */
-  const showChange = e => {
+  const showChange = (e) => {
     setProfileId(id);
     if (!reviewVisible) {
       setReviewVisible('visible');
@@ -79,7 +79,7 @@ export default function Review() {
   };
 
   /* Función que envía la información y crea la review */
-  const newReview = async e => {
+  const newReview = async (e) => {
     try {
       /* Creamos una constante con la información para enviarla */
       const data = {
@@ -222,7 +222,7 @@ export default function Review() {
                   aria-label='minimum height'
                   minRows={10}
                   placeholder={description}
-                  style={{ width: 700 }}
+                  style={{ width: '100%' }}
                   onChange={descriptionChange}
                 />
               </div>

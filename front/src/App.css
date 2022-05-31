@@ -38,11 +38,13 @@
   grid-template-columns: 1fr 1fr;
   background-color: rgba(236, 236, 234);
   margin: 3rem;
+  width: 25rem;
 }
 .top-reviews {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .top-preview .info {

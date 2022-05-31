@@ -71,6 +71,7 @@ export const BusinessProfile = () => {
             <div id='review-div'>
               <Review />
             </div>
+            <hr></hr>
             <div className='profile-orders'>
               <OrderBy
                 className='button'
@@ -101,7 +102,14 @@ export const BusinessProfile = () => {
             </div>
           </div>
         ) : (
-          <div>CARGANDO!!!!!!!!!</div>
+          <div className='loading'>
+            <img
+              id='loading-gif'
+              src='https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca.gif'
+              alt='Loading-gif'
+              border='0'
+            />
+          </div>
         )}
       </div>
     </>
