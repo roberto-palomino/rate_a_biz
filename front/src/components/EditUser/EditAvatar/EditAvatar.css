@@ -36,7 +36,7 @@
 }
 
 .label-avatar {
-  color: rgb(59, 123, 159);
+  color: #292c37;
   height: 2rem;
   min-width: 15rem;
   padding: 1rem;
@@ -51,7 +51,7 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 .label-avatar:hover {
-  background-color: rgb(229, 242, 246);
+  background-color: rgb(227, 227, 227);
 }
 
 @media (min-width: 900px) {
