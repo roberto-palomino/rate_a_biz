@@ -39,8 +39,9 @@
   border-color: rgba(233, 78, 78, 0.855);
 }
 .form-button:hover {
-  background-color: rgb(69, 69, 69);
   cursor: pointer;
+  background-color: #111111;
+  box-shadow: none;
 }
 .form-button-delete:hover {
   background-color: rgba(193, 57, 57, 0.855);
