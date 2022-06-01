@@ -1,65 +1,79 @@
-import React, { Suspense } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import * as React from 'react';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
 
-import Loading from './Loading';
-import ErrorBoundary from './ErrorBoundary';
-
-function SliderHome() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+function srcset(image, size, rows = 1, cols = 1) {
+  return {
+    src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
+    srcSet: `${image}?w=${size * cols}&h=${
+      size * rows
+    }&fit=crop&auto=format&dpr=2 2x`,
   };
+}
+
+export default function QuiltedImageList() {
   return (
-    <Slider autoplay adaptiveHeight {...settings}>
-      <div>
-        <img
-          className='carouselhome'
-          src={`https://drive.google.com/file/d/1rzuZZvDxzGEoOHpqBdgGlR0oL6NRP97P/view?usp=sharing`}
-          alt='foto empresas 1'
-        ></img>
-      </div>
-      <div>
-        <img
-          className='carouselhome'
-          src={`https://drive.google.com/file/d/16K0dgEWKUE6I8JsM87q5JAlLbvpMHi1j/view?usp=sharing`}
-          alt='foto empresas 2'
-        ></img>
-      </div>
-      <div>
-        <img
-          className='carouselhome'
-          src={`https://drive.google.com/file/d/1WzRtrhVQ20WeflHEINY2-BU1rFWoZ5Bb/view?usp=sharing`}
-          alt='foto empresas 3'
-        ></img>
-      </div>
-      <div>
-        <img
-          className='carouselhome'
-          src={`https://drive.google.com/file/d/1OxuKdEGLiHVAySmOOGum3irNEbDyExS5/view?usp=sharing`}
-          alt='foto empresas 4'
-        ></img>
-      </div>
-      <div>
-        <img
-          className='carouselhome'
-          src={`https://drive.google.com/file/d/1F32OC8rZl2n3fvFr-Ccz79avvSBrSLBn/view?usp=sharing`}
-          alt='foto empresas 5'
-        ></img>
-      </div>
-    </Slider>
+    <ImageList
+      sx={{ width: 900, height: 700 }}
+      variant='quilted'
+      cols={4}
+      rowHeight={155}
+    >
+      {itemData.map((item) => (
+        <ImageListItem
+          key={item.img}
+          cols={item.cols || 1}
+          rows={item.rows || 1}
+        >
+          <img
+            {...srcset(item.img, 121, item.rows, item.cols)}
+            alt={item.title}
+            loading='lazy'
+          />
+        </ImageListItem>
+      ))}
+    </ImageList>
   );
 }
-const SliderHomeWrapper = () => (
-  <Suspense fallback={<Loading className='page' />}>
-    <ErrorBoundary fallback='SliderHome is failing'>
-      <SliderHome />
-    </ErrorBoundary>
-  </Suspense>
-);
 
-export default SliderHomeWrapper;
+const itemData = [
+  {
+    img: '../../assets/images/home1.jpg',
+    title: 'Breakfast',
+    rows: 2,
+    cols: 2,
+  },
+  {
+    img: '../../assets/images/home2.jpg',
+    title: 'Burger',
+  },
+  {
+    img: '../../assets/images/home3.jpg',
+    title: 'Camera',
+  },
+  {
+    img: '../../assets/images/home4.jpg',
+    title: 'Coffee',
+    cols: 2,
+  },
+  {
+    img: '../../assets/images/home5.jpg',
+    title: 'Hats',
+    cols: 2,
+  },
+  {
+    img: '../../assets/images/home6.jpg',
+    title: 'Honey',
+    author: '@arwinneil',
+    rows: 2,
+    cols: 2,
+  },
+  {
+    img: '../../assets/images/home7.jpg',
+    title: 'Basketball',
+  },
+  {
+    img: '../../assets/images/home8.jpg',
+    title: 'Fern',
+  },
+];
