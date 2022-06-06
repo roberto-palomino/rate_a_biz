@@ -1,6 +1,6 @@
 .footer-container {
   background: rgba(236, 236, 234);
-  color: rgb(59, 123, 159);
+  color: #292c37;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@
 }
 .politics-terms a {
   text-decoration: none;
-  color: rgb(59, 123, 159);
+  color: #292c37;
 }
 .copyright {
   margin: 1rem;

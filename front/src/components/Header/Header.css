@@ -1,8 +1,9 @@
 #logo {
-  height: 5rem;
+  height: 4.2rem;
   background-color: #292c37;
   padding: 0.5rem;
   border-radius: 20px;
+  margin-top: 20px;
 }
 .header {
   background: #f5f6f7;
@@ -27,6 +28,7 @@
   grid-column: 2 / 3;
   grid-row: 1 / 3;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -49,13 +51,29 @@
   width: 250px;
 }
 
+.header-menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+}
+
 .header-menu a {
   text-decoration: none;
-  color: rgb(59, 123, 159);
+  color: #292c37;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 10px;
 }
 
 .header-menu .close-session {
-  color: rgb(59, 123, 159);
+  color: #292c37;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: auto;
+  gap: 10px;
 }
 
 header button {
@@ -97,6 +115,15 @@ header button {
     grid-template-rows: 1fr;
   }
 
+  .header-menu ul {
+    gap: 1rem;
+    padding: 15px;
+  }
+
+  #logo {
+    height: 5rem;
+    margin: 0;
+  }
   .logo {
     grid-column: 1 / 2;
   }
@@ -115,6 +142,7 @@ header button {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
     justify-content: flex-end;
+    flex-direction: row;
   }
 
   .profile {
@@ -139,7 +167,8 @@ header button {
   .profile-links button {
     display: flex;
     font-size: medium;
-    color: rgb(59, 123, 159);
+    /* color: rgb(59, 123, 159); */
+    color: #292c37;
     border: none;
     background-color: rgba(236, 236, 234, 0.473);
     cursor: pointer;
