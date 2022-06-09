@@ -86,7 +86,7 @@ export const SelectYear = (props) => {
     '2019',
     '2020',
     '2021',
-    'Actualidad',
+    '2022',
   ];
 
   /* Si tenemos la prop Start se mostrará la opción startYear y en caso contrario la opción endYear */

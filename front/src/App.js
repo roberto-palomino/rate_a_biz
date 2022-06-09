@@ -5,18 +5,13 @@ import { useContext } from 'react';
 import { TokenContext } from '.';
 import { TopBusiness } from './components/TopBusiness';
 import Header from './components/Header/Header';
+import QuiltedImageList from './components/Landing/QuiltedImageList';
 
 function App() {
   return (
     <div className='App'>
       {/* <Header /> */}
-      <div className='top10'>
-        {' '}
-        <h1>TOP 10 Empresas mejor valoradas de España</h1>
-      </div>
-      <div className='top-reviews'>
-        <TopBusiness className='top-preview' />
-      </div>
+      <QuiltedImageList />
     </div>
   );
 }

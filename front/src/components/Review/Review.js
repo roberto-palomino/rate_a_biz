@@ -106,7 +106,7 @@ export default function Review() {
       });
       const bodyRes = await res.json();
       const message = bodyRes.message;
-      console.log('Respuesta a newReview:', message);
+
       if (bodyRes.status === 'ok') {
         toast.success(message);
       } else {
