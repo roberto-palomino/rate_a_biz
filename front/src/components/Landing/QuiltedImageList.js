@@ -94,10 +94,10 @@ export default function QuiltedImageList() {
       </div>
       <hr></hr>
       <ImageList
-        sx={{ width: 900, height: 700 }}
+        sx={{ width: 1000, height: 480 }}
         variant='quilted'
         cols={4}
-        rowHeight={155}
+        rowHeight={225}
         id='imageList'
       >
         {itemData.map((item) => (
@@ -116,10 +116,10 @@ export default function QuiltedImageList() {
         ,
       </ImageList>
       <ImageList
-        sx={{ width: 900, height: 700 }}
+        sx={{ width: 1000, height: 480 }}
         variant='quilted'
         cols={4}
-        rowHeight={155}
+        rowHeight={225}
         id='imageList'
       >
         {itemData2.map((item) => (
