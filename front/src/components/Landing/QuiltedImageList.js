@@ -24,42 +24,41 @@ export default function QuiltedImageList() {
   const itemData = [
     {
       img: `${img1}`,
-      title: 'Breakfast',
+      title: 'home1',
       rows: 2,
       cols: 2,
     },
     {
       img: `${img2}`,
-      title: 'Burger',
+      title: 'home2',
     },
     {
       img: `${img3}`,
-      title: 'Camera',
+      title: 'home3',
     },
     {
       img: `${img4}`,
-      title: 'Coffee',
+      title: 'home4',
       cols: 2,
     },
     {
       img: `${img5}`,
-      title: 'Hats',
+      title: 'home5',
       cols: 2,
     },
     {
       img: `${img6}`,
-      title: 'Honey',
-      author: '@arwinneil',
+      title: 'home6',
       rows: 2,
       cols: 2,
     },
     {
       img: `${img7}`,
-      title: 'Basketball',
+      title: 'home7',
     },
     {
       img: `${img8}`,
-      title: 'Fern',
+      title: 'home8',
     },
   ];
 
