@@ -41,6 +41,8 @@ export default function QuiltedImageList() {
       title: 'home4',
       cols: 2,
     },
+  ];
+  const itemData2 = [
     {
       img: `${img5}`,
       title: 'home5',
@@ -61,7 +63,6 @@ export default function QuiltedImageList() {
       title: 'home8',
     },
   ];
-
   return (
     <>
       <hr></hr>
@@ -112,6 +113,29 @@ export default function QuiltedImageList() {
             />
           </ImageListItem>
         ))}
+        ,
+      </ImageList>
+      <ImageList
+        sx={{ width: 900, height: 700 }}
+        variant='quilted'
+        cols={4}
+        rowHeight={155}
+        id='imageList'
+      >
+        {itemData2.map((item) => (
+          <ImageListItem
+            key={item.img}
+            cols={item.cols || 1}
+            rows={item.rows || 1}
+          >
+            <img
+              {...srcset(item.img, 121, item.rows, item.cols)}
+              alt={item.title}
+              loading='lazy'
+            />
+          </ImageListItem>
+        ))}
+        ,
       </ImageList>
     </>
   );
