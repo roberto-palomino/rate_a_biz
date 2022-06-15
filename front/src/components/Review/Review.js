@@ -73,9 +73,9 @@ export default function Review(props) {
   o te muestra el enlace a login */
   const showChange = (e) => {
     setProfileId(id);
-    if (!reviewVisible) {
+    if (!token) toast.error('Debes iniciar sesión para comentar');
+    if (token && !reviewVisible) {
       setReviewVisible('visible');
-      if (!token) setLoginVisible('visible');
     } else {
       setReviewVisible('');
     }
@@ -153,7 +153,7 @@ export default function Review(props) {
             Comentar
           </Button>
         </Stack>
-        {loginVisible ? <LoginModal profileId={profileId} /> : null}
+
         {reviewVisible && token ? (
           <>
             <div className='new-review'>
