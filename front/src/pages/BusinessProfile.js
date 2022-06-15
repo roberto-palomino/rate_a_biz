@@ -69,7 +69,7 @@ export const BusinessProfile = () => {
               />
             </div>
             <div id='review-div'>
-              <Review />
+              <Review setOrderedBusinessInfo={setOrderedBusinessInfo} />
             </div>
             <hr></hr>
             <div className='profile-orders'>

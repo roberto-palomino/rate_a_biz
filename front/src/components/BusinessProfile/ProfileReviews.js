@@ -22,6 +22,10 @@ export const ProfileReviews = (props) => {
                 />
                 <div className='profile-rigth'>
                   <h5>
+                    <b>Provincia: </b>
+                    {r.nameStates}
+                  </h5>
+                  <h5>
                     <b>Puesto: </b>
                     {r.job}
                   </h5>

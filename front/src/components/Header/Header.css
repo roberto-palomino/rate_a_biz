@@ -104,6 +104,9 @@ header button {
 .profile .MuiButton-root {
   box-shadow: none;
 }
+#name-header {
+  display: none;
+}
 
 @media (min-width: 900px) {
   .header {
@@ -182,5 +185,26 @@ header button {
   .link {
     font-size: xx-large;
     width: 16rem;
+  }
+}
+
+@media (max-width: 429px) {
+  #logo {
+    display: none;
+  }
+  #name-header {
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    font-weight: bolder;
+    gap: 0.5rem;
+  }
+  #home {
+    text-decoration: none;
+    color: #292c37;
+    font-size: x-large;
+  }
+  .logo {
+    justify-content: center;
   }
 }

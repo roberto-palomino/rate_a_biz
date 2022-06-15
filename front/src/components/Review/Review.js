@@ -21,12 +21,15 @@ import { LoginModal } from '../LoginModal/LoginModal';
 import MessageIcon from '@mui/icons-material/Message';
 import toast, { Toaster } from 'react-hot-toast';
 
-export default function Review() {
+export default function Review(props) {
   /* Obtenemos el ID de la empresa de los params */
   const { id } = useParams();
 
   /*Obtenemos el token del usuario que realiza la review  */
   const [token] = useContext(TokenContext);
+
+  /*Obtenemos de props la función para setear el estado que muestra los mensajes para recargarlos cuando haya una nueva review  */
+  const { setOrderedBusinessInfo } = props;
 
   /* Creamos los estados para almacenar la información que vamos a mandar */
   const [selectedState, setSelectedState] = useState('');
@@ -77,6 +80,22 @@ export default function Review() {
       setReviewVisible('');
     }
   };
+  /* Función para recargar los mensajes cuando se hace una review nueva */
+  const loadBusinessProfileInfo = async () => {
+    try {
+      const res = await fetch(`http://localhost:4000/business/${id}`, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+      });
+      const body = await res.json();
+
+      setOrderedBusinessInfo(body.data);
+    } catch (e) {
+      console.error('Err:', e);
+    }
+  };
 
   /* Función que envía la información y crea la review */
   const newReview = async (e) => {
@@ -109,8 +128,9 @@ export default function Review() {
 
       if (bodyRes.status === 'ok') {
         toast.success(message);
+        loadBusinessProfileInfo();
       } else {
-        toast.error(message);
+        toast.error('Faltan campos');
       }
     } catch (error) {
       console.error('Ha ocurrido un error', e);

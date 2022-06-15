@@ -1,17 +1,12 @@
 import './App.css';
 
-import { NavLink } from 'react-router-dom';
-import { useContext } from 'react';
-import { TokenContext } from '.';
-import { TopBusiness } from './components/TopBusiness';
-import Header from './components/Header/Header';
-import QuiltedImageList from './components/Landing/QuiltedImageList';
+import Home from './components/Landing/home';
 
 function App() {
   return (
     <div className='App'>
       {/* <Header /> */}
-      <QuiltedImageList />
+      <Home />
     </div>
   );
 }

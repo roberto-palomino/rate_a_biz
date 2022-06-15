@@ -10,7 +10,7 @@ import { TextField } from '@mui/material';
 import './EditBusinessForm.css';
 
 //  La prop onUpdated es un evento con el que comunicamos al padre si se ha actualizado o no los datos del usuario
-const EditBusinessForm = props => {
+const EditBusinessForm = (props) => {
   const { userId, onUpdated, business } = props;
 
   const [token] = useContext(TokenContext);
@@ -20,7 +20,7 @@ const EditBusinessForm = props => {
   const userData = business.userInfo;
 
   const [email, setEmail] = useState('');
-  const [username, setUserName] = useState('');
+  const [description, setDescription] = useState('');
   const [name, setName] = useState('');
   const [url_Web, setUrl_Web] = useState('');
   const [selectState, setSelectState] = useState('');
@@ -34,7 +34,7 @@ const EditBusinessForm = props => {
   useEffect(() => {
     if (businessData && userData) {
       !email && !isEditing && setEmail(userData.email || '');
-      !username && !isEditing && setUserName(userData.username || '');
+      !description && !isEditing && setDescription(userData.username || '');
       !name && !isEditing && setName(businessData.name || '');
       !url_Web && !isEditing && setUrl_Web(businessData.url_web || '');
       !selectState &&
@@ -48,7 +48,7 @@ const EditBusinessForm = props => {
     selectState,
     url_Web,
     email,
-    username,
+    description,
     businessData,
     userData,
     selectSector,
@@ -59,9 +59,9 @@ const EditBusinessForm = props => {
     onUpdated && !isEditing && onUpdated(false);
   }, [onUpdated, isEditing]);
 
-  const updateBusiness = async e => {
+  const updateBusiness = async (e) => {
     const businessData = {
-      username: username,
+      description: description,
       newEmail: email,
       name: name,
       url_web: url_Web,
@@ -116,39 +116,41 @@ const EditBusinessForm = props => {
       </div>
       <form className={`business-data-form ${disabledClassname}`}>
         <TextField
-          label='Usuario'
+          label='Nombre'
           variant='standard'
           disabled={!isEditing}
-          value={username}
-          onChange={e => {
-            setUserName(e.target.value);
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
           }}
         />
+
         <TextField
           label='Email'
           variant='standard'
           disabled={!isEditing}
           value={email}
-          onChange={e => {
+          onChange={(e) => {
             setEmail(e.target.value);
           }}
         />
-        <TextField
-          label='Nombre'
-          variant='standard'
-          disabled={!isEditing}
-          value={name}
-          onChange={e => {
-            setName(e.target.value);
-          }}
-        />
+
         <TextField
           label='Sitio web'
           variant='standard'
           disabled={!isEditing}
           value={url_Web}
-          onChange={e => {
+          onChange={(e) => {
             setUrl_Web(e.target.value);
+          }}
+        />
+        <TextField
+          label='Descripción'
+          variant='standard'
+          disabled={!isEditing}
+          value={description}
+          onChange={(e) => {
+            setDescription(e.target.value);
           }}
         />
         {states.length > 0 && (
@@ -158,7 +160,7 @@ const EditBusinessForm = props => {
             setSelectItem={setSelectState}
             inputId={'state'}
             label={'Sede'}
-            options={states.map(state => (
+            options={states.map((state) => (
               <MenuItem key={state.id} value={state.nameStates}>
                 {state.nameStates}
               </MenuItem>
@@ -172,7 +174,7 @@ const EditBusinessForm = props => {
             setSelectItem={setSelectSector}
             inputId={'sector'}
             label={'Sector'}
-            options={sectors.map(sector => (
+            options={sectors.map((sector) => (
               <MenuItem key={sector.id} value={sector.name}>
                 {sector.name}
               </MenuItem>
