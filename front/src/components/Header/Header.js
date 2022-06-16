@@ -11,6 +11,7 @@ import Menu from '@mui/material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 import star from '../../assets/images/estrella.png';
+import logo from '../../assets/images/Logo_Ratebiz_Blanco.png';
 import './Header.css';
 
 const Header = () => {
@@ -39,12 +40,7 @@ const Header = () => {
   return (
     <header className='header'>
       <a href='/' id='home' className='logo'>
-        <img
-          id='logo'
-          src='https://i.ibb.co/3hLZGDP/Logo-Ratebiz-Blanco.png'
-          alt='Logo-Ratebiz-Blanco'
-          border='0'
-        />
+        <img id='logo' src={logo} alt='Logo-Ratebiz-Blanco' border='0' />
         <span id='name-header'>
           rate a biz
           <img id='star' src={star} alt='estrella' />

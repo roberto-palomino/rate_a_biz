@@ -6,6 +6,15 @@
   justify-content: center;
   align-items: center;
 }
+#title-profile {
+  display: flex;
+  gap: 0.5rem;
+}
+#title-profile {
+  display: flex;
+  justify-content: center;
+  justify-content: flex-start;
+}
 
 .profile-preview {
   padding: 1rem;

@@ -92,6 +92,7 @@ h3 {
 h5 {
   font-size: 20px;
   font-weight: 400;
+  margin-bottom: 0.5rem;
 }
 
 .profile-link {
@@ -104,9 +105,23 @@ h5 {
   gap: 2rem;
   margin-top: 2rem;
 }
-.comments-preview h1 {
+#title-comment {
+  display: flex;
+  gap: 0.5rem;
+}
+#title-search {
   display: flex;
   justify-content: center;
+  justify-content: flex-start;
+}
+#leftQuote {
+  height: 15px;
+  width: 15px;
+}
+#rightQuote {
+  height: 15px;
+  width: 15px;
+  display: flex;
 }
 
 .select {
@@ -187,10 +202,17 @@ h5 {
 }
 
 .business-review {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   justify-content: space-around;
   gap: 2rem;
   width: 70vw;
+}
+@media (max-width: 675px) {
+  .business-review {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .comments-preview {
@@ -221,16 +243,19 @@ h5 {
 
 .job-info {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  flex-direction: column;
 }
 
 .preview-valorations {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+@media (max-width: 675px) {
+  .preview-valorations {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .filters {
