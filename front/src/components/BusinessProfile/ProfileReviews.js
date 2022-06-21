@@ -1,5 +1,7 @@
 import { Rating, Typography } from '@mui/material';
 import Avatar from '../Avatar';
+import leftQuote from '../../assets/images/left-quote.png';
+import rightQuote from '../../assets/images/right-quote-sign.png';
 
 export const ProfileReviews = (props) => {
   const { reviews } = props;
@@ -21,6 +23,10 @@ export const ProfileReviews = (props) => {
                   }
                 />
                 <div className='profile-rigth'>
+                  <h5>
+                    <b>Provincia: </b>
+                    {r.nameStates}
+                  </h5>
                   <h5>
                     <b>Puesto: </b>
                     {r.job}
@@ -90,7 +96,11 @@ export const ProfileReviews = (props) => {
                   />
                 </div>
               </div>{' '}
-              <h1>{r.title}</h1>
+              <div id='title-profile'>
+                <img src={leftQuote} id='leftQuote' alt='left quote' />
+                <h1 id='title-profile'> {r.title} </h1>
+                <img src={rightQuote} id='rightQuote' alt='right quote' />
+              </div>
               <p className='comment'>{r.description}</p>
             </div>
           </div>

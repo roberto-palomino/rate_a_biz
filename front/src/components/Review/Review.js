@@ -21,12 +21,15 @@ import { LoginModal } from '../LoginModal/LoginModal';
 import MessageIcon from '@mui/icons-material/Message';
 import toast, { Toaster } from 'react-hot-toast';
 
-export default function Review() {
+export default function Review(props) {
   /* Obtenemos el ID de la empresa de los params */
   const { id } = useParams();
 
   /*Obtenemos el token del usuario que realiza la review  */
   const [token] = useContext(TokenContext);
+
+  /*Obtenemos de props la función para setear el estado que muestra los mensajes para recargarlos cuando haya una nueva review  */
+  const { setOrderedBusinessInfo } = props;
 
   /* Creamos los estados para almacenar la información que vamos a mandar */
   const [selectedState, setSelectedState] = useState('');
@@ -47,39 +50,55 @@ export default function Review() {
   const [profileId, setProfileId] = useState('');
 
   /* Funciones para guardar los cambios de estado */
-  const salaryChange = e => {
+  const salaryChange = (e) => {
     setSalary(e.target.value);
   };
-  const enviromentChange = e => {
+  const enviromentChange = (e) => {
     setEnviroment(e.target.value);
   };
-  const conciliationChange = e => {
+  const conciliationChange = (e) => {
     setConciliation(e.target.value);
   };
-  const oportunitiesChange = e => {
+  const oportunitiesChange = (e) => {
     setOportunities(e.target.value);
   };
-  const titleChange = e => {
+  const titleChange = (e) => {
     setTitle(e.target.value);
   };
-  const descriptionChange = e => {
+  const descriptionChange = (e) => {
     setDescription(e.target.value);
   };
 
   /* Función que muestra el componente de comentar si hay token
   o te muestra el enlace a login */
-  const showChange = e => {
+  const showChange = (e) => {
     setProfileId(id);
-    if (!reviewVisible) {
+    if (!token) toast.error('Debes iniciar sesión para comentar');
+    if (token && !reviewVisible) {
       setReviewVisible('visible');
-      if (!token) setLoginVisible('visible');
     } else {
       setReviewVisible('');
     }
   };
+  /* Función para recargar los mensajes cuando se hace una review nueva */
+  const loadBusinessProfileInfo = async () => {
+    try {
+      const res = await fetch(`http://localhost:4000/business/${id}`, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+      });
+      const body = await res.json();
+
+      setOrderedBusinessInfo(body.data);
+    } catch (e) {
+      console.error('Err:', e);
+    }
+  };
 
   /* Función que envía la información y crea la review */
-  const newReview = async e => {
+  const newReview = async (e) => {
     try {
       /* Creamos una constante con la información para enviarla */
       const data = {
@@ -106,11 +125,12 @@ export default function Review() {
       });
       const bodyRes = await res.json();
       const message = bodyRes.message;
-      console.log('Respuesta a newReview:', message);
+
       if (bodyRes.status === 'ok') {
         toast.success(message);
+        loadBusinessProfileInfo();
       } else {
-        toast.error(message);
+        toast.error('Faltan campos');
       }
     } catch (error) {
       console.error('Ha ocurrido un error', e);
@@ -133,7 +153,7 @@ export default function Review() {
             Comentar
           </Button>
         </Stack>
-        {loginVisible ? <LoginModal profileId={profileId} /> : null}
+
         {reviewVisible && token ? (
           <>
             <div className='new-review'>
@@ -222,7 +242,7 @@ export default function Review() {
                   aria-label='minimum height'
                   minRows={10}
                   placeholder={description}
-                  style={{ width: 700 }}
+                  style={{ width: '100%' }}
                   onChange={descriptionChange}
                 />
               </div>

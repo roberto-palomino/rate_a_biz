@@ -1,6 +1,8 @@
 import { Button, Rating, Typography } from '@mui/material';
 import Avatar from './Avatar';
 import { useNavigate } from 'react-router';
+import leftQuote from '../assets/images/left-quote.png';
+import rightQuote from '../assets/images/right-quote-sign.png';
 
 export const Preview = (props) => {
   const {
@@ -68,6 +70,8 @@ export const Preview = (props) => {
               </h5>
             </div>
           </div>
+        </div>
+        <div className='review-info'>
           <div className='preview-valorations'>
             <div>
               <Typography component='legend'>
@@ -115,7 +119,11 @@ export const Preview = (props) => {
           </div>
           <div className='comments-preview'>
             <div className='comments'>
-              <h1> {title} </h1>
+              <div id='title-comment'>
+                <img src={leftQuote} id='leftQuote' alt='left quote' />
+                <h1 id='title-search'> {title} </h1>
+                <img src={rightQuote} id='rightQuote' alt='right quote' />
+              </div>
               <p className='comment'>{description}</p>
             </div>
           </div>

@@ -12,30 +12,33 @@ import {
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { useState, useEffect, useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useParams, useLocation } from 'react-router-dom';
 import { TokenContext } from '../index';
-import { LoginModal } from '../components/LoginModal/LoginModal';
+import toast, { Toaster } from 'react-hot-toast';
 
 export const Login = (props) => {
+  /* Obtenemos el ID de la empresa de los params */
+  let location = useLocation();
+  const { id } = useParams();
   const { profileId } = props;
   const [token, setToken] = useContext(TokenContext);
   const [mail, setMail] = useState('');
-  const mailChange = e => {
+  const mailChange = (e) => {
     setMail(e.target.value);
   };
   const [pass, setPass] = useState('');
-  const passChange = e => {
+  const passChange = (e) => {
     setPass(e.target.value);
   };
   const [visibility, setVisibility] = useState('');
-  const visibilityChange = e => {
+  const visibilityChange = (e) => {
     if (!visibility) {
       setVisibility('text');
     } else {
       setVisibility('');
     }
   };
-  const register = async e => {
+  const register = async (e) => {
     e.preventDefault();
     try {
       e.preventDefault();
@@ -54,17 +57,19 @@ export const Login = (props) => {
       const bodyRes = await res.json();
       if (res.ok) {
         setToken(bodyRes.data.token);
+      } else {
+        toast.error('Usuario o contraseña incorrecta');
       }
     } catch (e) {
-      console.error('Ha ocurrido un error', e);
+      console.error('error', e);
     }
   };
-  if (token && profileId)
-    return <Navigate to={`/businessProfile/${profileId}`} />;
-  else if (token) return <Navigate to='/#' />;
+  /* if (token && id) return <Navigate to={`/businessProfile/${id}`} />; */
+  if (token) return <Navigate to={location} replace={true} />;
 
   return (
     <div>
+      <Toaster />
       <form id='form-login'>
         <FormControl sx={{ m: 1, minWidth: 252 }} id='email' variant='standard'>
           <InputLabel htmlFor='email-login-input'>Email</InputLabel>
@@ -105,7 +110,7 @@ export const Login = (props) => {
           />
         </FormControl>
 
-        <Stack className='filter' width={200} spacing={2}>
+        <Stack className='filter' width={250} spacing={2}>
           <Button
             id='register-login'
             variant='outlined'

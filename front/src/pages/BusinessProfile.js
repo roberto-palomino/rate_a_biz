@@ -4,8 +4,10 @@ import { useParams } from 'react-router-dom';
 import { Profile } from '../components/BusinessProfile/Profile';
 import { ProfileReviews } from '../components/BusinessProfile/ProfileReviews';
 import './BusinessProfile.css';
+import useUserData from '../hooks/useUserData';
+import { TokenContext } from '../index';
 import Review from '../components/Review/Review';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { OrderBy } from '../components/OrderBy';
 import { Order } from '../components/Order';
 import { Button, Stack } from '@mui/material';
@@ -13,6 +15,11 @@ import { Button, Stack } from '@mui/material';
 export const BusinessProfile = () => {
   /* Obtenemos el id de los params */
   const { id } = useParams();
+
+  /* Comprobamos el rol del usuario para ver si es trabajador o empresa y mostrar o no el campo review */
+  const [token] = useContext(TokenContext);
+  const { userRole } = useUserData(token);
+  console.log(userRole);
 
   /* Obtenemos al información del perfil a través de nuestro custom hook,
   al que le pasamos la variable ID de los params para saber que perfil cargar */
@@ -69,8 +76,11 @@ export const BusinessProfile = () => {
               />
             </div>
             <div id='review-div'>
-              <Review />
+              {userRole === 'business' ? null : (
+                <Review setOrderedBusinessInfo={setOrderedBusinessInfo} />
+              )}
             </div>
+            <hr></hr>
             <div className='profile-orders'>
               <OrderBy
                 className='button'
@@ -101,7 +111,14 @@ export const BusinessProfile = () => {
             </div>
           </div>
         ) : (
-          <div>CARGANDO!!!!!!!!!</div>
+          <div className='loading'>
+            <img
+              id='loading-gif'
+              src='https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca.gif'
+              alt='Loading-gif'
+              border='0'
+            />
+          </div>
         )}
       </div>
     </>

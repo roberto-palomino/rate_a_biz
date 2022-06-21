@@ -10,7 +10,6 @@ export const BusinessPreview = (props) => {
   const { filterBusiness } = props;
 
   const [showProfileButton, setShowProfileButton] = useState(true);
-  console.log('filterbusiness', filterBusiness);
 
   return (
     <>

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 
+//  Se crea un contexto con los datos de usuario para poder acceder desde cualquier parte de la aplicación
 const UserContext = React.createContext();
 const UserProvider = props => {
   const [user, setUser] = useState(null);

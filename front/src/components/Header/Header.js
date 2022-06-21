@@ -10,6 +10,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
+import star from '../../assets/images/estrella.png';
+import logo from '../../assets/images/Logo_Ratebiz_Blanco.png';
 import './Header.css';
 
 const Header = () => {
@@ -21,7 +23,7 @@ const Header = () => {
     ? `http://localhost:4000/static/uploads/${user?.avatar}`
     : '';
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -29,6 +31,7 @@ const Header = () => {
     setAnchorEl(null);
   };
 
+  //  Función para cerrar sesión y regresar a la página de inicio
   function logout() {
     localStorage.clear();
     window.location.href = '/';
@@ -36,13 +39,12 @@ const Header = () => {
 
   return (
     <header className='header'>
-      <a href='/' className='logo'>
-        <img
-          className='image-logo'
-          src='https://i.ibb.co/KmZ0GVL/Logo-Grande.png'
-          alt='Logo-Grande'
-          border='0'
-        />
+      <a href='/' id='home' className='logo'>
+        <img id='logo' src={logo} alt='Logo-Ratebiz-Blanco' border='0' />
+        <span id='name-header'>
+          rate a biz
+          <img id='star' src={star} alt='estrella' />
+        </span>
       </a>
       <nav className='nav'>
         {' '}
@@ -103,12 +105,8 @@ const Header = () => {
             </Menu>
 
             <div className='profile-links'>
-              {/* <a href='/profile'>
-                <AccountCircleIcon fontSize='medium' />
-                Perfil
-              </a> */}
               <button
-                onClick={e => {
+                onClick={(e) => {
                   logout();
                 }}
               >

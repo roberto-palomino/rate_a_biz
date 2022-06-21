@@ -6,6 +6,15 @@
   justify-content: center;
   align-items: center;
 }
+#title-profile {
+  display: flex;
+  gap: 0.5rem;
+}
+#title-profile {
+  display: flex;
+  justify-content: center;
+  justify-content: flex-start;
+}
 
 .profile-preview {
   padding: 1rem;
@@ -19,6 +28,11 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+}
+@media (max-width: 600px) {
+  .profile-preview {
+    width: 60%;
+  }
 }
 
 .profile-reviews {
@@ -43,6 +57,13 @@
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+@media (max-width: 1100px) {
+  .profile-valorations {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .profile-reviews-info {
@@ -70,10 +91,28 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  z-index: 0;
 }
 
 .filter-buttons {
   display: flex;
   flex-direction: row;
   border-radius: 20px;
+}
+
+hr {
+  border-top: 1px solid rgb(41, 44, 55);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 70%;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40rem;
+}
+.loading > img {
+  height: 20rem;
 }

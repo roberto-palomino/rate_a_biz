@@ -22,19 +22,19 @@ import SendIcon from '@mui/icons-material/Send';
 
 export const SignUp = () => {
   const [mail, setMail] = useState('');
-  const mailChange = e => {
+  const mailChange = (e) => {
     setMail(e.target.value);
   };
   const [pass, setPass] = useState('');
-  const passChange = e => {
+  const passChange = (e) => {
     setPass(e.target.value);
   };
   const [role, setRole] = useState('worker');
-  const roleChange = e => {
+  const roleChange = (e) => {
     setRole(e.target.value);
   };
   const [visibility, setVisibility] = useState('');
-  const visibilityChange = e => {
+  const visibilityChange = (e) => {
     if (!visibility) {
       setVisibility('text');
     } else {
@@ -42,7 +42,7 @@ export const SignUp = () => {
     }
   };
   const [visibility2, setVisibility2] = useState('');
-  const visibility2Change = e => {
+  const visibility2Change = (e) => {
     if (!visibility2) {
       setVisibility2('text');
     } else {
@@ -50,10 +50,10 @@ export const SignUp = () => {
     }
   };
   const [pass2, setPass2] = useState('');
-  const pass2Change = e => {
+  const pass2Change = (e) => {
     setPass2(e.target.value);
   };
-  /* Función para compara las dos contraseñas */
+  /* Función para comparar las dos contraseñas */
   let passSame = false;
   const comparePass = () => {
     if (pass2 === pass) {
@@ -68,7 +68,7 @@ export const SignUp = () => {
   /* Creamos un estado registrado. Cuando el usuario se registra se muestra un mensaje */
   const [registered, setRegistered] = useState('');
 
-  const register = async e => {
+  const register = async (e) => {
     e.preventDefault();
     try {
       e.preventDefault();

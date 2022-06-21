@@ -23,8 +23,9 @@
   background-color: #f8f8f8;
   background-color: transparent;
   border: 1px solid rgba(59, 123, 159, 0.5);
-  color: #3b7b9f;
+  color: #ececea;
   text-transform: none;
+  background-color: #292c37;
   font-weight: 500;
   font-size: 0.875rem;
   border-radius: 4px;
@@ -61,7 +62,7 @@
 }
 
 .tabs-button:hover {
-  background-color: rgb(219, 219, 219);
+  background-color: rgb(69, 69, 69);
   cursor: pointer;
 }
 

@@ -38,7 +38,6 @@ export default function ApplyButton(props) {
       });
       const bodyRes = await res.json();
       setFilterBusiness(bodyRes.data.business);
-      console.log('respuesta', bodyRes);
     } catch (e) {
       console.error('Ha ocurrido un error', e);
     }
