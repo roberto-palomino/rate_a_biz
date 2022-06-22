@@ -42,7 +42,12 @@ export const TopPreview = (props) => {
           {' '}
           Ver Perfil
         </Button>
-        <h5>{totalReviews} Valoraciones</h5>
+
+        {totalReviews > 1 ? (
+          <h5>{totalReviews} Valoraciones</h5>
+        ) : (
+          <h5>{totalReviews} Valoración</h5>
+        )}
       </div>
       <div className='comments'>
         <div>

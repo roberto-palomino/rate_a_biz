@@ -33,7 +33,6 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-content: center;
   align-items: center;
   margin-right: 1rem;
 }
