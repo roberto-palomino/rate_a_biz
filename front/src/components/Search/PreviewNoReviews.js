@@ -53,7 +53,7 @@ export const PreviewNoReviews = (props) => {
         <div className='no-reviews-text'>
           <h2>Actualmente no tenemos ninguna valoración sobre esta empresa.</h2>
 
-          <h3>
+          <h3 id='visit'>
             Visita su perfil, se el primero en comentar y ayuda a otros usuarios
             a saber más sobre ella
           </h3>

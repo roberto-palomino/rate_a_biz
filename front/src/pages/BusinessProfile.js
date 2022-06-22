@@ -19,7 +19,6 @@ export const BusinessProfile = () => {
   /* Comprobamos el rol del usuario para ver si es trabajador o empresa y mostrar o no el campo review */
   const [token] = useContext(TokenContext);
   const { userRole } = useUserData(token);
-  console.log(userRole);
 
   /* Obtenemos al información del perfil a través de nuestro custom hook,
   al que le pasamos la variable ID de los params para saber que perfil cargar */
