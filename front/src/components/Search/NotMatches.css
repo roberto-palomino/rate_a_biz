@@ -5,7 +5,7 @@
 }
 
 .not-matches-image {
-  background-image: url('/home/hack/Desktop/Rate a Biz/Rate_A_Biz_Front/front/src/assets/images/detective-1424831_960_720.webp');
+  background-image: url('../../assets/images/detective-1424831_960_720.webp');
   background-position: center;
   background-repeat: no-repeat;
   height: 60vh;

@@ -1,0 +1,19 @@
+.no-reviews-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+.no-reviews {
+  gap: 0.5rem;
+}
+
+h2 {
+  font-size: x-large;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+h3 {
+  font-size: large;
+}

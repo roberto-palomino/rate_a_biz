@@ -60,7 +60,7 @@ export const BusinessPreview = (props) => {
           <>
             <div className='top10'>
               {' '}
-              <h1>TOP 10 Empresas mejor valoradas de España</h1>
+              <h1>TOP Empresas mejor valoradas de España</h1>
             </div>
             <div className='top-reviews'>
               <TopBusiness className='top-preview' />

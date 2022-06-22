@@ -1,4 +1,5 @@
 import { Button, Rating, Typography } from '@mui/material';
+import './PreviewNoReviews.css';
 
 import { useNavigate } from 'react-router';
 import Avatar from '../Avatar';
@@ -24,7 +25,7 @@ export const PreviewNoReviews = (props) => {
       <div className='business-review'>
         <div className='business'>
           <div className='business-info'>
-            <div className='info'>
+            <div className='info no-reviews'>
               <h3> {businessName} </h3>
               <Avatar size='medium' hideFigCaption avatarUrl={avatarUrl} />
 
@@ -48,11 +49,14 @@ export const PreviewNoReviews = (props) => {
               </Button>
             ) : null}
           </div>
-          <div className='no-reviews'>
-            <h5>
-              Actualmente no tenemos ninguna valoración sobre esta empresa.
-            </h5>
-          </div>
+        </div>
+        <div className='no-reviews-text'>
+          <h2>Actualmente no tenemos ninguna valoración sobre esta empresa.</h2>
+
+          <h3>
+            Visita su perfil, se el primero en comentar y ayuda a otros usuarios
+            a saber más sobre ella
+          </h3>
         </div>
       </div>
     </>
