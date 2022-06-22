@@ -40,7 +40,9 @@ export default function Review(props) {
   const [conciliation, setConciliation] = useState('');
   const [oportunities, setOportunities] = useState('');
   const [title, setTitle] = useState('Título');
-  const [description, setDescription] = useState('Escribe aquí tu comentario');
+  const [description, setDescription] = useState(`  
+  Escribe aquí tu comentario
+  `);
   const [endYear, setEndYear] = useState('');
   const [startYear, setStartYear] = useState('');
 
@@ -233,7 +235,7 @@ export default function Review(props) {
                   required
                   id='standard-required'
                   label='Required'
-                  defaultValue={title}
+                  placeholder={title}
                   variant='standard'
                   onChange={titleChange}
                 />
