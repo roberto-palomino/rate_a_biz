@@ -62,7 +62,7 @@ export default function Home() {
         </p>
       </div>
       <Stack id='how-works' direction='row' spacing={2}>
-        <Button variant='contained' onClick={show}>
+        <Button sx={{ width: 300 }} variant='contained' onClick={show}>
           ¿Como funciona?
         </Button>
       </Stack>

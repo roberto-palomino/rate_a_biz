@@ -234,8 +234,8 @@ export default function Review(props) {
                   autoComplete='off'
                   required
                   id='standard-required'
-                  label='Required'
-                  placeholder={title}
+                  label='Titulo'
+                  /* placeholder={title} */
                   variant='standard'
                   onChange={titleChange}
                 />
