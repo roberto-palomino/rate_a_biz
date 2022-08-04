@@ -25,8 +25,10 @@
   },
   "scripts": {
     "start": "run-p start:server start:app",
+    "initDB": "run-p start:createTables",
     "start:app": "react-scripts start",
     "start:server": "cd ./server && npm run dev",
+    "start:createTables": "cd ./server && npm run initDB",
     "postinstall": "cd ./server && npm install",
     "build": "react-scripts build",
     "test": "react-scripts test",
