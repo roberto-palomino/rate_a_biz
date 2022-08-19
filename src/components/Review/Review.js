@@ -99,6 +99,10 @@ export default function Review(props) {
     }
   };
 
+  function moveToTopBusiness() {
+    window.location.href = `/businessProfile/${id}`;
+}
+
   /* Función que envía la información y crea la review */
   const newReview = async (e) => {
     try {
@@ -131,6 +135,7 @@ export default function Review(props) {
       if (bodyRes.status === 'ok') {
         toast.success(message);
         loadBusinessProfileInfo();
+        moveToTopBusiness();
       } else {
         toast.error('Faltan campos');
       }

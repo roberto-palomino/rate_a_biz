@@ -20,7 +20,7 @@ const EditBusinessForm = (props) => {
   const userData = business.userInfo;
 
   const [email, setEmail] = useState('');
-  const [description, setDescription] = useState('');
+  const [username, setUsername] = useState('');
   const [name, setName] = useState('');
   const [url_Web, setUrl_Web] = useState('');
   const [selectState, setSelectState] = useState('');
@@ -34,7 +34,7 @@ const EditBusinessForm = (props) => {
   useEffect(() => {
     if (businessData && userData) {
       !email && !isEditing && setEmail(userData.email || '');
-      !description && !isEditing && setDescription(userData.username || '');
+      !username && !isEditing && setUsername(userData.username || '');
       !name && !isEditing && setName(businessData.name || '');
       !url_Web && !isEditing && setUrl_Web(businessData.url_web || '');
       !selectState &&
@@ -48,7 +48,7 @@ const EditBusinessForm = (props) => {
     selectState,
     url_Web,
     email,
-    description,
+    username,
     businessData,
     userData,
     selectSector,
@@ -61,7 +61,7 @@ const EditBusinessForm = (props) => {
 
   const updateBusiness = async (e) => {
     const businessData = {
-      description: description,
+      username: username,
       newEmail: email,
       name: name,
       url_web: url_Web,
@@ -124,7 +124,15 @@ const EditBusinessForm = (props) => {
             setName(e.target.value);
           }}
         />
-
+           <TextField
+          label='Usuario'
+          variant='standard'
+          disabled={!isEditing}
+          value={username}
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+        />
         <TextField
           label='Email'
           variant='standard'
@@ -134,7 +142,6 @@ const EditBusinessForm = (props) => {
             setEmail(e.target.value);
           }}
         />
-
         <TextField
           label='Sitio web'
           variant='standard'
@@ -144,15 +151,7 @@ const EditBusinessForm = (props) => {
             setUrl_Web(e.target.value);
           }}
         />
-        <TextField
-          label='Descripción'
-          variant='standard'
-          disabled={!isEditing}
-          value={description}
-          onChange={(e) => {
-            setDescription(e.target.value);
-          }}
-        />
+     
         {states.length > 0 && (
           <BusinessSelect
             disabled={!isEditing}
