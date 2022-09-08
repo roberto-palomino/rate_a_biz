@@ -1,10 +1,10 @@
 # Rate a biz App
 
-## Descripción:
+## Description:
 
-Portal de búsqueda de empresas que muestra información acerca de las mismas, basada en las valoraciones aportadas por empleados anteriores registrados en la web, para que cualquier usuario pueda obtener información veraz a la hora de buscar empresas donde trabajar y poder encontrarla facilmente.
+Company search portal that shows information about the companies, based on the ratings provided by previous employees registered on the web, so that any user can obtain accurate information when looking for companies to work for and can find it easily.
 
-## Desarrollado con:
+## Developed with:
 
 - HTML
 - CSS
@@ -12,103 +12,103 @@ Portal de búsqueda de empresas que muestra información acerca de las mismas, b
 - NODE.JS
 - REACT
 
-## Autores:
+## Authors:
 
 - Martín García García: [github](https://github.com/AgoladaMartin)
 - Cristina López Rey: [github](https://github.com/krizs981)
 - Roberto Palomino de la Cruz: [github](https://github.com/roberto-palomino)
 
-## Prerrequisitos:
+## Prerequisites:
 
-Para poder usar esta aplicación y probar todas sus funcionalidades necesitarás tener instalados las siguientes herramientas:
+To be able to use this application and test all its functionalities you will need to have the following tools installed:
 
-- NodeJS y npm. Para comprobrar si dispones de ellos ejecuta en una terminal:
+- NodeJS y npm. To check if you have them, run the following in a terminal:
 
 ```bash
 node --version
 ```
 
-Consulta [aquí](https://nodejs.org/es/) cómo instalarlo
+Consult [here](https://nodejs.org/es/) on how to install it.
 
-- MySQL Server. Si tienes Ubuntu desde la terminal lanza la siguiente línea de código:
+- MySQL Server. If you have Ubuntu from the terminal launch the following line of code:
 
 ```bash
 sudo apt-get install mysql-server
 ```
 
-Para más información sobre cómo descargarlo puedes acceder a [esta página](https://dev.mysql.com/downloads/mysql/).
+For more information on how to download it you can access [this page](https://dev.mysql.com/downloads/mysql/).
 
-- MySQL Workbench. Puedes obtenerlo desde [esta página](https://dev.mysql.com/downloads/workbench/) y en Ubuntu desde la terminal de comandos con la siguiente línea de código:
+- MySQL Workbench. You can get it from [this page](https://dev.mysql.com/downloads/workbench/) and in Ubuntu from the command terminal with the following line of code:
 
 ```bash
 sudo snap install mysql-workbench-community
 ```
 
-## Instrucciones de inicio:
+## Start-up instructions:
 
-1. Para arrancar la aplicación necesitarás clonar el [repositorio](https://github.com/roberto-palomino/rate_a_biz) en una carpeta de tú ordenador.
+1. To start the application you will need to clone the [repository](https://github.com/roberto-palomino/rate_a_biz) in a folder on your computer.
 
-2. Accede a la carpeta del repositorio desde la terminal y una vez dentro, instala las dependencias necesarias con el comando:
+2. Access the repository folder from the terminal and once inside, install the necessary dependencies with the command:
 
 ```bash
    npm install
 ```
 
-3. En la carpeta "/server", renombra el archivo .env.example a .env y complétalo con tus datos.
+3. In the "/server" folder, rename the file .env.example to .env and fill it with your data.
 
-4. Crea una base de datos nueva en SQL con el nombre "rate_a_biz" (sin comillas), con el comando:
+4. Create a new database in SQL with the name "rate_a_biz" (without quotes), with the command:
 
 ```sql
 CREATE DATABASE rate_a_biz
 ```
 
-5. Necesitaremos crear las columnas para la base de datos, para ello, introduce en la terminal el comando:
+5. We will need to create the columns for the database, to do this, enter in the terminal the command:
 
 ```bash
  npm run initDB
 ```
 
-6. Para inicializar la app accede a la terminal del repositorio y ejecuta el comando:
+6. To initialize the app, access the repository terminal and run the following command:
 
 ```bash
  npm start
 ```
 
-Se abrirá una nueva ventana en tu navegador con la aplicación funcionando.
+A new window will open in your browser with the application running.
 
 
 ## Endpoints
 
-### Endpoints comunes
+### Common endpoints
 
--   POST - [/signup] - Crea un usuario pendiente de activar.
--   GET - [/validate/:registrationCode] - Valida un usuario recién registrado.
--   POST - [/login] - Logea a un usuario retornando un token.
--   PUT - [/password/recover] - Envia un correo con el código de reseteo de contraseña a un email.
--   PUT - [/password/reset/:recoverCode] - Cambia la contraseña de un usuario con un código de reseteo.
+-   POST - [/signup] - Create a user to be activated.
+-   GET - [/validate/:registrationCode] - Validate a newly registered user.
+-   POST - [/login] - Logs a user in by returning a token.
+-   PUT - [/password/recover] - Send an email with password reset code to an email address.
+-   PUT - [/password/reset/:recoverCode] - Change a user's password with a reset code.
 
 ### Endpoints del usuario
 
--   GET - [/users/:idUser] - Retorna información de un usuario concreto.
--   PUT - [/users/:idUser] - Editar perfil de usuario.
--   PUT - [/users/:idUser/avatar] - Edita el avatar de un usuario.
--   PUT - [/users/:idUser/password] - Edita la contraseña de un usuario.
--   DELETE - [/users/:idUser] - Borra un usuario.
+-   GET - [/users/:idUser] - Returns information for a specific user.
+-   PUT - [/users/:idUser] - Edit user profile.
+-   PUT - [/users/:idUser/avatar] - Edit a user's avatar.
+-   PUT - [/users/:idUser/password] - Edit a user's password.
+-   DELETE - [/users/:idUser] - Delete a user.
 
 ### Endpoints de la empresa
 
--   GET - [/business] - Retorna información de las empresas.
--   GET - [/business/idUser] - Retorna información de una empresa en concreto.
--   PUT - [/business/:idUser] - Editar perfil de empresa.
--   PUT - [/business/:idUser/avatar] - Edita el avatar de una empresa.
+-   GET - [/business] - Return information from companies.
+-   GET - [/business/idUser] - Returns information about a specific company.
+-   PUT - [/business/:idUser] - Edit company profile.
+-   PUT - [/business/:idUser/avatar] - Edit the avatar of a company.
 
 ### Endpoints de review
 
--   GET - [/review/:idBusiness] - Retorna las reviews de una empresa en concreto (filtrable por el usuario).
--   GET - [/review/:idUser] - Retorna las reviews de un usuario.
--   GET - [/states] - Retorna la tabla de provincias.
--   GET - [/jobs] - Retorna la tabla de trabajos.
--   GET - [/sectors] - Retorna la tabla de sectores.
--   GET - [/salaries] - Retorna la tabla de rango de salarios.
--   POST - [/review/:idBusiness] - Crea un review de una empresa.
--   DELETE - [/review/:idBusiness/:idReview] - Borra una review.
+-   GET - [/review/:idBusiness] - Returns reviews of a specific company (filterable by user).
+-   GET - [/review/:idUser] - Return user reviews.
+-   GET - [/states] - Return the table of provinces.
+-   GET - [/jobs] - Return job table.
+-   GET - [/sectors] - Returns the sector table.
+-   GET - [/salaries] - Returns the salary range table.
+-   POST - [/review/:idBusiness] - Create a company review.
+-   DELETE - [/review/:idBusiness/:idReview] - Delete a review.
